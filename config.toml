@@ -1,8 +1,9 @@
-baseURL = 'https://tschreiner.github.io'
+baseURL = 'https://tschreiner.github.io/'
 languageCode = 'de-de'
 language = 'de'
 title = 'Tedd Schreiner - Systemadministrator'
 theme = "pillar"
+
 [params]
     cssColor = 2
     language = "de"
