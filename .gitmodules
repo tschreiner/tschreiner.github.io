@@ -1,0 +1,3 @@
+[submodule "themes/pillar"] 
+  path = themes/pillar
+  url = https://github.com/cedillomarcos/pillar-hugo-theme.git
