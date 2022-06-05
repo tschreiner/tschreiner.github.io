@@ -1,0 +1,69 @@
+name: Work Experience
+source:
+  - position: IT-Systemadministrator
+    company: Wunschgutschein
+    location: Brilon
+    durat: Jan 2020 - Present
+    role:
+    achiviements:
+      - name: Control process
+        descrip: Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla.
+        items: 
+          - Planung, Umsetzung und Administration von Hypervisor-Systemen (Hyper V und Proxmox VE)
+          - Planung, Umsetzung und Administration der Microsoft Windows Server Infrastruktur (Active Directory, GPOs, PKI, DFS, NPS etc.)
+          - Administration und Optimierung von Microsoft 365 Services (Exchange Online, Teams, SharePoint, OneDrive)
+          - Endpoint Management, Software Paketierung und Deployment (Microsoft Endpoint Manager, AD GPOs)
+          - Administration von Synology NAS Systemen
+          - Konzeption und Umsetzung des Netzwerks (pfSense, VyOS, Aruba, UniFi)
+          - Einführung eines IPAM Systems (Netbox)
+          - Umsetzung eines Netzwerkautomatisierungsystems (Ansible und NAPALM)
+          - Konzeption und Umsetzung von Microsoft Azure Services (VMs, Microservices, Standortvernetzung)
+          - Automatisierung von Geschäftsprozessen durch PowerShell und Bash Scripts
+          - Administration des ERPs BMD
+          - Installation und Administration einer Telefonanlage auf Asterisk-Basis (120 Clients, physisch und virtuell)
+          - First- und Second-Level-Support
+          - Setup und Administration des Inventarmanagement Systems Snipe-IT
+          - Einführung eines JIRA Service Desk & PM Systems
+          - Einführung einer Confluence Knowledge Base
+          - Administration eines Netzwerkmonitoringsystems (PRTG)
+          - Koordination externer Dienstleister
+        technologies: [ PowerShell, Windows Server, Microsoft 365, Linux, Automatisierung ]
+  - position: Head Of Online Marketing
+    company: HAMMELSPRUNG GmbH
+    location: Brilon
+    durat: Sep 2018 - Dez 2019
+    role:
+    achiviements:
+      - name: Control process
+        descrip: Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla.
+        items: 
+        - Administration einer Amazon AWS Infrastruktur
+        - Entwicklung einer Deployment Pipeline auf Basis von git hooks und Ansible
+        - Administration von macOS Systemen
+        - Automatisierung von Online Marketing Kampagnen durch Python Applikationen auf Amazon AWS
+        technologies: [  ]
+  - position: Geschäftsführer
+    company: Maxconvert UG (haftungsbeschränkt)
+    location: Bottrop
+    durat: Aug 2017 - Jul 2019
+    role: Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla.
+    achiviements:
+      - name: Control process
+        descrip: Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla.
+        items: 
+          - Administration von Linux Systemen (LAMP-Stacks und Mailserver) auf Amazon AWS Infrastruktur
+          - Konzeption und Automatisierung von Online Marketing Kampagnen
+        technologies: [  ]
+  - position: Systemadministrator, Software Entwickler, Online Marketing Specialist
+    company: Selbstständig
+    location: Brilon
+    durat: Jan 2016 - Aug 2017
+    role: Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla.
+    achiviements:
+      - name: Control process
+        descrip: Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla.
+        items: 
+          - Administration von Linux Systemen auf Amazon AWS Infrastruktur
+          - Konzeption und Automatisierung von Online Marketing Kampagnen
+        technologies: [  ]
+  

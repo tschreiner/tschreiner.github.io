@@ -1,0 +1,20 @@
+baseURL = '/'
+languageCode = 'de-de'
+language = 'de'
+title = 'Tedd Schreiner - Systemadministrator'
+theme = "pillar"
+[params]
+    cssColor = 2
+    language = "de"
+
+[params.personal]
+    name = "Tedd Schreiner"
+    role = "Systemadministrator"
+
+[params.social]
+    email = "info@teddschreiner.de"
+    phone = "+49 170 687 32 02"
+    linkedin = "www.linkedin.com/in/teddschreiner/"
+    twitter = "twitter.com/teddschreiner"
+    github = "github.com/tschreiner"
+    web = "teddschreiner.de"

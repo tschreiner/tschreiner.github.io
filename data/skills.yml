@@ -1,0 +1,26 @@
+name: Skills
+source:
+  - name: DevOps
+    items:
+    - name: Ansible
+    - name: Docker
+    - name: Terraform
+    - name: GitLab
+  - name: Monitoring
+    items:
+    - name: PRTG
+  - name: Microsoft Azure
+  - name: Microsoft Windows Server
+    items:
+      - name: Active Directory
+      - name: DFS
+      - name: NPS
+  - name: Microsoft 365
+    items:
+    - name: Microsoft Endpoint Manager
+    - name: Microsoft Exchange Online
+    - name: Microsoft Teams
+    - name: Microsoft Azure AD
+  - name: 
+
+others: [DevOps, git, PowerShell, PHP]
