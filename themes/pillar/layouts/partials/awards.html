@@ -1,0 +1,14 @@
+<section class="resume-section reference-section mb-5">
+        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">{{ .Site.Data.awards.name }}</h2>
+        <div class="resume-section-content">
+            <ul class="list-unstyled resume-awards-list">
+                {{ range .Site.Data.awards.source }}
+                <li class="mb-2 pl-4 position-relative">
+                    <i class="resume-award-icon fas fa-trophy position-absolute" data-fa-transform="shrink-2"></i>
+                    <div class="resume-award-name">{{ .date }} - {{ .title }}</div>
+                    <div class="resume-award-desc">{{ .description }}</div>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </section><!--//awards-section-->

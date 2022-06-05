@@ -1,0 +1,22 @@
+name: Main Skills & Tools
+source:
+  - name: Frameworks
+    items:
+    - name: Spring
+      value: 90
+  - name: Backend
+    items:
+    - name: Jakarta
+      value: 90
+  - name: Frontend
+    items:
+    - name: React / React Native
+      value: 60
+    - name: JavaScript
+      value: 90   
+    - name: NodeJs
+      value: 80
+    - name: HTML/CSS/SASS/LESS/BOWER
+      value: 80        
+
+others: [DevOps, Code Review, Git, Unit Testing, Sencha]
