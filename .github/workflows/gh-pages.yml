@@ -44,6 +44,26 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
 
+  run-if-successfull:
+    runs-on: ubuntu-20.04
+    needs: [deploy]
+    if: always() && needs.deploy.result == 'success'
+    steps:
+      - name: send telegram message on success
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            GitHub Pages deployment successfull!
+            
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            
+            Repository: ${{ github.repository }}
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+
   run-if-failed:
     runs-on: ubuntu-20.04
     needs: [deploy]
@@ -56,7 +76,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             GitHub Pages deployment failed!!!
-            
+
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             
