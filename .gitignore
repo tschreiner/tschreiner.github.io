@@ -11,5 +11,11 @@ hugo.linux
 # Temporary lock file while building
 /.hugo_build.lock
 
+# public files to ignore
+/public/*
+
+# public files to keep
+!/public/CNAME
+
 # macOS Files
 .DS_Store
