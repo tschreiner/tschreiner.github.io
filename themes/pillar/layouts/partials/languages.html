@@ -1,0 +1,10 @@
+<section class="resume-section language-section mb-5">
+        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">{{ .Site.Data.languages.name }}</h2>
+        <div class="resume-section-content">
+            <ul class="list-unstyled resume-lang-list">
+                {{ range .Site.Data.languages.source }}
+                <li class="mb-2 align-middle"><span class="resume-lang-name font-weight-bold">{{ .name }}</span> <small class="text-muted font-weight-normal">({{ .level }})</small></li>
+                {{ end }}
+            </ul>
+        </div>
+    </section><!--//language-section-->

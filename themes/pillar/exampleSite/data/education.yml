@@ -1,0 +1,11 @@
+name: Education
+source:
+  - title: MSc in Computer Science
+    univ: University College London
+    date: 2010 - 2011
+    type: MSc
+
+  - title: BSc Maths and Physics
+    univ: Imperial College London
+    date: 007 - 2010
+    type: BSc

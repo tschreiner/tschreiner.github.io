@@ -1,0 +1,10 @@
+name: Sprachen
+source:
+  - name: Deutsch
+    level: Muttersprache
+  - name: Englisch
+    level: Verhandlungssicher
+  - name: Russisch
+    level: Grundkenntnisse
+  - name: Türkisch
+    level: Grundkenntnisse

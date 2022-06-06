@@ -1,0 +1,350 @@
+{
+    "users": [
+      {
+        "id": "17579723_89babc",
+        "active_email": "tedd.schreiner@gmail.com",
+        "time_zone": {
+          "utc_offset": 2,
+          "name": "Europe/Berlin"
+        },
+        "display_name": "Tedd Schreiner",
+        "academic_title": null,
+        "first_name": "Tedd",
+        "last_name": "Schreiner",
+        "gender": "m",
+        "page_name": "Tedd_Schreiner",
+        "birth_date": {
+          "year": 1994,
+          "month": 8,
+          "day": 8
+        },
+        "wants": "spannende Projekte, Austausch von Wissen, Kooperation, Networking, Systemadministration, Weiterbildung",
+        "haves": "PowerShell,Automatisierung,Netzwerkadministration,Microsoft Azure,Docker,Kubernetes,Microsoft Intune,Microsoft System Center Configuration Manager,Microsoft Active Directory,Hyper-V,VMware vSphere,Netzwerkinfrastruktur,BMD NTCS,Salesforce,AWS,Ubuntu,Debian GNU/Linux,Python,Systementwicklung,PHP,Symfony,Ansible,Terraform,Windows Server,Administration,Systemadministration,Fortinet,Microsoft 365,Active Directory",
+        "top_haves": "PowerShell, Automatisierung, Netzwerkadministration",
+        "interests": "Marketing, E-Commerce, IT, IT Security, IT-Administration",
+        "web_profiles": {
+          "github": [
+            "https://github.com/tschreiner"
+          ]
+        },
+        "badges": [
+          "PREMIUM"
+        ],
+        "legal_information": {
+          "preview_content": null
+        },
+        "photo_urls": {
+          "large": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.140x185.jpg",
+          "maxi_thumb": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.70x93.jpg",
+          "medium_thumb": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.57x75.jpg",
+          "mini_thumb": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.18x24.jpg",
+          "thumb": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.30x40.jpg",
+          "size_32x32": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.32x32.jpg",
+          "size_48x48": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.48x48.jpg",
+          "size_64x64": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.64x64.jpg",
+          "size_96x96": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.96x96.jpg",
+          "size_128x128": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.128x128.jpg",
+          "size_192x192": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.192x192.jpg",
+          "size_256x256": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.256x256.jpg",
+          "size_1024x1024": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.1024x1024.jpg",
+          "size_original": "https://profile-images.xing.com/images/99b10395727e801feea367d04b733f8b-9/tedd-schreiner.original.jpg"
+        },
+        "photo_attributes": {
+          "uploaded": true
+        },
+        "permalink": "https://www.xing.com/profile/Tedd_Schreiner",
+        "languages": {
+          "de": "NATIVE",
+          "en": "FLUENT",
+          "ru": "BASIC",
+          "tr": "BASIC"
+        },
+        "employment_status": "EMPLOYEE",
+        "occupation_title": "IT-Systemadministration",
+        "occupation_org": "Wunschgutschein GmbH",
+        "organisation_member": null,
+        "instant_messaging_accounts": {},
+        "educational_background": {
+          "degree": null,
+          "primary_school": null,
+          "schools": [],
+          "qualifications": [
+            "Google Ads Grundlagen Zertifikat",
+            "Google Ads Search Zertifikat",
+            "Google Ads Display Zertifikat",
+            "Google Ads Shopping Zertifikat"
+          ]
+        },
+        "professional_experience": {
+          "primary_company": {
+            "id": "72252109_dc3a4d",
+            "name": "Wunschgutschein GmbH",
+            "url": "http://www.wunschgutschein.de/",
+            "tag": "WUNSCHGUTSCHEINGMBH",
+            "title": "IT-Systemadministration",
+            "begin_date": "2020-01",
+            "end_date": null,
+            "description": "- Automatisierung von Netzwerken (Router, Switches, Firewalls) mittels Ansible (Network as Code)\n- Automatisierung von Code Deployments und Prozessen über unterschiedliche DevOps Tools (gitlab runner, github runner, Azure DevOps, Jenkins CI)\n- Administration unterschiedlicher Microsoft Azure & Microsoft 365 Services",
+            "discipline": {
+              "id": "1011_3a71d0",
+              "key": "IT_AND_SOFTWARE_DEVELOPMENT"
+            },
+            "until_now": true,
+            "industry": "FINANCIAL_SERVICES",
+            "industries": [
+              {
+                "id": 120100,
+                "localized_name": "Finanzdienstleistungen"
+              }
+            ],
+            "company_size": "51-200",
+            "career_level": "PROFESSIONAL_EXPERIENCED",
+            "form_of_employment": "FULL_TIME_EMPLOYEE"
+          },
+          "companies": [
+            {
+              "id": "72252109_dc3a4d",
+              "name": "Wunschgutschein GmbH",
+              "url": "http://www.wunschgutschein.de/",
+              "tag": "WUNSCHGUTSCHEINGMBH",
+              "title": "IT-Systemadministration",
+              "begin_date": "2020-01",
+              "end_date": null,
+              "description": "- Automatisierung von Netzwerken (Router, Switches, Firewalls) mittels Ansible (Network as Code)\n- Automatisierung von Code Deployments und Prozessen über unterschiedliche DevOps Tools (gitlab runner, github runner, Azure DevOps, Jenkins CI)\n- Administration unterschiedlicher Microsoft Azure & Microsoft 365 Services",
+              "discipline": {
+                "id": "1011_3a71d0",
+                "key": "IT_AND_SOFTWARE_DEVELOPMENT"
+              },
+              "until_now": true,
+              "industry": "FINANCIAL_SERVICES",
+              "industries": [
+                {
+                  "id": 120100,
+                  "localized_name": "Finanzdienstleistungen"
+                }
+              ],
+              "company_size": "51-200",
+              "career_level": "PROFESSIONAL_EXPERIENCED",
+              "form_of_employment": "FULL_TIME_EMPLOYEE"
+            },
+            {
+              "id": "60915664_07b019",
+              "name": "HAMMELSPRUNG GmbH",
+              "url": "https://www.hammelsprung.com",
+              "tag": "HAMMELSPRUNGGMBH",
+              "title": "Head of Online Marketing / IT-Systemadministrator",
+              "begin_date": "2018-09",
+              "end_date": "2019-12",
+              "description": "- Administration einer Amazon AWS Infrastruktur\n- Entwicklung einer Deployment Pipeline auf Basis von git hooks und Ansible\n- Administration von macOS Systemen\n- Automatisierung von Online Marketing Kampagnen durch Python Applikationen auf Amazon AWS",
+              "discipline": {
+                "id": "1013_f03f78",
+                "key": "MARKETING_AND_ADVERTISING"
+              },
+              "until_now": false,
+              "industry": "OTHERS",
+              "industries": [
+                {
+                  "id": 170000,
+                  "localized_name": "Marketing, PR und Design"
+                }
+              ],
+              "company_size": "11-50",
+              "career_level": "MANAGER_SUPERVISOR",
+              "form_of_employment": "FULL_TIME_EMPLOYEE"
+            },
+            {
+              "id": "55995992_6b3f1c",
+              "name": "maxconvert UG (haftungsbeschränkt)",
+              "url": null,
+              "tag": "MAXCONVERTUG",
+              "title": "Systemadministrator, Softwareentwickler, Geschäftsführer",
+              "begin_date": "2017-06",
+              "end_date": "2019-07",
+              "description": "- Administration von Linux Systemen (LAMP-Stacks und Mailserver) auf Amazon AWS Infrastruktur\n- Konzeption und Automatisierung von Online Marketing Kampagnen",
+              "discipline": {
+                "id": "1013_f03f78",
+                "key": "MARKETING_AND_ADVERTISING"
+              },
+              "until_now": false,
+              "industry": "MARKETING_AND_ADVERTISING",
+              "industries": [
+                {
+                  "id": 170100,
+                  "localized_name": "Marketing und Werbung"
+                }
+              ],
+              "company_size": null,
+              "career_level": "SENIOR_EXECUTIVE",
+              "form_of_employment": "OWNER"
+            },
+            {
+              "id": "52304817_2d7bc0",
+              "name": "Selbstständig",
+              "url": null,
+              "tag": "SELBSTSTÄNDIG",
+              "title": "Selbstständig (Systemadministration, Softwareentwicklung, Affiliate Marketing)",
+              "begin_date": "2016-01",
+              "end_date": "2017-05",
+              "description": "- Administration von Linux Systemen auf Amazon AWS Infrastruktur\n- Konzeption und Automatisierung von Online Marketing Kampagnen",
+              "discipline": {
+                "id": "1013_f03f78",
+                "key": "MARKETING_AND_ADVERTISING"
+              },
+              "until_now": false,
+              "industry": "MARKETING_AND_ADVERTISING",
+              "industries": [
+                {
+                  "id": 170100,
+                  "localized_name": "Marketing und Werbung"
+                }
+              ],
+              "company_size": "1-10",
+              "career_level": "ENTRY_LEVEL",
+              "form_of_employment": "SELF_EMPLOYED"
+            },
+            {
+              "id": "108678526_ce60b8",
+              "name": "MyBOOM Internet GmbH",
+              "url": null,
+              "tag": "MYBOOMINTERNETGMBH",
+              "title": "Software Developer (PHP)",
+              "begin_date": "2015-07",
+              "end_date": "2015-12",
+              "description": null,
+              "discipline": null,
+              "until_now": false,
+              "industry": "INTERNET",
+              "industries": [
+                {
+                  "id": 90700,
+                  "localized_name": "Internet und Onlinemedien"
+                }
+              ],
+              "company_size": null,
+              "career_level": null,
+              "form_of_employment": "FULL_TIME_EMPLOYEE"
+            },
+            {
+              "id": "52304814_cd8031",
+              "name": "MyBOOM Internet GmbH",
+              "url": "http://www.myboom.de",
+              "tag": "MYBOOMINTERNETGMBH",
+              "title": "Ausbildung zum Fachinformatiker (Anwendungsentwicklung)",
+              "begin_date": "2012-08",
+              "end_date": "2015-06",
+              "description": null,
+              "discipline": {
+                "id": "1011_3a71d0",
+                "key": "IT_AND_SOFTWARE_DEVELOPMENT"
+              },
+              "until_now": false,
+              "industry": "INFORMATION_TECHNOLOGY_AND_SERVICES",
+              "industries": [
+                {
+                  "id": 90000,
+                  "localized_name": "Internet und Informationstechnologie"
+                }
+              ],
+              "company_size": "11-50",
+              "career_level": "ENTRY_LEVEL",
+              "form_of_employment": "FULL_TIME_EMPLOYEE"
+            }
+          ],
+          "awards": [],
+          "non_primary_companies": [
+            {
+              "_this_is_deprecated_since": "2014-05-08",
+              "name": "HAMMELSPRUNG GmbH",
+              "url": "https://www.hammelsprung.com",
+              "tag": "HAMMELSPRUNGGMBH",
+              "title": "Head of Online Marketing / IT-Systemadministrator",
+              "begin_date": "2018-09",
+              "end_date": "2019-12",
+              "description": "- Administration einer Amazon AWS Infrastruktur\n- Entwicklung einer Deployment Pipeline auf Basis von git hooks und Ansible\n- Administration von macOS Systemen\n- Automatisierung von Online Marketing Kampagnen durch Python Applikationen auf Amazon AWS",
+              "industry": "OTHERS",
+              "company_size": "11-50",
+              "career_level": "MANAGER_SUPERVISOR"
+            },
+            {
+              "_this_is_deprecated_since": "2014-05-08",
+              "name": "maxconvert UG (haftungsbeschränkt)",
+              "url": null,
+              "tag": "MAXCONVERTUG",
+              "title": "Systemadministrator, Softwareentwickler, Geschäftsführer",
+              "begin_date": "2017-06",
+              "end_date": "2019-07",
+              "description": "- Administration von Linux Systemen (LAMP-Stacks und Mailserver) auf Amazon AWS Infrastruktur\n- Konzeption und Automatisierung von Online Marketing Kampagnen",
+              "industry": "MARKETING_AND_ADVERTISING",
+              "company_size": null,
+              "career_level": "SENIOR_EXECUTIVE"
+            },
+            {
+              "_this_is_deprecated_since": "2014-05-08",
+              "name": "Selbstständig",
+              "url": null,
+              "tag": "SELBSTSTÄNDIG",
+              "title": "Selbstständig (Systemadministration, Softwareentwicklung, Affiliate Marketing)",
+              "begin_date": "2016-01",
+              "end_date": "2017-05",
+              "description": "- Administration von Linux Systemen auf Amazon AWS Infrastruktur\n- Konzeption und Automatisierung von Online Marketing Kampagnen",
+              "industry": "MARKETING_AND_ADVERTISING",
+              "company_size": "1-10",
+              "career_level": "ENTRY_LEVEL"
+            },
+            {
+              "_this_is_deprecated_since": "2014-05-08",
+              "name": "MyBOOM Internet GmbH",
+              "url": null,
+              "tag": "MYBOOMINTERNETGMBH",
+              "title": "Software Developer (PHP)",
+              "begin_date": "2015-07",
+              "end_date": "2015-12",
+              "description": null,
+              "industry": "INTERNET",
+              "company_size": null,
+              "career_level": null
+            },
+            {
+              "_this_is_deprecated_since": "2014-05-08",
+              "name": "MyBOOM Internet GmbH",
+              "url": "http://www.myboom.de",
+              "tag": "MYBOOMINTERNETGMBH",
+              "title": "Ausbildung zum Fachinformatiker (Anwendungsentwicklung)",
+              "begin_date": "2012-08",
+              "end_date": "2015-06",
+              "description": null,
+              "industry": "INFORMATION_TECHNOLOGY_AND_SERVICES",
+              "company_size": "11-50",
+              "career_level": "ENTRY_LEVEL"
+            }
+          ]
+        },
+        "private_address": {
+          "street": null,
+          "zip_code": null,
+          "city": null,
+          "province": null,
+          "country": null,
+          "email": "tedd.schreiner@gmail.com",
+          "fax": null,
+          "phone": null,
+          "mobile_phone": null
+        },
+        "business_address": {
+          "street": null,
+          "zip_code": null,
+          "city": "Brilon",
+          "province": "Nordrhein-Westfalen",
+          "country": "DE",
+          "email": "schreiner@myboom.de",
+          "fax": null,
+          "phone": null,
+          "mobile_phone": null
+        },
+        "premium_services": [
+          "SEARCH",
+          "PRIVATEMESSAGES"
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,33 @@
+    {{ partial "head" . }}
+    <body>	
+        <article class="resume-wrapper text-center position-relative">
+            <div class="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
+                {{ partial "header" . }}
+                
+                <div class="resume-body p-5">
+                    {{ partial "summary" . }}
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <section class="resume-section experience-section mb-5">
+                                <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Work Experience</h2>
+                                <div class="resume-section-content">
+                                    <div class="resume-timeline position-relative">
+                                        {{ partial "workexperience" . }}
+                                    </div><!--//resume-timeline-->
+                                </div>
+                            </section><!--//experience-section-->
+                        </div>
+                        <div class="col-lg-3">
+                            {{ partial "skills" . }}
+                            {{ partial "education" . }}
+                            {{ partial "awards" . }}
+                            {{ partial "languages" . }}
+                            {{ partial "interests" . }}
+                        </div>
+                    </div><!--//row-->
+                </div><!--//resume-body-->
+            </div>
+        </article>
+        {{ partial "footer" . }}
+    </body>
+</html> 

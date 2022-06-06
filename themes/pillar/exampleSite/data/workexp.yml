@@ -1,0 +1,16 @@
+name: Work Experience
+source:
+  - position: Web Developer (Intern)
+    company: Amazon
+    location: EEUU
+    durat: 2018 - Present
+    role: Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla.
+    achiviements:
+      - name: Control process
+        descrip: Role description goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla.
+        items: 
+          - Vestibulum.
+          - consectetuer adipiscing elit
+        technologies: [ Ruby on Rails, jQuery, HTML/LESS, MongoDB ]
+  
+
