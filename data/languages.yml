@@ -1,6 +1,10 @@
-name: Language
+name: Sprachen
 source:
-  - name: German
-    level: Native
-  - name: English 
-    level: Professional
+  - name: Deutsch
+    level: Muttersprache
+  - name: Englisch
+    level: Verhandlungssicher
+  - name: Russisch
+    level: Grundkenntnisse
+  - name: Türkisch
+    level: Grundkenntnisse
