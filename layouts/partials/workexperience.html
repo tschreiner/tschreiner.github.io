@@ -11,7 +11,7 @@
         </div><!--//resume-timeline-item-header-->
         <div class="resume-timeline-item-desc">
             <p>{{ .role }}</p>
-            <h4 class="resume-timeline-item-desc-heading font-weight-bold">Achievements:</h4>
+            <h4 class="resume-timeline-item-desc-heading font-weight-bold">Erfolge:</h4>
             {{ range .achiviements }}
             <p>{{ .name }}</p>
             <ul>
@@ -19,7 +19,7 @@
                 <li>{{ . }}</li>
                 {{ end }}
             </ul>
-            <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies used:</h4>
+            <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologien:</h4>
             <ul class="list-inline">
                 {{ range .technologies }}
                 <li class="list-inline-item"><span class="badge badge-primary badge-pill">{{ . }}</span></li>

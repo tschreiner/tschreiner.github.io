@@ -27,7 +27,7 @@ source:
           - Einführung einer Confluence Knowledge Base
           - Administration eines Netzwerkmonitoringsystems (PRTG)
           - Koordination externer Dienstleister
-        technologies: [ PowerShell, Windows Server, Microsoft 365, Linux, Automatisierung ]
+        technologies: [ Microsoft 365, Microsoft Windows Server, PowerShell, PowerShell, Ansible, Docker, Linux ]
   - position: Head Of Online Marketing
     company: HAMMELSPRUNG GmbH
     location: Brilon
@@ -41,7 +41,7 @@ source:
         - Entwicklung einer Deployment Pipeline auf Basis von git hooks und Ansible
         - Administration von macOS Systemen
         - Automatisierung von Online Marketing Kampagnen durch Python Applikationen auf Amazon AWS
-        technologies: [  ]
+        technologies: [ Ansible, Amazon AWS, Docker, Google Ads ]
   - position: Geschäftsführer
     company: Maxconvert UG (haftungsbeschränkt)
     location: Bottrop
@@ -53,7 +53,7 @@ source:
         items: 
           - Administration von Linux Systemen (LAMP-Stacks und Mailserver) auf Amazon AWS Infrastruktur
           - Konzeption und Automatisierung von Online Marketing Kampagnen
-        technologies: [  ]
+        technologies: [  Amazon AWS, Ansible, Docker ]
   - position: Systemadministrator, Software Entwickler, Online Marketing Specialist
     company: Selbstständig
     location: Brilon
@@ -65,5 +65,5 @@ source:
         items: 
           - Administration von Linux Systemen auf Amazon AWS Infrastruktur
           - Konzeption und Automatisierung von Online Marketing Kampagnen
-        technologies: [  ]
+        technologies: [ Amazon AWS ]
   
