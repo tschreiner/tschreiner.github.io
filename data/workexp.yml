@@ -11,14 +11,11 @@ source:
         items: 
           - Planung, Umsetzung und Administration von Hypervisor-Systemen (Hyper V und Proxmox VE)
           - Planung, Umsetzung und Administration der Microsoft Windows Server Infrastruktur (Active Directory, GPOs, PKI, DFS, NPS etc.)
-          - Administration und Optimierung von Microsoft 365 Services (Exchange Online, Teams, SharePoint, OneDrive)
-          - Endpoint Management, Software Paketierung und Deployment (Microsoft Endpoint Manager, AD GPOs)
-          - Administration von Synology NAS Systemen
-          - Konzeption und Umsetzung des Netzwerks (pfSense, VyOS, Aruba, UniFi)
-          - Einführung eines IPAM Systems (Netbox)
-          - Umsetzung eines Netzwerkautomatisierungsystems (Ansible und NAPALM)
-          - Konzeption und Umsetzung von Microsoft Azure Services (VMs, Microservices, Standortvernetzung)
-          - Automatisierung von Geschäftsprozessen durch PowerShell und Bash Scripts
+          - Planung, Rollout und Administration von Microsoft 365 Services (Endpoint Manager, Exchange Online, Teams, SharePoint, OneDrive)
+          - Administration von hochverfügbaren Synology NAS Systemen
+          - Konzeption, Realisierung und Administration der standortübergreifenden Netzwerkstruktur (pfSense, VyOS, Aruba, UniFi, Netbox, Ansible, NAPALM)
+          - Administration von Microsoft Azure Services
+          - Automatisierung von Geschäftsprozessen (BPMN 2.0, Camunda, PowerShell, Jenkins CI)
           - Administration des ERPs BMD
           - Installation und Administration einer Telefonanlage auf Asterisk-Basis (120 Clients, physisch und virtuell)
           - First- und Second-Level-Support
@@ -37,11 +34,14 @@ source:
       - name: 
         descrip: 
         items: 
-        - Administration einer Amazon AWS Infrastruktur
-        - Entwicklung einer Deployment Pipeline auf Basis von git hooks und Ansible
+        - Realisierung eines 10GBit/s Netzwerk auf Basis von Ubiquiti und Mikrotik Komponenten
+        - Realisierung eines hochperformanten Storage Systems für Remote Video Cutting auf Basis von centOS und glusterFS
+        - Administration einer Amazon AWS Infrastruktur (u.A. S3, EC2, Lightsail)
+        - Entwicklung von Wordpress Plugins (Newsletter System Anbindungen, Voucher Generatoren)
+        - Entwicklung eines automatisierten Systems zur Echtzeitanalyse von Online Marketing Kampagnen KPIs
+        - Entwicklung einer Deployment Pipeline
         - Administration von macOS Systemen
-        - Automatisierung von Online Marketing Kampagnen durch Python Applikationen auf Amazon AWS
-        technologies: [ Ansible, Amazon AWS, Docker, Google Ads ]
+        technologies: [ Ansible, Docker, Amazon AWS ]
   - position: Geschäftsführer
     company: Maxconvert UG (haftungsbeschränkt)
     location: Bottrop
@@ -57,7 +57,7 @@ source:
   - position: Systemadministrator, Software Entwickler, Online Marketing Specialist
     company: Selbstständig
     location: Brilon
-    durat: Jan 2016 - Aug 2017
+    durat: Jan 2016 - Jul 2017
     role: 
     achiviements:
       - name: 
@@ -66,4 +66,14 @@ source:
           - Administration von Linux Systemen auf Amazon AWS Infrastruktur
           - Konzeption und Automatisierung von Online Marketing Kampagnen
         technologies: [ Amazon AWS ]
-  
+  - position: Software Developer
+    company: MyBOOM Internet GmbH
+    location: Brilon
+    durat: Jul 2015 - Dez 2015
+    role: 
+    achiviements:
+      - name: 
+        descrip: 
+        items:
+          - Entwicklung von Schnittstellen zur Anbindung von Shopsystemen an verschiedene Accounting/ERP Systeme
+        technologies: [ PHP, Symfony PHP Framework, Magento, Oxid eShop, Vagrant, Docker ]
