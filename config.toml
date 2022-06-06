@@ -3,7 +3,6 @@ languageCode = 'de-de'
 language = 'de'
 title = 'Tedd Schreiner - Systemadministrator'
 theme = "pillar"
-publishDir = "docs"
 
 [params]
     cssColor = 2
