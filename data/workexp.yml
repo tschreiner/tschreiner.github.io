@@ -24,7 +24,7 @@ source:
           - Einführung einer Confluence Knowledge Base
           - Administration eines Netzwerkmonitoringsystems (PRTG)
           - Koordination externer Dienstleister
-        technologies: [ Microsoft 365, Microsoft Windows Server, PowerShell, PowerShell, Ansible, Docker, Linux ]
+        technologies: [ Microsoft 365, Microsoft Windows Server, PowerShell, Ansible, Docker, Linux ]
   - position: Head Of Online Marketing
     company: HAMMELSPRUNG GmbH
     location: Brilon
