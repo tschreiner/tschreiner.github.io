@@ -9,22 +9,24 @@ source:
       - name: 
         descrip: 
         items: 
-          - Planung, Installation und Administration von Hypervisor-Systemen (Hyper V und Proxmox VE)
-          - Planung, Installation und Administration einer Microsoft Windows Server Infrastruktur (Active Directory, GPOs, PKI, DFS, NPS etc.)
-          - Planung, Rollout und Administration von Microsoft 365 Services (Endpoint Manager, Exchange Online, Teams, SharePoint, OneDrive)
-          - Installation und Administration von hochverfügbaren Synology NAS Systemen
-          - Planung, Installation und Administration einer standortübergreifenden Netzwerkstruktur (pfSense, VyOS, Aruba, UniFi)
-          - Umsetzung eines Netzwerkautomatisierungssystems (Netbox, Ansible, NAPALM)
-          - Administration von Microsoft Azure Services
+          - Planung, Rollout und Administration von Microsoft 365 Services (Exchange Online, Teams, SharePoint, OneDrive)
+          - Planung, Rollout und Administration einer Mobile Device Management Infrastruktur (Microsoft SCCM und Microsoft Endpoint Manager/MEM/Intune)
+          - Umsetzung eines IPAM und Netzwerkautomatisierungssystems (Netbox, REST, Ansible, NAPALM)
           - Automatisierung von Geschäftsprozessen (BPMN 2.0, Camunda, PowerShell, Jenkins CI)
-          - Administration des ERPs BMD
-          - Installation und Administration einer Telefonanlage auf Asterisk-Basis (120 Clients, physisch und virtuell)
-          - First- und Second-Level-Support
-          - Setup und Administration des Inventarmanagement Systems Snipe-IT
           - Implementierung eines Service Desk & Projektmanagement Systems (Atlassian Jira Service Management/Jira Core)
           - Implementierung von Netzwerk- und Applikationsmonitoringsystemen (PRTG, LibreNMS, Azure Log Analytics)
+          - Implementierung und Administration von Loganalysesystemen (Graylog, Elasticsearch, Azure Log Analytics)   
+          - Planung, Installation und Administration einer Microsoft Windows Server Infrastruktur (Active Directory, GPOs, PKI, DFS, NPS etc.)
+          - Planung, Installation und Administration von Hypervisor-Systemen (Hyper V und Proxmox VE)
+          - Administration von Microsoft Azure Services
+          - Planung, Installation und Administration einer standortübergreifenden Netzwerkstruktur (pfSense, VyOS, Aruba, UniFi)
+          - Installation und Administration einer Telefonanlage auf Asterisk-Basis (120 Clients, physisch und virtuell)
+          - Installation und Administration von hochverfügbaren Synology NAS Systemen
+          - Administration des ERPs BMD
+          - First- und Second-Level-Support
+          - Setup und Administration des Inventarmanagement Systems Snipe-IT
           - Koordination externer Dienstleister
-        technologies: [ Microsoft 365, Microsoft Windows Server, PowerShell, Python, Ansible, Docker, Linux, PRTG, Jira Service Management, Jira Core, Asterisk, BPMN, Camunda, Jenkins CI, Netbox, Ansible, NAPALM, pfSense, VyOS, Aruba, UniFi, Hyper V, Proxmox VE ]
+        technologies: [ Microsoft 365, Microsoft Endpoint Manager, Intune, SCCM, Microsoft Windows Server, PowerShell, .NET, REST, Python, Ansible, Docker, Linux, PRTG, Jira Service Management, Jira Core, Graylog, Elasticsearch, Asterisk, BPMN, Camunda, Jenkins CI, Netbox, Ansible, NAPALM, pfSense, VyOS, Aruba, UniFi, Hyper V, Proxmox VE ]
   - position: Head Of Online Marketing
     company: HAMMELSPRUNG GmbH
     location: Brilon

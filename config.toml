@@ -11,7 +11,7 @@ defaultContentLanguage = "de"
 
 [params.personal]
     name = "Tedd Schreiner"
-    role = "Systemadministrator"
+    role = "IT-Systemadministrator"
 
 [params.social]
     email = "info@teddschreiner.de"

@@ -23,4 +23,4 @@ source:
       - name: DFS-Namespaces
       - name: NPS
 
-others: [ git, PHP ]
+others: [ PowerShell, git, Jira Service Management Cloud ]
