@@ -6,11 +6,6 @@ source:
     - name: Docker
     - name: GitHub
     - name: GitLab
-  - name: Monitoring
-    items:
-    - name: PRTG
-    - name: LibreNMS
-    - name: Azure Log Analytics
   - name: Microsoft 365
     items:
     - name: Microsoft Azure AD
@@ -22,5 +17,11 @@ source:
       - name: Active Directory
       - name: DFS-Namespaces
       - name: NPS
+  - name: Monitoring/Alerting
+    items:
+    - name: PRTG
+    - name: LibreNMS
+    - name: Azure Log Analytics
+    - name: Atlassian Opsgenie
 
 others: [ PowerShell, git, Jira Service Management Cloud ]

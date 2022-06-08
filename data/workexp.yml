@@ -11,6 +11,7 @@ source:
         items: 
           - Planung, Rollout und Administration von Microsoft 365 Services (Exchange Online, Teams, SharePoint, OneDrive)
           - Planung, Rollout und Administration einer Mobile Device Management Infrastruktur (Microsoft SCCM und Microsoft Endpoint Manager/MEM/Intune)
+          - Administration von Datenbankservern (Microsoft SQL Server 2019)
           - Umsetzung eines IPAM und Netzwerkautomatisierungssystems (Netbox, REST, Ansible, NAPALM)
           - Automatisierung von Geschäftsprozessen (BPMN 2.0, Camunda, PowerShell, Jenkins CI)
           - Implementierung eines Service Desk & Projektmanagement Systems (Atlassian Jira Service Management/Jira Core)
@@ -27,7 +28,7 @@ source:
           - First- und Second-Level-Support
           - Setup und Administration des Inventarmanagement Systems Snipe-IT
           - Koordination externer Dienstleister
-        technologies: [ Microsoft 365, Microsoft Endpoint Manager, Intune, SCCM, Microsoft Windows Server, PowerShell, .NET, REST, Python, Ansible, Docker, Linux, PRTG, Jira Service Management, Jira Core, Opsgenie, Graylog, Elasticsearch, Asterisk, BPMN, Camunda, Jenkins CI, Netbox, Ansible, NAPALM, pfSense, VyOS, Aruba, UniFi, Hyper V, Proxmox VE ]
+        technologies: [ Microsoft 365, Microsoft Endpoint Manager, Intune, SCCM, Microsoft Windows Server, Microsoft SQL Server 2019, PowerShell, .NET, REST, Python, Ansible, Docker, Linux, PRTG, Jira Service Management, Jira Core, Opsgenie, Graylog, Elasticsearch, Asterisk, BPMN, Camunda, Jenkins CI, Netbox, Ansible, NAPALM, pfSense, VyOS, Aruba, UniFi, Hyper V, Proxmox VE ]
   - position: Head Of Online Marketing
     company: HAMMELSPRUNG GmbH
     location: Brilon
