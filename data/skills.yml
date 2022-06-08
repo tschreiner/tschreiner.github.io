@@ -4,23 +4,23 @@ source:
     items:
     - name: Ansible
     - name: Docker
-    - name: Terraform
+    - name: GitHub
     - name: GitLab
   - name: Monitoring
     items:
     - name: PRTG
-  - name: Microsoft Azure
-  - name: Microsoft Windows Server
-    items:
-      - name: Active Directory
-      - name: DFS
-      - name: NPS
+    - name: LibreNMS
+    - name: Azure Log Analytics
   - name: Microsoft 365
     items:
+    - name: Microsoft Azure AD
     - name: Microsoft Endpoint Manager
     - name: Microsoft Exchange Online
     - name: Microsoft Teams
-    - name: Microsoft Azure AD
-  - name: 
+  - name: Microsoft Windows Server
+    items:
+      - name: Active Directory
+      - name: DFS-Namespaces
+      - name: NPS
 
-others: [DevOps, git, PowerShell, PHP]
+others: [ git, PHP ]
