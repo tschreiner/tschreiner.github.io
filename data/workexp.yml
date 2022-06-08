@@ -15,6 +15,7 @@ source:
           - Automatisierung von Geschäftsprozessen (BPMN 2.0, Camunda, PowerShell, Jenkins CI)
           - Implementierung eines Service Desk & Projektmanagement Systems (Atlassian Jira Service Management/Jira Core)
           - Implementierung von Netzwerk- und Applikationsmonitoringsystemen (PRTG, LibreNMS, Azure Log Analytics)
+          - Implementierung und Administration eines Warnmeldungs- und Bereitschaftsmanagementservices (Atlassian Opsgenie)
           - Implementierung und Administration von Loganalysesystemen (Graylog, Elasticsearch, Azure Log Analytics)   
           - Planung, Installation und Administration einer Microsoft Windows Server Infrastruktur (Active Directory, GPOs, PKI, DFS, NPS etc.)
           - Planung, Installation und Administration von Hypervisor-Systemen (Hyper V und Proxmox VE)
@@ -26,7 +27,7 @@ source:
           - First- und Second-Level-Support
           - Setup und Administration des Inventarmanagement Systems Snipe-IT
           - Koordination externer Dienstleister
-        technologies: [ Microsoft 365, Microsoft Endpoint Manager, Intune, SCCM, Microsoft Windows Server, PowerShell, .NET, REST, Python, Ansible, Docker, Linux, PRTG, Jira Service Management, Jira Core, Graylog, Elasticsearch, Asterisk, BPMN, Camunda, Jenkins CI, Netbox, Ansible, NAPALM, pfSense, VyOS, Aruba, UniFi, Hyper V, Proxmox VE ]
+        technologies: [ Microsoft 365, Microsoft Endpoint Manager, Intune, SCCM, Microsoft Windows Server, PowerShell, .NET, REST, Python, Ansible, Docker, Linux, PRTG, Jira Service Management, Jira Core, Opsgenie, Graylog, Elasticsearch, Asterisk, BPMN, Camunda, Jenkins CI, Netbox, Ansible, NAPALM, pfSense, VyOS, Aruba, UniFi, Hyper V, Proxmox VE ]
   - position: Head Of Online Marketing
     company: HAMMELSPRUNG GmbH
     location: Brilon
