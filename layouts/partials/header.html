@@ -7,9 +7,11 @@
                     <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase">{{ .Site.Params.personal.name}}</h1>
                     <div class="title mb-3">{{ .Site.Params.personal.role }}</div>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#"><i class="far fa-envelope fa-fw mr-2" data-fa-transform="grow-3"></i>{{ .Site.Params.social.email }}</a></li>
+                        {{ if .Site.Params.social.email }}
+                        <li class="mb-2"><a href="mailto:{{ .Site.Params.social.email }}"><i class="far fa-envelope fa-fw mr-2" data-fa-transform="grow-3"></i>{{ .Site.Params.social.email }}</a></li>
+                        {{ end }}
                         {{ if .Site.Params.social.phone }}
-                        <li><a href="#"><i class="fas fa-mobile-alt fa-fw mr-2" data-fa-transform="grow-6"></i>{{ .Site.Params.social.phone }}</a></li>
+                        <li><i class="fas fa-mobile-alt fa-fw mr-2" data-fa-transform="grow-6"></i>{{ .Site.Params.social.phone }}</li>
                         {{ end }}
                     </ul>
                 </div><!--//primary-info-->
