@@ -18,10 +18,11 @@ source:
       - name: Active Directory
       - name: DFS-Namespaces
       - name: NPS
-  - name: Monitoring/Alerting
+  - name: Monitoring/Alerting/Log Analytics
     items:
     - name: PRTG
     - name: LibreNMS
+    - name: Graylog
     - name: Azure Log Analytics
     - name: Atlassian Opsgenie
 
