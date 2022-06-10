@@ -21,7 +21,7 @@ source:
           - Implementierung und Administration von Loganalysesystemen (Graylog, Elasticsearch, Azure Log Analytics)   
           - Umsetzung eines IPAM- und Netzwerkautomatisierungssystems (Netbox, REST, Ansible, NAPALM)
         technologies: [ Microsoft Windows Server, Microsoft SQL Server 2019, PowerShell, .NET, REST, Python, Ansible, Docker, Linux, PRTG, Opsgenie, Graylog, Elasticsearch, Netbox, Ansible, NAPALM, pfSense, VyOS, Aruba, UniFi, Hyper V, Proxmox VE ]
-      - name: Einführung von IT Service Management Prozessen mit Jira Service Management Cloud und Integration in bestehende Geschäftsprozesse
+      - name: Einführung standardisierter IT Service Management Prozesse mit Jira Service Management Cloud und Integration in bestehende Geschäftsprozesse und Systeme
         items:
           - Analyse des Supportaufkommens und der bestehenden, IT-relevanten Geschäftsprozesse und Priorisierung der zu standardisierenden und automatisierenden Prozesse
           - Entwicklung und Etablierung von standardisierten Prozessen im IT-Support mit Jira Service Management Cloud 
