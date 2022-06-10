@@ -5,6 +5,9 @@ title = "Tedd Schreiner - IT-Systemadministrator"
 theme = "pillar"
 defaultContentLanguage = "de"
 
+[markup.goldmark.renderer]
+hardWraps = true
+
 [params]
     cssColor = 2
     language = "de"

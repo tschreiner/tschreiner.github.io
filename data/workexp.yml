@@ -4,33 +4,42 @@ source:
     company: Wunschgutschein GmbH
     location: Brilon
     durat: Jan 2020 - Heute
-    role: |-
-        Als IT-Systemadministrator bei Wunschgutschein verantworte und gestalte ich in enger Abstimmung mit der Geschäftsführung und den weiteren Stakeholdern die IT-Infrastruktur dieses dynamischen und stark wachsenden Unternehmens.
-        Zu meinen Aufgaben gehören sowohl Betrieb und Support als interne Beratung und Weiterentwicklung der IT. Unter den von mir verantworteten Projekten gehören unter anderem die Modernisierung von Netzwerk-, Server- und Datenbanksystemen, die Einführung der Microsoft 365 Suite, die Konzeption und Umsetzung von IT Service Management Prozessen sowie die Automatisierung verschiedener Geschäftsprozesse der IT.
+    role: |
+      Als IT-Systemadministrator bei Wunschgutschein verantworte und gestalte ich in enger Abstimmung mit der Geschäftsführung und den weiteren Stakeholdern die IT-Infrastruktur dieses dynamischen und stark wachsenden Unternehmens.
+      Zu meinen Aufgaben gehören sowohl Betrieb und Support als auch interne Beratung und perspektivische Ausrichtung der IT.
+      
+      Besonders erfüllende Projekte waren unter anderem die Modernisierung von Netzwerk-, Server- und Datenbanksystemen, die Einführung der Microsoft 365 Suite inkl. des Mobile Device Managements und die Implementierung und Automatisierung von IT Service Management Prozessen.
     achiviements:
-      - name: 
+      - name: Modernisierung von Netzwerk-, Server und Datenbanksystemen
+      - items:
+          - Planung, Installation und Betrieb eines standortübergreifenden Netzwerkes (FortiGate, Aruba, VyOS, pfSense, UniFi)
+          - Planung, Installation und Administration von Hypervisor-Systemen (Hyper V und Proxmox VE)
+          - Planung, Installation und Administration einer Microsoft Windows Server Infrastruktur (Active Directory, GPOs, PKI, DFS, NPS etc.)
+          - Installation und Administration von Datenbankservern (Microsoft SQL Server 2019)
+          - Implementierung von Netzwerk- und Applikationsmonitoringsystemen (PRTG, LibreNMS, Azure Log Analytics)
+          - Implementierung und Administration eines Warnmeldungs- und Bereitschaftsmanagementservices (Atlassian Opsgenie)
+          - Implementierung und Administration von Loganalysesystemen (Graylog, Elasticsearch, Azure Log Analytics)   
+          - Umsetzung eines IPAM- und Netzwerkautomatisierungssystems (Netbox, REST, Ansible, NAPALM)
+        technologies: [ Microsoft Windows Server, Microsoft SQL Server 2019, PowerShell, .NET, REST, Python, Ansible, Docker, Linux, PRTG, Opsgenie, Graylog, Elasticsearch, Netbox, Ansible, NAPALM, pfSense, VyOS, Aruba, UniFi, Hyper V, Proxmox VE ]
+      - name: Einführung von IT Service Management Prozessen mit Jira Service Management Cloud und Integration in bestehende Geschäftsprozesse
+      - items:
+          - Analyse des Supportaufkommens und der bestehenden, IT-relevanten Geschäftsprozesse und Priorisierung der zu standardisierenden und automatisierenden Prozesse
+          - Entwicklung und Etablierung von standardisierten Prozessen im IT-Support mit Jira Service Management Cloud 
+          - Integration des IT Service Management Systems in bestehende Geschäftsprozesse (BPMN 2.0, Camunda, PowerShell, Jenkins CI)
+          - Setup und Administration des Inventarmanagement Systems Snipe-IT und Einbindung in die ITSM-Lösung
+        technologies: [ Python, Ansible, Docker, PRTG, Jira Service Management, Jira Core, Opsgenie, Graylog, Elasticsearch, BPMN, Camunda, Jenkins CI, Netbox, Ansible, NAPALM ]
+      - name: "Weiteres Projekte bei Wunschgutschein"
         descrip: 
         items: 
           - Planung, Rollout und Administration von Microsoft 365 Services (Exchange Online, Teams, SharePoint, OneDrive)
           - Planung, Rollout und Administration einer Mobile Device Management Infrastruktur (Microsoft SCCM und Microsoft Endpoint Manager/MEM/Intune)
-          - Administration von Datenbankservern (Microsoft SQL Server 2019)
-          - Umsetzung eines IPAM und Netzwerkautomatisierungssystems (Netbox, REST, Ansible, NAPALM)
-          - Automatisierung von Geschäftsprozessen (BPMN 2.0, Camunda, PowerShell, Jenkins CI)
-          - Implementierung eines Service Desk & Projektmanagement Systems (Atlassian Jira Service Management/Jira Core)
-          - Implementierung von Netzwerk- und Applikationsmonitoringsystemen (PRTG, LibreNMS, Azure Log Analytics)
-          - Implementierung und Administration eines Warnmeldungs- und Bereitschaftsmanagementservices (Atlassian Opsgenie)
-          - Implementierung und Administration von Loganalysesystemen (Graylog, Elasticsearch, Azure Log Analytics)   
-          - Planung, Installation und Administration einer Microsoft Windows Server Infrastruktur (Active Directory, GPOs, PKI, DFS, NPS etc.)
-          - Planung, Installation und Administration von Hypervisor-Systemen (Hyper V und Proxmox VE)
+          - Implementierung eines Projektmanagement Systems (Atlassian Jira Core)
           - Administration von Microsoft Azure Services
-          - Planung, Installation und Administration einer standortübergreifenden Netzwerkstruktur (pfSense, VyOS, Aruba, UniFi)
           - Installation und Administration einer Telefonanlage auf Asterisk-Basis (120 Clients, physisch und virtuell)
           - Installation und Administration von hochverfügbaren Synology NAS Systemen
           - Administration des ERPs BMD
-          - First- und Second-Level-Support
-          - Setup und Administration des Inventarmanagement Systems Snipe-IT
           - Koordination externer Dienstleister
-        technologies: [ Microsoft 365, Microsoft Endpoint Manager, Intune, SCCM, Microsoft Windows Server, Microsoft SQL Server 2019, PowerShell, .NET, REST, Python, Ansible, Docker, Linux, PRTG, Jira Service Management, Jira Core, Opsgenie, Graylog, Elasticsearch, Asterisk, BPMN, Camunda, Jenkins CI, Netbox, Ansible, NAPALM, pfSense, VyOS, Aruba, UniFi, Hyper V, Proxmox VE ]
+        technologies: [ Microsoft 365, Microsoft Endpoint Manager, Intune, SCCM, PowerShell, .NET, REST, Docker, Linux, Jira Core, Opsgenie, Asterisk, BPMN, Camunda, Jenkins CI, Netbox, Ansible, NAPALM, pfSense, VyOS, Aruba, UniFi, Hyper V, Proxmox VE ]
   - position: Head Of Online Marketing
     company: HAMMELSPRUNG GmbH
     location: Brilon

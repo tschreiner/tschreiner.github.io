@@ -10,7 +10,7 @@
             <div class="resume-position-time">{{ .durat }}</div>
         </div><!--//resume-timeline-item-header-->
         <div class="resume-timeline-item-desc">
-            <p>{{ .role }}</p>
+            <p>{{ .role | markdownify }}</p>
             <h4 class="resume-timeline-item-desc-heading font-weight-bold">Erfolge:</h4>
             {{ range .achiviements }}
             <p>{{ .name }}</p>
