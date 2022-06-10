@@ -11,6 +11,7 @@ source:
     - name: Microsoft Azure AD
     - name: Microsoft Endpoint Manager
     - name: Microsoft Exchange Online
+    - name: Microsoft OneDrive for Business
     - name: Microsoft Teams
   - name: Microsoft Windows Server
     items:
