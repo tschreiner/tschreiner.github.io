@@ -2,7 +2,7 @@ name: Fundierte Kenntnisse
 source:
   - name: DevOps
     items:
-    - name: Ansible
+    - name: RedHat Ansible/RedHat Ansible Tower
     - name: Docker
     - name: GitHub
     - name: GitLab
