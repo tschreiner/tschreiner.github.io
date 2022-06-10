@@ -11,7 +11,7 @@ source:
       Besonders interessante Projekte waren unter anderem die Modernisierung von Netzwerk-, Server- und Datenbanksystemen, die Einführung der Microsoft 365 Suite inkl. des Mobile Device Managements und die Implementierung und Automatisierung von IT Service Management Prozessen.
     achiviements:
       - name: Modernisierung von Netzwerk-, Server und Datenbanksystemen
-      - items:
+        items:
           - Planung, Installation und Betrieb eines standortübergreifenden Netzwerkes (FortiGate, Aruba, VyOS, pfSense, UniFi)
           - Planung, Installation und Administration von Hypervisor-Systemen (Hyper V und Proxmox VE)
           - Planung, Installation und Administration einer Microsoft Windows Server Infrastruktur (Active Directory, GPOs, PKI, DFS, NPS etc.)
@@ -22,7 +22,7 @@ source:
           - Umsetzung eines IPAM- und Netzwerkautomatisierungssystems (Netbox, REST, Ansible, NAPALM)
         technologies: [ Microsoft Windows Server, Microsoft SQL Server 2019, PowerShell, .NET, REST, Python, Ansible, Docker, Linux, PRTG, Opsgenie, Graylog, Elasticsearch, Netbox, Ansible, NAPALM, pfSense, VyOS, Aruba, UniFi, Hyper V, Proxmox VE ]
       - name: Einführung von IT Service Management Prozessen mit Jira Service Management Cloud und Integration in bestehende Geschäftsprozesse
-      - items:
+        items:
           - Analyse des Supportaufkommens und der bestehenden, IT-relevanten Geschäftsprozesse und Priorisierung der zu standardisierenden und automatisierenden Prozesse
           - Entwicklung und Etablierung von standardisierten Prozessen im IT-Support mit Jira Service Management Cloud 
           - Integration des IT Service Management Systems in bestehende Geschäftsprozesse (BPMN 2.0, Camunda, PowerShell, Jenkins CI)
