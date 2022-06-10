@@ -28,6 +28,7 @@ source:
   - name: IT Service Management
     items:
     - name: Jira Service Management Cloud
+    - name: Azure Automation (Hybrid Worker/On-premise Runbook Automation)
     - name: Opsgenie
 
 others: [ PowerShell, git, .NET, Salesforce, BMD NTCS ]
