@@ -25,5 +25,9 @@ source:
     - name: Graylog
     - name: Azure Log Analytics
     - name: Atlassian Opsgenie
+  - name: IT Service Management
+    items:
+    - name: Jira Service Management Cloud
+    - name: Opsgenie
 
-others: [ PowerShell, git, Jira Service Management Cloud ]
+others: [ PowerShell, git, .NET, Salesforce, BMD NTCS ]
