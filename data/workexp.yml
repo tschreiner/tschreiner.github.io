@@ -4,14 +4,13 @@ source:
     company: EOS Technology Solutions GmbH
     location: Hamburg
     durat: Sep 2022 - Heute
-    role: 
-    achiviements:
-      - name: Netzwerkautomatisierung (Ansible, HPE/H3C Comware, Aruba, REST)
-      - name: Umsetzung einer Network Source of Truth (NSoT) sowie Synchronisation mit Bestandssystemen
-      - name: Netzwerkadministration (HPE Devices, HPE IMC, Infoblox, CheckPoint, i-doit)
-      - name: Linux Systemadministration und Automatisierung (AlmaLinux 8/9, Ansible, Foreman)
-      - name: Entwicklung eines Virtual Network Lab Environments und Abbildung der physischen Netzwerktopologie (EVE-NG, GNS3)
-      - name: 2nd Level Support (Network Infrastructure)
+    role: |
+      - Netzwerkautomatisierung (Ansible, HPE/H3C Comware, Aruba, REST)
+      - Umsetzung einer Network Source of Truth (NSoT) sowie Synchronisation mit Bestandssystemen
+      - Netzwerkadministration (HPE Devices, HPE IMC, Infoblox, CheckPoint, i-doit)
+      - Linux Systemadministration und Automatisierung (AlmaLinux 8/9, Ansible, Foreman)
+      - Entwicklung eines Virtual Network Lab Environments und Abbildung der physischen Netzwerktopologie (EVE-NG, GNS3)
+      - 2nd Level Support (Network Infrastructure)
   - position: IT-Systemadministrator
     company: Wunschgutschein GmbH
     location: Brilon
