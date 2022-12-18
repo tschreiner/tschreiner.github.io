@@ -1,9 +1,20 @@
 name: Arbeitserfahrung
 source:
+  - position: DevOps Engineer
+    company: EOS Technology Solutions GmbH
+    location: Hamburg
+    durat: Sep 2022 - Heute
+    role: |
+      - Netzwerkautomatisierung (Ansible, HPE/H3C Comware, Aruba, REST)
+      - Umsetzung einer Network Source of Truth (NSoT) sowie Synchronisation mit Bestandssystemen
+      - Netzwerkadministration (HPE Devices, HPE IMC, Infoblox, CheckPoint, i-doit)
+      - Linux Systemadministration und Automatisierung (AlmaLinux 8/9, Ansible, Foreman)
+      - Entwicklung eines Virtual Network Lab Environments und Abbildung der physischen Netzwerktopologie (EVE-NG, GNS3)
+      - 2nd Level Support (Network Infrastructure)
   - position: IT-Systemadministrator
     company: Wunschgutschein GmbH
     location: Brilon
-    durat: Jan 2020 - Heute
+    durat: Jan 2020 - Aug 2022
     role: |
       Als IT-Systemadministrator bei Wunschgutschein verantworte und gestalte ich in enger Abstimmung mit der Geschäftsführung und den weiteren Stakeholdern die IT-Infrastruktur dieses dynamischen und stark wachsenden Unternehmens.
       Zu meinen Aufgaben gehören sowohl Betrieb und Support als auch interne Beratung und perspektivische Ausrichtung der IT.
