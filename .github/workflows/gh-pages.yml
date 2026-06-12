@@ -65,7 +65,7 @@ jobs:
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
   run-if-failed:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     needs: [deploy]
     if: always() && needs.deploy.result == 'failure'
     steps:
