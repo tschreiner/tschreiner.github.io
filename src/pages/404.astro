@@ -1,0 +1,21 @@
+---
+import Container from '@components/Container.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+---
+
+<PageLayout
+  eyebrow="404"
+  title="Seite nicht gefunden"
+  description="Die angefragte Seite existiert nicht oder wurde verschoben. Von hier geht es zur Startseite, zu den Projekten oder direkt zum Kontakt."
+  noindex={true}
+>
+  <section class="section pt-0">
+    <Container>
+      <div class="flex flex-wrap gap-3">
+        <a class="button-primary" href="/">Zur Startseite</a>
+        <a class="button-secondary" href="/projects/">Projekte ansehen</a>
+        <a class="button-secondary" href="/contact/">Kontakt aufnehmen</a>
+      </div>
+    </Container>
+  </section>
+</PageLayout>
