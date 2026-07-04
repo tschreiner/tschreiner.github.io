@@ -22,12 +22,14 @@ npm install
 npm run dev
 npm run check
 npm run build
+npm run quality
 ```
 
 Cloudflare Pages:
 
 - Build Command: `npm run build`
 - Output Directory: `dist`
+- Node.js: `22.12.0` oder neuer (`NODE_VERSION=22.12.0`)
 
 ## Inhalte
 

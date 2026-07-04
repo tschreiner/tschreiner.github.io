@@ -3,6 +3,12 @@ export const site = {
   domain: 'teddschreiner.de',
   url: 'https://teddschreiner.de',
   email: 'info@teddschreiner.de',
+  address: {
+    street: 'Nordring 56',
+    postalCode: '59929',
+    city: 'Brilon',
+    country: 'Deutschland',
+  },
   title: 'Tedd Schreiner | DevOps Engineer, Automatisierer und Builder',
   description:
     'Personal Brand Website von Tedd Schreiner: DevOps, Netzwerkautomatisierung, Network Source of Truth, Web- und AI-Projekte.',

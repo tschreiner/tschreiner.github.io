@@ -9,7 +9,12 @@
     "stop:dev": "powershell -ExecutionPolicy Bypass -File ./scripts/stop-dev.ps1",
     "check": "astro check",
     "build": "astro build",
+    "quality": "npm run check && npm run build",
     "preview": "astro preview"
+  },
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=10.0.0"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.2",

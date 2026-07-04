@@ -6,36 +6,102 @@ import { site } from '@lib/site';
 
 <PageLayout
   eyebrow="Legal"
-  title="Datenschutz"
-  description="Vorläufige Datenschutzhinweise. Inhalte müssen vor Veröffentlichung final rechtlich geprüft werden."
+  title="Datenschutzerklärung"
+  description="Hinweise zur Verarbeitung personenbezogener Daten auf dieser statischen Website."
   noindex={true}
 >
   <section class="section pt-0">
     <Container>
       <div class="surface-card prose-site">
-        <p><strong>TODO:</strong> Datenschutzerklärung final rechtlich prüfen und ergänzen. Dies ist keine Rechtsberatung.</p>
-        <h2>Grundsatz</h2>
         <p>
-          Diese Website ist als statische Astro-Seite geplant. Es werden keine Tracking-Skripte, keine externen Webfonts und
-          keine externen Analyse- oder Tag-Management-Dienste eingebunden.
+          In dieser Datenschutzerklärung informiere ich darüber, welche personenbezogenen Daten beim Besuch dieser Website
+          und bei einer Kontaktaufnahme verarbeitet werden.
         </p>
+
+        <h2>Verantwortlicher</h2>
+        <p>
+          {site.name}<br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}<br />
+          {site.address.country}<br />
+          E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+
+        <h2>Grundsätze</h2>
+        <p>
+          Diese Website ist eine statische Astro-Seite. Ich binde keine Tracking-Skripte, keine externen Webfonts, keine
+          externen Analyse- oder Tag-Management-Dienste und keine eingebetteten Inhalte von Drittplattformen ein.
+        </p>
+
         <h2>Hosting und Serverlogs</h2>
         <p>
-          TODO: Cloudflare Pages als Hosting-Ziel mit passenden Hinweisen zu Serverlogs, CDN und Auftragsverarbeitung beschreiben.
+          Beim Aufruf der Website werden technisch notwendige Daten verarbeitet, damit die Seite an Ihr Endgerät ausgeliefert
+          werden kann. Dazu können insbesondere IP-Adresse, Datum und Uhrzeit des Abrufs, aufgerufene Datei, übertragene
+          Datenmenge, Referrer-URL, Browser- und Betriebssysteminformationen sowie der anfragende Provider gehören.
         </p>
+        <p>
+          Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Mein berechtigtes Interesse liegt im
+          sicheren, stabilen und effizienten Betrieb der Website. Soweit Hosting-Dienstleister oder Content-Delivery-Netzwerke
+          eingesetzt werden, verarbeiten diese Daten im Rahmen der technischen Bereitstellung der Website.
+        </p>
+
         <h2>Kontaktaufnahme</h2>
         <p>
-          Bei Kontaktaufnahme per E-Mail werden die übermittelten Daten zur Bearbeitung der Anfrage verarbeitet.
-          Kontakt: <a href={`mailto:${site.email}`}>{site.email}</a>
+          Wenn Sie mich per E-Mail kontaktieren, verarbeite ich die von Ihnen übermittelten Daten, insbesondere Ihre
+          E-Mail-Adresse, den Inhalt der Nachricht und gegebenenfalls weitere von Ihnen angegebene Kontaktdaten. Die
+          Verarbeitung erfolgt zur Bearbeitung der Anfrage auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wenn die Anfrage
+          auf den Abschluss oder die Durchführung eines Vertrags gerichtet ist, erfolgt die Verarbeitung zusätzlich auf
+          Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
         </p>
-        <h2>Prüfpunkte für später</h2>
-        <ul>
-          <li>Kontaktformular und Spam-Schutz.</li>
-          <li>Terminbuchung.</li>
-          <li>Messaging-Kanäle.</li>
-          <li>Mentoring und bezahltes Coaching.</li>
-          <li>Externe Dienste und Einbettungen.</li>
-        </ul>
+
+        <h2>Cookies und lokale Speicherung</h2>
+        <p>
+          Diese Website setzt keine Analyse- oder Marketing-Cookies. Falls technisch notwendige lokale Einstellungen
+          verwendet werden, dienen sie ausschließlich der Bereitstellung einer vom Nutzer gewünschten Funktion und nicht
+          dem Tracking.
+        </p>
+
+        <h2>Empfänger personenbezogener Daten</h2>
+        <p>
+          Personenbezogene Daten werden nicht an Dritte verkauft oder zu Werbezwecken weitergegeben. Eine Weitergabe kann
+          erfolgen, wenn sie zur technischen Bereitstellung der Website, zur Bearbeitung einer Anfrage, zur Erfüllung
+          gesetzlicher Pflichten oder zur Wahrung berechtigter Interessen erforderlich ist.
+        </p>
+
+        <h2>Speicherdauer</h2>
+        <p>
+          Personenbezogene Daten werden nur so lange gespeichert, wie es für die jeweiligen Zwecke erforderlich ist oder
+          gesetzliche Aufbewahrungspflichten bestehen. E-Mail-Anfragen lösche ich, wenn die Anfrage abschließend bearbeitet
+          ist und keine gesetzlichen oder berechtigten Gründe für eine weitere Speicherung bestehen.
+        </p>
+
+        <h2>Ihre Rechte</h2>
+        <p>
+          Sie haben im Rahmen der gesetzlichen Voraussetzungen das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung
+          der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen bestimmte Verarbeitungen. Soweit eine Verarbeitung
+          auf Einwilligung beruht, können Sie diese Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.
+        </p>
+        <p>
+          Sie haben außerdem das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind,
+          dass die Verarbeitung Ihrer personenbezogenen Daten gegen Datenschutzrecht verstößt.
+        </p>
+
+        <h2>Änderungen dieser Datenschutzerklärung</h2>
+        <p>
+          Ich passe diese Datenschutzerklärung an, wenn sich die Website, die eingesetzten Dienste oder die rechtlichen
+          Anforderungen ändern.
+        </p>
+
+        <h2>Stand</h2>
+        <p>Juli 2026</p>
+
+        <h2>Hinweis</h2>
+        <p>
+          Diese Datenschutzerklärung ist auf die derzeitige statische Website ohne Tracking, Kontaktformular oder externe
+          Einbettungen zugeschnitten. Wenn später Dienste wie Formularanbieter, Terminbuchung, Newsletter, Analytics,
+          Captcha, Karten, Videos oder Zahlungsfunktionen eingebunden werden, muss diese Erklärung entsprechend ergänzt
+          werden.
+        </p>
       </div>
     </Container>
   </section>

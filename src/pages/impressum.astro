@@ -7,26 +7,59 @@ import { site } from '@lib/site';
 <PageLayout
   eyebrow="Legal"
   title="Impressum"
-  description="Vorläufiger Platzhalter bis zur finalen rechtlichen Prüfung."
+  description="Angaben gemäß § 5 DDG und Kontaktinformationen."
   noindex={true}
 >
   <section class="section pt-0">
     <Container>
       <div class="surface-card prose-site">
-        <p><strong>TODO:</strong> Impressumsangaben final rechtlich prüfen und ergänzen. Dies ist keine Rechtsberatung.</p>
-        <h2>Angaben zum Verantwortlichen</h2>
+        <h2>Angaben gemäß § 5 DDG</h2>
         <p>
-          Tedd Schreiner<br />
-          TODO: ladungsfähige Anschrift ergänzen
+          {site.name}<br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}<br />
+          {site.address.country}
         </p>
+
         <h2>Kontakt</h2>
         <p>E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a></p>
-        <h2>Prüfpunkte</h2>
-        <ul>
-          <li>Verantwortliche Angaben final prüfen.</li>
-          <li>Hosting und Domain-Konfiguration berücksichtigen.</li>
-          <li>Spätere kommerzielle Mentoring-Angebote separat prüfen.</li>
-        </ul>
+
+        <h2>Verantwortlich für den Inhalt</h2>
+        <p>
+          Verantwortlich für journalistisch-redaktionelle Inhalte im Sinne von § 18 Abs. 2 MStV:
+        </p>
+        <p>
+          {site.name}<br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}
+        </p>
+
+        <h2>Verbraucherstreitbeilegung</h2>
+        <p>
+          Ich bin nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer
+          Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+
+        <h2>Haftung für Inhalte</h2>
+        <p>
+          Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität
+          der Inhalte kann ich jedoch keine Gewähr übernehmen. Gesetzliche Verpflichtungen zur Entfernung oder Sperrung
+          der Nutzung von Informationen bleiben unberührt.
+        </p>
+
+        <h2>Haftung für Links</h2>
+        <p>
+          Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Für diese
+          fremden Inhalte ist stets der jeweilige Anbieter oder Betreiber der verlinkten Seiten verantwortlich. Bei
+          Bekanntwerden von Rechtsverletzungen entferne ich entsprechende Links.
+        </p>
+
+        <h2>Urheberrecht</h2>
+        <p>
+          Die auf dieser Website erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht. Beiträge Dritter
+          werden als solche gekennzeichnet. Jede Verwertung außerhalb der Grenzen des Urheberrechts bedarf der vorherigen
+          Zustimmung des jeweiligen Rechteinhabers.
+        </p>
       </div>
     </Container>
   </section>
