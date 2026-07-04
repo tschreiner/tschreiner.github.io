@@ -2,17 +2,17 @@
 import Container from '@components/Container.astro';
 ---
 
-<section class="relative overflow-hidden">
+<section class="hero-section relative overflow-hidden">
   <Container class="grid min-h-[calc(100vh-4rem)] items-center gap-10 py-12 lg:grid-cols-[1.14fr_0.86fr] lg:py-20">
     <div>
       <p class="eyebrow">DevOps · Automation · Builder</p>
-      <h1 class="mt-5 max-w-4xl text-5xl font-semibold leading-tight text-zinc-950 sm:text-6xl">
+      <h1 class="mt-5 max-w-4xl text-5xl font-semibold leading-tight text-[color:var(--ink)] sm:text-6xl">
         Tedd Schreiner
       </h1>
-      <p class="mt-5 max-w-2xl text-xl leading-8 text-zinc-800">
+      <p class="mt-5 max-w-2xl text-xl leading-8 text-[color:var(--graphite)]">
         DevOps Engineer, Automatisierer und Builder von Web- und AI-Projekten.
       </p>
-      <p class="mt-6 max-w-2xl text-lg leading-8 text-zinc-700">
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-[color:var(--muted)]">
         Ich arbeite an Infrastruktur, Netzwerkautomatisierung und technischen Systemen — und baue nebenbei Projekte,
         die Technik, Kreativität und Alltag miteinander verbinden.
       </p>
@@ -24,23 +24,23 @@ import Container from '@components/Container.astro';
     </div>
 
     <div class="relative">
-      <div class="absolute -inset-4 rounded-[2rem] bg-teal-700/10 blur-3xl" aria-hidden="true"></div>
-      <div class="relative overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-xl shadow-zinc-300/40">
+      <figure class="hero-photo-frame relative overflow-hidden rounded-lg">
         <img
-          src="/images/profile.jpg"
+          src="/images/tedd-schreiner-hero.jpg"
           alt="Portrait von Tedd Schreiner"
-          class="aspect-[4/3] w-full object-cover"
-          width="900"
-          height="675"
+          class="aspect-[4/5] w-full object-cover"
+          style="object-position: 52% 46%;"
+          width="1600"
+          height="1600"
           loading="eager"
           decoding="async"
           fetchpriority="high"
         />
-        <div class="border-t border-zinc-200 bg-zinc-950 p-5 text-sm text-zinc-100">
-          <p class="font-mono text-teal-200">system.focus = automation</p>
-          <p class="mt-2 text-zinc-300">Infrastruktur, Datenqualität und saubere technische Abläufe.</p>
-        </div>
-      </div>
+        <figcaption class="border-t border-white/10 bg-[color:var(--graphite)] p-5 text-sm text-[#f7ead9]">
+          <p class="font-mono text-[#f0bf75]">system.focus = automation</p>
+          <p class="mt-2 text-[#d8c8b4]">Infrastruktur, Datenqualität und saubere technische Abläufe.</p>
+        </figcaption>
+      </figure>
     </div>
   </Container>
 </section>

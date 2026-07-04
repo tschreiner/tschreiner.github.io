@@ -40,11 +40,11 @@ const projectJsonLd = {
   <section class="section pt-0">
     <Container class="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
       <aside class="surface-card h-fit">
-        <h2 class="text-lg font-semibold text-zinc-950">Technologien</h2>
+        <h2 class="text-lg font-semibold text-[color:var(--ink)]">Technologien</h2>
         <div class="mt-4 flex flex-wrap gap-2">
           {project.data.technologies.map((tech) => <TechTag label={tech} />)}
         </div>
-        <p class="mt-5 text-sm font-medium uppercase tracking-[0.14em] text-zinc-500">{project.data.status}</p>
+        <p class="mt-5 text-sm font-medium uppercase tracking-[0.14em] text-[color:var(--sky)]">{project.data.status}</p>
         {project.data.confidentialNote && (
           <Callout title="Vertraulichkeit" tone="warning">
             <p>{project.data.confidentialNote}</p>

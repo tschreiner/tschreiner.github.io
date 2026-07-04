@@ -20,7 +20,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
 <BaseLayout title={site.title} description={site.description}>
   <Hero />
 
-  <section class="section bg-white">
+  <section class="section bg-[color:var(--surface)]">
     <Container class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
       <div>
         <p class="eyebrow">Kurzprofil / Status</p>
@@ -38,8 +38,8 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
           ['Schreibtischnotiz', 'Nicht jede gute Lösung braucht mehr Komplexität. Manchmal nur bessere Daten.'],
         ].map(([title, text]) => (
           <article class="surface-card">
-            <h3 class="font-semibold text-zinc-950">{title}</h3>
-            <p class="mt-3 text-sm leading-7 text-zinc-600">{text}</p>
+            <h3 class="font-semibold text-[color:var(--ink)]">{title}</h3>
+            <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{text}</p>
           </article>
         ))}
       </div>
@@ -61,12 +61,12 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
     </Container>
   </section>
 
-  <section class="section bg-zinc-950 text-white">
+  <section class="section bg-[color:var(--graphite)] text-[#fff7ed]">
     <Container class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
       <div>
-        <p class="eyebrow text-teal-200">Skills / Expertise</p>
+        <p class="eyebrow text-[#f0bf75]">Skills / Expertise</p>
         <h2 class="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">Technische Tiefe, aber bitte wartbar.</h2>
-        <p class="mt-5 leading-8 text-zinc-300">
+        <p class="mt-5 leading-8 text-[#d8c8b4]">
           Die alten Skills wurden aus dem CV-Rohmaterial neu gruppiert: weniger Listenfriedhof, mehr erkennbare Arbeitsfelder.
         </p>
       </div>
@@ -76,7 +76,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
     </Container>
   </section>
 
-  <section class="section bg-white">
+  <section class="section bg-[color:var(--surface)]">
     <Container>
       <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <div>
@@ -91,8 +91,8 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
         </div>
       ) : (
         <div class="surface-card mt-8 max-w-2xl">
-          <h3 class="text-xl font-semibold text-zinc-950">Artikel sind in Vorbereitung.</h3>
-          <p class="mt-3 leading-7 text-zinc-700">
+          <h3 class="text-xl font-semibold text-[color:var(--ink)]">Artikel sind in Vorbereitung.</h3>
+          <p class="mt-3 leading-7 text-[color:var(--muted)]">
             Die ersten Blogentwürfe liegen im Content-System und werden veröffentlicht, sobald Inhalt und Ton sitzen.
           </p>
         </div>
@@ -110,7 +110,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
     </Container>
   </section>
 
-  <section class="section bg-white">
+  <section class="section bg-[color:var(--surface)]">
     <Container>
       <BridgeCard />
     </Container>

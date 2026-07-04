@@ -10,18 +10,18 @@ const { item } = Astro.props;
 const end = item.data.current ? 'Heute' : item.data.endDate;
 ---
 
-<article class="relative border-l border-zinc-200 pl-6">
-  <span class="absolute -left-[7px] top-1.5 size-3 rounded-full border-2 border-white bg-teal-700 shadow-sm"></span>
+<article class="relative border-l border-[color:var(--line)] pl-6">
+  <span class="absolute -left-[7px] top-1.5 size-3 rounded-full border-2 border-[color:var(--surface)] bg-[color:var(--accent)] shadow-sm"></span>
   <div class="surface-card">
     <div class="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
       <div>
-        <h3 class="text-xl font-semibold text-zinc-950">{item.data.role}</h3>
-        <p class="mt-1 text-sm font-medium text-teal-800">{item.data.company} · {item.data.location}</p>
+        <h3 class="text-xl font-semibold text-[color:var(--ink)]">{item.data.role}</h3>
+        <p class="mt-1 text-sm font-medium text-[color:var(--accent-dark)]">{item.data.company} · {item.data.location}</p>
       </div>
-      <p class="text-sm text-zinc-500">{item.data.startDate} - {end}</p>
+      <p class="text-sm text-[color:var(--sky)]">{item.data.startDate} - {end}</p>
     </div>
-    <p class="mt-4 leading-7 text-zinc-700">{item.data.summary}</p>
-    <ul class="mt-4 grid gap-2 text-sm leading-7 text-zinc-600">
+    <p class="mt-4 leading-7 text-[color:var(--muted)]">{item.data.summary}</p>
+    <ul class="mt-4 grid gap-2 text-sm leading-7 text-[color:var(--muted)]">
       {item.data.highlights.map((highlight) => <li>{highlight}</li>)}
     </ul>
     <div class="mt-5 flex flex-wrap gap-2">

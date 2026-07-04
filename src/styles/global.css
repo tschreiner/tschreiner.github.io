@@ -2,15 +2,16 @@
 
 :root {
   color-scheme: light;
-  --ink: #101418;
-  --muted: #596573;
-  --paper: #fbfcfb;
-  --surface: #ffffff;
-  --line: #d8e1df;
-  --teal: #0f766e;
-  --teal-dark: #115e59;
-  --amber: #b7791f;
-  --violet: #5b5bd6;
+  --ink: #1b1815;
+  --muted: #6f655d;
+  --paper: #f3eadf;
+  --surface: #fffaf2;
+  --surface-cool: #edf3f5;
+  --line: #ddcfbd;
+  --accent: #b8702f;
+  --accent-dark: #74421f;
+  --sky: #738a99;
+  --graphite: #24201d;
 }
 
 html {
@@ -20,10 +21,7 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  background:
-    radial-gradient(circle at 12% 10%, rgba(15, 118, 110, 0.12), transparent 26rem),
-    radial-gradient(circle at 85% 18%, rgba(183, 121, 31, 0.1), transparent 24rem),
-    linear-gradient(180deg, #f7faf9 0%, #eef4f3 46%, #f9fbfa 100%);
+  background: linear-gradient(180deg, var(--surface-cool) 0%, var(--paper) 44%, #fff7ed 100%);
   color: var(--ink);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -36,61 +34,105 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(15, 118, 110, 0.45);
+  outline: 3px solid rgba(184, 112, 47, 0.45);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: rgba(15, 118, 110, 0.18);
+  background: rgba(184, 112, 47, 0.2);
 }
 
 @layer components {
+  .hero-section {
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(135deg, var(--surface-cool) 0%, #f3eadf 52%, #fff4e5 100%);
+  }
+
+  .hero-photo-frame {
+    border: 1px solid rgba(116, 66, 31, 0.2);
+    background: var(--graphite);
+    box-shadow: 0 24px 60px rgba(41, 31, 24, 0.22);
+  }
+
   .section {
     @apply py-14 sm:py-20;
   }
 
   .eyebrow {
-    @apply text-sm font-semibold uppercase tracking-[0.16em] text-teal-700;
+    @apply text-sm font-semibold uppercase tracking-[0.16em];
+    color: var(--accent-dark);
   }
 
   .section-title {
-    @apply mt-3 max-w-3xl text-3xl font-semibold leading-tight text-zinc-950 sm:text-4xl;
+    @apply mt-3 max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl;
+    color: var(--ink);
   }
 
   .section-copy {
-    @apply mt-4 max-w-3xl text-base leading-8 text-zinc-700 sm:text-lg;
+    @apply mt-4 max-w-3xl text-base leading-8 sm:text-lg;
+    color: var(--muted);
   }
 
   .surface-card {
-    @apply rounded-lg border border-zinc-200 bg-white/90 p-6 shadow-sm shadow-zinc-200/70;
+    @apply rounded-lg p-6 shadow-sm;
+    border: 1px solid var(--line);
+    background: rgba(255, 250, 242, 0.92);
+    box-shadow: 0 14px 34px rgba(41, 31, 24, 0.08);
   }
 
   .interactive-card {
-    @apply transition duration-200 hover:-translate-y-1 hover:border-teal-300 hover:shadow-lg hover:shadow-teal-900/10;
+    @apply transition duration-200 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .interactive-card:hover {
+    border-color: rgba(184, 112, 47, 0.48);
+    box-shadow: 0 20px 42px rgba(116, 66, 31, 0.16);
   }
 
   .button-primary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-md bg-zinc-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-teal-800;
+    @apply inline-flex min-h-11 items-center justify-center rounded-md px-5 py-3 text-sm font-semibold text-white transition;
+    background: var(--graphite);
+  }
+
+  .button-primary:hover {
+    background: var(--accent-dark);
   }
 
   .button-secondary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-md border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:border-teal-400 hover:text-teal-800;
+    @apply inline-flex min-h-11 items-center justify-center rounded-md px-5 py-3 text-sm font-semibold transition;
+    border: 1px solid var(--line);
+    background: rgba(255, 250, 242, 0.86);
+    color: var(--ink);
+  }
+
+  .button-secondary:hover {
+    border-color: rgba(184, 112, 47, 0.58);
+    color: var(--accent-dark);
   }
 
   .button-ghost {
-    @apply inline-flex min-h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-semibold text-zinc-700 transition hover:bg-white hover:text-teal-800;
+    @apply inline-flex min-h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-semibold transition;
+    color: var(--muted);
+  }
+
+  .button-ghost:hover {
+    background: var(--surface);
+    color: var(--accent-dark);
   }
 
   .prose-site {
-    @apply max-w-none text-zinc-700;
+    @apply max-w-none;
+    color: var(--muted);
   }
 
   .prose-site h2 {
-    @apply mt-10 text-2xl font-semibold text-zinc-950;
+    @apply mt-10 text-2xl font-semibold;
+    color: var(--ink);
   }
 
   .prose-site h3 {
-    @apply mt-8 text-xl font-semibold text-zinc-950;
+    @apply mt-8 text-xl font-semibold;
+    color: var(--ink);
   }
 
   .prose-site p {
@@ -102,7 +144,8 @@ a {
   }
 
   .prose-site a {
-    @apply font-semibold text-teal-800 underline;
+    @apply font-semibold underline;
+    color: var(--accent-dark);
   }
 }
 

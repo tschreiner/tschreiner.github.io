@@ -13,13 +13,13 @@ const { project } = Astro.props;
   <div class="flex flex-wrap gap-2">
     {project.data.technologies.slice(0, 4).map((tech) => <TechTag label={tech} />)}
   </div>
-  <h3 class="mt-5 text-xl font-semibold text-zinc-950">
+  <h3 class="mt-5 text-xl font-semibold text-[color:var(--ink)]">
     <a href={`/projects/${project.data.slug}/`}>{project.data.title}</a>
   </h3>
-  <p class="mt-3 flex-1 leading-7 text-zinc-600">{project.data.description}</p>
+  <p class="mt-3 flex-1 leading-7 text-[color:var(--muted)]">{project.data.description}</p>
   <div class="mt-5 flex items-center justify-between gap-3">
-    <span class="text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">{project.data.status}</span>
-    <a class="text-sm font-semibold text-teal-800 hover:text-zinc-950" href={`/projects/${project.data.slug}/`}>
+    <span class="text-xs font-medium uppercase tracking-[0.14em] text-[color:var(--sky)]">{project.data.status}</span>
+    <a class="text-sm font-semibold text-[color:var(--accent-dark)] hover:text-[color:var(--ink)]" href={`/projects/${project.data.slug}/`}>
       Details
     </a>
   </div>

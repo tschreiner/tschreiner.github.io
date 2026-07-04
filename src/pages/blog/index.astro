@@ -17,7 +17,7 @@ const categories = ['Tech', 'DevOps', 'Automation', 'AI Tools', 'Webprojekte', '
   <section class="section pt-0">
     <Container>
       <div class="mb-8 flex flex-wrap gap-2">
-        {categories.map((category) => <span class="rounded-md border border-zinc-200 bg-white px-3 py-1.5 text-sm text-zinc-700">{category}</span>)}
+        {categories.map((category) => <span class="rounded-md border border-[color:var(--line)] bg-[color:var(--surface)] px-3 py-1.5 text-sm text-[color:var(--muted)]">{category}</span>)}
       </div>
       {posts.length > 0 ? (
         <div class="grid gap-5 md:grid-cols-3">
@@ -25,8 +25,8 @@ const categories = ['Tech', 'DevOps', 'Automation', 'AI Tools', 'Webprojekte', '
         </div>
       ) : (
         <div class="surface-card max-w-2xl">
-          <h2 class="text-2xl font-semibold text-zinc-950">Artikel sind in Vorbereitung.</h2>
-          <p class="mt-3 leading-7 text-zinc-700">
+          <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Artikel sind in Vorbereitung.</h2>
+          <p class="mt-3 leading-7 text-[color:var(--muted)]">
             Die ersten Entwürfe liegen als Drafts im Content-System. Im Entwicklungsmodus sind sie sichtbar; im Production Build bleiben sie verborgen.
           </p>
         </div>
