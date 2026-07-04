@@ -1,4 +1,5 @@
 ---
+import TechTag from '@components/TechTag.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -8,15 +9,18 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class="card card-hover flex h-full flex-col">
+<article class="surface-card interactive-card flex h-full flex-col">
   <div class="flex flex-wrap gap-2">
-    {project.data.technologies.slice(0, 4).map((tech) => <span class="tag">{tech}</span>)}
+    {project.data.technologies.slice(0, 4).map((tech) => <TechTag label={tech} />)}
   </div>
   <h3 class="mt-5 text-xl font-semibold text-zinc-950">
-    <a href={`/projekte/${project.id}/`}>{project.data.title}</a>
+    <a href={`/projects/${project.data.slug}/`}>{project.data.title}</a>
   </h3>
-  <p class="mt-3 flex-1 leading-7 text-zinc-600">{project.data.shortDescription}</p>
-  <a class="mt-6 text-sm font-semibold text-teal-800 hover:text-zinc-950" href={`/projekte/${project.id}/`}>
-    Projekt öffnen
-  </a>
+  <p class="mt-3 flex-1 leading-7 text-zinc-600">{project.data.description}</p>
+  <div class="mt-5 flex items-center justify-between gap-3">
+    <span class="text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">{project.data.status}</span>
+    <a class="text-sm font-semibold text-teal-800 hover:text-zinc-950" href={`/projects/${project.data.slug}/`}>
+      Details
+    </a>
+  </div>
 </article>

@@ -1,37 +1,42 @@
 ---
-import ContentLayout from '@layouts/ContentLayout.astro';
+import Container from '@components/Container.astro';
+import PageLayout from '@layouts/PageLayout.astro';
 import { site } from '@lib/site';
 ---
 
-<ContentLayout
+<PageLayout
   eyebrow="Legal"
   title="Datenschutz"
   description="Vorläufige Datenschutzhinweise. Inhalte müssen vor Veröffentlichung final rechtlich geprüft werden."
   noindex={true}
 >
   <section class="section pt-0">
-    <div class="container-page">
-      <div class="card prose-site">
-        <p><strong>TODO:</strong> Datenschutzerklärung final rechtlich prüfen und ergänzen.</p>
+    <Container>
+      <div class="surface-card prose-site">
+        <p><strong>TODO:</strong> Datenschutzerklärung final rechtlich prüfen und ergänzen. Dies ist keine Rechtsberatung.</p>
         <h2>Grundsatz</h2>
         <p>
           Diese Website ist als statische Astro-Seite geplant. Es werden keine Tracking-Skripte, keine externen Webfonts und
           keine externen Analyse- oder Tag-Management-Dienste eingebunden.
         </p>
-        <h2>Hosting</h2>
+        <h2>Hosting und Serverlogs</h2>
         <p>
-          TODO: Cloudflare Pages als Hosting-Anbieter mit korrekten Vertrags- und Datenschutzhinweisen beschreiben.
+          TODO: Cloudflare Pages als Hosting-Ziel mit passenden Hinweisen zu Serverlogs, CDN und Auftragsverarbeitung beschreiben.
         </p>
         <h2>Kontaktaufnahme</h2>
         <p>
           Bei Kontaktaufnahme per E-Mail werden die übermittelten Daten zur Bearbeitung der Anfrage verarbeitet.
           Kontakt: <a href={`mailto:${site.email}`}>{site.email}</a>
         </p>
-        <h2>Cookies und Analyse</h2>
-        <p>
-          TODO: Final prüfen. Aktuell sind keine Analyse-Cookies und keine Tracking-Dienste vorgesehen.
-        </p>
+        <h2>Prüfpunkte für später</h2>
+        <ul>
+          <li>Kontaktformular und Spam-Schutz.</li>
+          <li>Terminbuchung.</li>
+          <li>Messaging-Kanäle.</li>
+          <li>Mentoring und bezahltes Coaching.</li>
+          <li>Externe Dienste und Einbettungen.</li>
+        </ul>
       </div>
-    </div>
+    </Container>
   </section>
-</ContentLayout>
+</PageLayout>

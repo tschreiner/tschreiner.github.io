@@ -6,8 +6,9 @@ interface Props {
   description?: string;
   canonical?: string;
   image?: string;
-  noindex?: boolean;
   type?: 'website' | 'article';
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 const {
@@ -15,12 +16,14 @@ const {
   description = site.description,
   canonical,
   image = '/images/profile.jpg',
-  noindex = false,
   type = 'website',
+  noindex = false,
+  jsonLd,
 } = Astro.props;
 
 const canonicalUrl = new URL(canonical ?? Astro.url.pathname, site.url).toString();
 const imageUrl = new URL(image, site.url).toString();
+const structuredData = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
 ---
 
 <title>{title}</title>
@@ -37,3 +40,4 @@ const imageUrl = new URL(image, site.url).toString();
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
+{structuredData.map((item) => <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />)}

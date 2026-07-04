@@ -2,14 +2,18 @@
 
 Astro-Relaunch der Personal Brand Website von Tedd Schreiner.
 
+## Zielbild
+
+teddschreiner.de ist eine moderne Personal Brand Website fuer DevOps, Netzwerkautomatisierung, technische Projekte und ein dezentes Mentoring-Nebenprojekt.
+
 ## Stack
 
 - Astro
 - TypeScript
-- Tailwind CSS über `@tailwindcss/vite`
+- Tailwind CSS
 - MDX
 - Astro Content Collections
-- Cloudflare Pages
+- statischer Build fuer Cloudflare Pages
 
 ## Entwicklung
 
@@ -20,17 +24,16 @@ npm run check
 npm run build
 ```
 
-## Cloudflare Pages
+Cloudflare Pages:
 
-- Build command: `npm run build`
-- Output directory: `dist`
+- Build Command: `npm run build`
+- Output Directory: `dist`
 
 ## Inhalte
 
-- Projekte liegen in `src/content/projects`
-- Blogartikel liegen in `src/content/blog`
-- Drafts werden im Production Build nicht veröffentlicht
+- Blog: `src/content/blog`
+- Projekte: `src/content/projects`
+- Experience: `src/content/experience`
+- Site Data: `src/content/site`
 
-## Datenschutz
-
-Die Seite bindet keine Tracking-Skripte, keine externen Webfonts und keine Icon-CDNs ein.
+Die bereitgestellten Migrationsquellen `repomix.txt` und `planung_audit.txt` bleiben lokal und werden nicht veroeffentlicht.

@@ -1,13 +1,17 @@
 import type { CollectionEntry } from 'astro:content';
 
-export const byProjectOrder = (a: CollectionEntry<'projects'>, b: CollectionEntry<'projects'>) =>
-  a.data.order - b.data.order || a.data.title.localeCompare(b.data.title, 'de');
+export const visiblePosts = (post: CollectionEntry<'blog'>) => import.meta.env.DEV || !post.data.draft;
 
-export const byDateDesc = (a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) =>
-  b.data.date.getTime() - a.data.date.getTime();
+export const byPubDateDesc = (a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) =>
+  b.data.pubDate.getTime() - a.data.pubDate.getTime();
 
-export const isVisiblePost = (entry: CollectionEntry<'blog'>) =>
-  import.meta.env.DEV || !entry.data.draft;
+export const byExperienceDateDesc = (
+  a: CollectionEntry<'experience'>,
+  b: CollectionEntry<'experience'>,
+) => b.data.startDate.localeCompare(a.data.startDate);
+
+export const byProjectTitle = (a: CollectionEntry<'projects'>, b: CollectionEntry<'projects'>) =>
+  a.data.title.localeCompare(b.data.title, 'de');
 
 export const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('de-DE', {
@@ -15,3 +19,6 @@ export const formatDate = (date: Date) =>
     month: 'long',
     year: 'numeric',
   }).format(date);
+
+export const readingLabel = (post: CollectionEntry<'blog'>) =>
+  `${formatDate(post.data.pubDate)} · ${post.data.readingTime}`;

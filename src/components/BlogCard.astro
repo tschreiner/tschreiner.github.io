@@ -1,6 +1,7 @@
 ---
+import TechTag from '@components/TechTag.astro';
+import { readingLabel } from '@lib/content';
 import type { CollectionEntry } from 'astro:content';
-import { formatDate } from '@lib/content';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -9,18 +10,17 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<article class="card card-hover h-full">
+<article class="surface-card interactive-card h-full">
   <div class="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
-    <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
-    <span aria-hidden="true">·</span>
-    <span>{post.data.readingTime}</span>
-    {post.data.draft && <span class="tag border-amber-200 bg-amber-50 text-amber-800">Draft</span>}
+    <time datetime={post.data.pubDate.toISOString()}>{readingLabel(post)}</time>
+    {post.data.draft && <TechTag label="Draft" tone="warm" />}
   </div>
   <h3 class="mt-4 text-xl font-semibold text-zinc-950">
     <a href={`/blog/${post.id}/`}>{post.data.title}</a>
   </h3>
   <p class="mt-3 leading-7 text-zinc-600">{post.data.description}</p>
   <div class="mt-5 flex flex-wrap gap-2">
-    {post.data.tags.slice(0, 4).map((tag) => <span class="tag">{tag}</span>)}
+    <TechTag label={post.data.category} />
+    {post.data.tags.slice(0, 3).map((tag) => <TechTag label={tag} />)}
   </div>
 </article>

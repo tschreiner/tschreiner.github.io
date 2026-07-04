@@ -2,14 +2,15 @@
 
 :root {
   color-scheme: light;
-  --color-ink: #101418;
-  --color-muted: #5d6875;
-  --color-border: #d9e0e7;
-  --color-surface: #ffffff;
-  --color-soft: #f4f7f8;
-  --color-teal: #0f766e;
-  --color-amber: #b7791f;
-  --color-violet: #6d5bd0;
+  --ink: #101418;
+  --muted: #596573;
+  --paper: #fbfcfb;
+  --surface: #ffffff;
+  --line: #d8e1df;
+  --teal: #0f766e;
+  --teal-dark: #115e59;
+  --amber: #b7791f;
+  --violet: #5b5bd6;
 }
 
 html {
@@ -18,11 +19,12 @@ html {
 
 body {
   min-height: 100vh;
+  margin: 0;
   background:
-    linear-gradient(135deg, rgba(15, 118, 110, 0.08), transparent 34rem),
-    linear-gradient(225deg, rgba(183, 121, 31, 0.08), transparent 30rem),
-    var(--color-soft);
-  color: var(--color-ink);
+    radial-gradient(circle at 12% 10%, rgba(15, 118, 110, 0.12), transparent 26rem),
+    radial-gradient(circle at 85% 18%, rgba(183, 121, 31, 0.1), transparent 24rem),
+    linear-gradient(180deg, #f7faf9 0%, #eef4f3 46%, #f9fbfa 100%);
+  color: var(--ink);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -30,7 +32,7 @@ body {
 }
 
 a {
-  text-underline-offset: 0.22em;
+  text-underline-offset: 0.2em;
 }
 
 :focus-visible {
@@ -43,32 +45,28 @@ a {
 }
 
 @layer components {
-  .container-page {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
-  }
-
   .section {
     @apply py-14 sm:py-20;
   }
 
   .eyebrow {
-    @apply text-sm font-semibold uppercase tracking-[0.18em] text-teal-700;
+    @apply text-sm font-semibold uppercase tracking-[0.16em] text-teal-700;
   }
 
   .section-title {
-    @apply mt-3 max-w-3xl text-3xl font-semibold text-zinc-950 sm:text-4xl;
+    @apply mt-3 max-w-3xl text-3xl font-semibold leading-tight text-zinc-950 sm:text-4xl;
   }
 
   .section-copy {
     @apply mt-4 max-w-3xl text-base leading-8 text-zinc-700 sm:text-lg;
   }
 
-  .card {
-    @apply rounded-lg border border-zinc-200 bg-white/88 p-6 shadow-sm shadow-zinc-200/70 transition duration-200;
+  .surface-card {
+    @apply rounded-lg border border-zinc-200 bg-white/90 p-6 shadow-sm shadow-zinc-200/70;
   }
 
-  .card-hover {
-    @apply hover:-translate-y-1 hover:border-teal-300 hover:shadow-lg hover:shadow-teal-900/10;
+  .interactive-card {
+    @apply transition duration-200 hover:-translate-y-1 hover:border-teal-300 hover:shadow-lg hover:shadow-teal-900/10;
   }
 
   .button-primary {
@@ -80,11 +78,7 @@ a {
   }
 
   .button-ghost {
-    @apply inline-flex min-h-11 items-center justify-center rounded-md px-4 py-3 text-sm font-semibold text-zinc-700 transition hover:bg-white hover:text-teal-800;
-  }
-
-  .tag {
-    @apply inline-flex items-center rounded-md border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-medium text-zinc-700;
+    @apply inline-flex min-h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-semibold text-zinc-700 transition hover:bg-white hover:text-teal-800;
   }
 
   .prose-site {
@@ -105,6 +99,10 @@ a {
 
   .prose-site ul {
     @apply mt-4 list-disc space-y-2 pl-6 leading-8;
+  }
+
+  .prose-site a {
+    @apply font-semibold text-teal-800 underline;
   }
 }
 

@@ -1,0 +1,33 @@
+---
+import ContactPanel from '@components/ContactPanel.astro';
+import Container from '@components/Container.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+import { site } from '@lib/site';
+---
+
+<PageLayout
+  eyebrow="Kontakt"
+  title="Kontakt aufnehmen"
+  description="Am besten per E-Mail oder über berufliche Netzwerke. Ein Formular kommt erst dazu, wenn eine datenschutzarme Lösung klar ist."
+>
+  <section class="section pt-0">
+    <Container class="grid gap-6 md:grid-cols-2">
+      <ContactPanel />
+      <div class="surface-card">
+        <h2 class="text-2xl font-semibold text-zinc-950">Profile</h2>
+        <div class="mt-5 grid gap-3">
+          <a class="button-secondary justify-start" href={site.social.linkedin}>LinkedIn</a>
+          <a class="button-secondary justify-start" href={site.social.github}>GitHub</a>
+          <a class="button-secondary justify-start" href={site.social.xing}>Xing</a>
+        </div>
+      </div>
+      <div class="surface-card md:col-span-2">
+        <h2 class="text-2xl font-semibold text-zinc-950">Formular-Platzhalter</h2>
+        <p class="mt-3 leading-7 text-zinc-700">
+          TODO: Formular erst umsetzen, wenn Hosting, Spam-Schutz, Zweckhinweis und Datenverarbeitung sauber entschieden sind.
+          Bis dahin bleibt die Kontaktaufnahme bewusst simpel.
+        </p>
+      </div>
+    </Container>
+  </section>
+</PageLayout>

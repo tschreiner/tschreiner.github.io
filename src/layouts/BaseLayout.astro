@@ -1,7 +1,8 @@
 ---
-import SEOHead from '@components/SEOHead.astro';
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
+import SEOHead from '@components/SEOHead.astro';
+import { site } from '@lib/site';
 import '../styles/global.css';
 
 interface Props {
@@ -10,9 +11,32 @@ interface Props {
   canonical?: string;
   noindex?: boolean;
   type?: 'website' | 'article';
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
-const { title, description, canonical, noindex, type } = Astro.props;
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  url: site.url,
+  email: site.email,
+  jobTitle: 'DevOps Engineer',
+  sameAs: [site.social.github, site.social.linkedin],
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.name,
+  url: site.url,
+  description: site.description,
+};
+
+const propsJsonLd = Astro.props.jsonLd
+  ? Array.isArray(Astro.props.jsonLd)
+    ? Astro.props.jsonLd
+    : [Astro.props.jsonLd]
+  : [];
 ---
 
 <!doctype html>
@@ -20,8 +44,15 @@ const { title, description, canonical, noindex, type } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f4f7f8" />
-    <SEOHead title={title} description={description} canonical={canonical} noindex={noindex} type={type} />
+    <meta name="theme-color" content="#f7faf9" />
+    <SEOHead
+      title={Astro.props.title}
+      description={Astro.props.description}
+      canonical={Astro.props.canonical}
+      noindex={Astro.props.noindex}
+      type={Astro.props.type}
+      jsonLd={[personJsonLd, websiteJsonLd, ...propsJsonLd]}
+    />
   </head>
   <body>
     <Header />

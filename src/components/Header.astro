@@ -1,4 +1,5 @@
 ---
+import Container from '@components/Container.astro';
 import { navigation, site } from '@lib/site';
 ---
 
@@ -6,16 +7,14 @@ import { navigation, site } from '@lib/site';
   <a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2" href="#content">
     Zum Inhalt springen
   </a>
-  <div class="container-page flex min-h-16 items-center justify-between gap-4">
+  <Container class="flex min-h-16 items-center justify-between gap-4">
     <a href="/" class="flex items-center gap-3 font-semibold text-zinc-950" aria-label="Startseite">
       <span class="grid size-9 place-items-center rounded-md bg-zinc-950 text-sm text-white">TS</span>
       <span>{site.name}</span>
     </a>
 
     <nav class="hidden items-center gap-1 md:flex" aria-label="Hauptnavigation">
-      {navigation.map((item) => (
-        <a class="button-ghost" href={item.href}>{item.label}</a>
-      ))}
+      {navigation.map((item) => <a class="button-ghost" href={item.href}>{item.label}</a>)}
     </nav>
 
     <details class="relative md:hidden">
@@ -26,5 +25,5 @@ import { navigation, site } from '@lib/site';
         ))}
       </nav>
     </details>
-  </div>
+  </Container>
 </header>

@@ -1,21 +1,25 @@
 ---
 title: "Network Source of Truth mit i-doit"
-shortDescription: "Aufbau einer strukturierten Netzwerkdatenbasis als Grundlage für Inventar, Betrieb und Automatisierung."
-problem: "Netzwerkdaten lagen in mehreren Systemen und Formaten vor. Für Betrieb, Dokumentation und Automatisierung fehlte eine verlässliche, zentrale Sicht auf Geräte, Beziehungen und Metadaten."
-solution: "i-doit wurde als Network Source of Truth modelliert und mit Bestandssystemen synchronisiert. Ziel war eine Datenstruktur, die sowohl Betrieb als auch Automatisierungsprozesse unterstützt."
-technologies: ["i-doit", "REST", "Ansible", "Network Source of Truth", "HPE IMC", "Infoblox"]
-result: "Eine belastbarere Grundlage für Dokumentation, Synchronisierung und automatisierte Folgeprozesse."
+slug: "network-source-of-truth-idoit"
+description: "Strukturierte Netzwerkdaten als Grundlage für Inventar, Betrieb, Synchronisation und Automatisierung."
+problem: "Netzwerkdaten lagen in verschiedenen Systemen und Pflegekontexten. Für Betrieb und Automatisierung fehlte eine zentrale, verlässliche Sicht auf Geräte, Beziehungen und Metadaten."
+solution: "i-doit wurde als Network Source of Truth mit klaren Datenmodellen, Pflegeprozessen und Schnittstellenlogik zusammengedacht. Der Schwerpunkt lag auf Modellierung, Pflegebarkeit und der Vorbereitung abstrahierter Automatisierungsabläufe."
+technologies: ["i-doit", "NSoT", "REST APIs", "Ansible", "Datenmodellierung", "Dokumentation"]
+result: "Eine belastbarere Datenbasis für Dokumentation, Betrieb und spätere Automatisierungsschritte."
+featured: true
+category: "Network Automation"
+status: "Anonymisierte Case Study"
+confidentialNote: "Sensible Details, interne Namen, konkrete Topologien und nicht öffentliche Betriebsinformationen wurden bewusst weggelassen."
+links: []
 lessons:
   - "Eine Source of Truth ist zuerst ein Datenmodell und erst danach ein Tool."
-  - "Automatisierung verstärkt Datenqualität; sie repariert sie nicht automatisch."
-  - "Schnittstellen müssen fachliche Ownership genauso abbilden wie technische Felder."
-anonymized: true
-featured: true
-order: 1
-seoTitle: "Network Source of Truth mit i-doit | Tedd Schreiner"
-seoDescription: "Anonymisiertes Projekt: i-doit als Network Source of Truth für Netzwerkdaten, Betrieb und Automatisierung."
+  - "Automatisierung verstärkt Datenqualität; sie ersetzt keine Ownership."
+  - "Pflegeprozesse müssen für den Betrieb realistisch bleiben."
+seo:
+  title: "Network Source of Truth mit i-doit | Tedd Schreiner"
+  description: "Anonymisierte Projektseite zu i-doit als Network Source of Truth für Netzwerkdaten, Betrieb und Automatisierung."
 ---
 
-Die Arbeit bestand nicht nur aus Tool-Konfiguration. Entscheidend war, die richtigen Objekte, Beziehungen und Verantwortlichkeiten so zu modellieren, dass spätere Automatisierungsschritte auf verlässlichen Informationen aufbauen können.
+Die Arbeit bestand nicht aus einem einfachen Import vorhandener Listen. Entscheidend war, welche Informationen zuverlässig gepflegt werden können, wo fachliche Verantwortung liegt und wie daraus nutzbare Automatisierung entsteht.
 
-Besonders wichtig war die Balance zwischen Detailtiefe und Pflegebarkeit: Zu wenig Struktur macht Daten wertlos, zu viel Struktur verhindert, dass sie dauerhaft aktuell bleiben.
+Der wichtigste Teil lag deshalb in der Struktur: Objekte, Beziehungen, Felder, Verantwortlichkeiten und Schnittstellen mussten so geschnitten werden, dass sie operativ helfen und nicht nur gut aussehen.

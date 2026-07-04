@@ -6,3 +6,7 @@ dist/
 !.env.example
 npm-debug.log*
 .DS_Store
+repomix.txt
+planung_audit.txt
+lighthouse-*.json
+.tmp/

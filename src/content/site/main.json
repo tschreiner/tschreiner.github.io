@@ -1,0 +1,22 @@
+{
+  "name": "Tedd Schreiner",
+  "domain": "teddschreiner.de",
+  "email": "info@teddschreiner.de",
+  "hero": {
+    "title": "Tedd Schreiner",
+    "headline": "DevOps Engineer, Automatisierer und Builder von Web- und AI-Projekten.",
+    "subheadline": "Ich arbeite an Infrastruktur, Netzwerkautomatisierung und technischen Systemen — und baue nebenbei Projekte, die Technik, Kreativität und Alltag miteinander verbinden."
+  },
+  "navigation": [
+    { "label": "Über mich", "href": "/about/" },
+    { "label": "Projekte", "href": "/projects/" },
+    { "label": "Blog", "href": "/blog/" },
+    { "label": "CV", "href": "/cv/" },
+    { "label": "Kontakt", "href": "/contact/" }
+  ],
+  "social": {
+    "github": "https://github.com/tschreiner",
+    "linkedin": "https://www.linkedin.com/in/teddschreiner/",
+    "xing": "https://www.xing.com/profile/Tedd_Schreiner"
+  }
+}

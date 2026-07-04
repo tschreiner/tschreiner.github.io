@@ -1,0 +1,15 @@
+{
+  "role": "Head of Online Marketing & Infrastruktur",
+  "company": "HAMMELSPRUNG GmbH",
+  "location": "Brilon",
+  "startDate": "2018-09",
+  "endDate": "2019-12",
+  "current": false,
+  "summary": "Verbindung aus Kampagnenautomation, Webprojekten und Verantwortung für On-Premise- sowie Cloud-Infrastruktur.",
+  "highlights": [
+    "Automatisierte Auswertung von Kampagnen-KPIs mit Python und APIs.",
+    "Deployment-Prozesse für Landing Pages und Nischenseiten mit Ansible und Docker.",
+    "Betrieb von Cloud- und On-Premise-Systemen für interne und externe Webprojekte."
+  ],
+  "technologies": ["Python", "REST", "Ansible", "Docker", "AWS", "WordPress"]
+}

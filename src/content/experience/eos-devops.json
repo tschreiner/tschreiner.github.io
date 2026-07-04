@@ -1,0 +1,15 @@
+{
+  "role": "DevOps Engineer",
+  "company": "EOS Technology Solutions GmbH",
+  "location": "Hamburg",
+  "startDate": "2022-09",
+  "current": true,
+  "summary": "Aktuelle Rolle mit Schwerpunkt auf Netzwerkautomatisierung, Source-of-Truth-Daten, Linux-Automation und technischem Betrieb.",
+  "highlights": [
+    "Netzwerkautomatisierung mit Ansible, REST und herstellerspezifischen Netzwerkplattformen.",
+    "Aufbau und Pflege einer Network Source of Truth mit i-doit als Grundlage für Betrieb, Dokumentation und Automatisierung.",
+    "Linux-Systemadministration und Automatisierung mit AlmaLinux, Foreman und Ansible.",
+    "Virtual Network Lab für Topologieverständnis, Tests und reproduzierbare Szenarien."
+  ],
+  "technologies": ["Ansible", "i-doit", "REST APIs", "Netzwerkplattformen", "AlmaLinux", "Foreman", "EVE-NG", "GNS3"]
+}

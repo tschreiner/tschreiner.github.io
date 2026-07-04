@@ -1,0 +1,20 @@
+---
+import TechTag from '@components/TechTag.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  items: string[];
+  dark?: boolean;
+}
+
+const { title, description, items, dark = false } = Astro.props;
+---
+
+<article class={dark ? 'rounded-lg border border-white/10 bg-white/5 p-5' : 'surface-card'}>
+  <h3 class={dark ? 'font-semibold text-white' : 'font-semibold text-zinc-950'}>{title}</h3>
+  <p class={dark ? 'mt-3 text-sm leading-7 text-zinc-300' : 'mt-3 text-sm leading-7 text-zinc-600'}>{description}</p>
+  <div class="mt-4 flex flex-wrap gap-2">
+    {items.map((item) => <TechTag label={item} tone={dark ? 'dark' : 'default'} />)}
+  </div>
+</article>
