@@ -3,23 +3,23 @@ import Container from '@components/Container.astro';
 ---
 
 <section class="hero-section relative overflow-hidden">
-  <Container class="grid min-h-[calc(100vh-4rem)] items-center gap-10 py-12 lg:grid-cols-[1.14fr_0.86fr] lg:py-20">
+  <Container class="grid items-center gap-8 py-10 sm:py-14 lg:min-h-[calc(100vh-4rem)] lg:grid-cols-[1.14fr_0.86fr] lg:gap-10 lg:py-20">
     <div>
       <p class="eyebrow">DevOps · Automation · Builder</p>
-      <h1 class="mt-5 max-w-4xl text-5xl font-semibold leading-tight text-[color:var(--ink)] sm:text-6xl">
+      <h1 class="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-[color:var(--ink)] sm:mt-5 sm:text-6xl">
         Tedd Schreiner
       </h1>
-      <p class="mt-5 max-w-2xl text-xl leading-8 text-[color:var(--graphite)]">
+      <p class="mt-4 max-w-2xl text-lg leading-8 text-[color:var(--graphite)] sm:mt-5 sm:text-xl">
         DevOps Engineer, Automatisierer und Builder von Web- und AI-Projekten.
       </p>
-      <p class="mt-6 max-w-2xl text-lg leading-8 text-[color:var(--muted)]">
-        Ich arbeite an Infrastruktur, Netzwerkautomatisierung und technischen Systemen — und baue nebenbei Projekte,
+      <p class="mt-5 max-w-2xl text-base leading-8 text-[color:var(--muted)] sm:mt-6 sm:text-lg">
+        Ich arbeite an Infrastruktur, Netzwerkautomatisierung und technischen Systemen - und baue nebenbei Projekte,
         die Technik, Kreativität und Alltag miteinander verbinden.
       </p>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <div class="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
         <a class="button-primary" href="/projects/">Projekte ansehen</a>
-        <a class="button-secondary" href="/cv/">Lebenslauf öffnen</a>
         <a class="button-secondary" href="/contact/">Kontakt aufnehmen</a>
+        <a class="text-link self-center sm:self-auto" href="/cv/">Lebenslauf öffnen</a>
       </div>
     </div>
 
@@ -28,7 +28,7 @@ import Container from '@components/Container.astro';
         <img
           src="/images/tedd-schreiner-hero.jpg"
           alt="Portrait von Tedd Schreiner"
-          class="aspect-[4/5] w-full object-cover"
+          class="w-full object-cover"
           style="object-position: 52% 46%;"
           width="1600"
           height="1600"
@@ -36,9 +36,9 @@ import Container from '@components/Container.astro';
           decoding="async"
           fetchpriority="high"
         />
-        <figcaption class="border-t border-white/10 bg-[color:var(--graphite)] p-5 text-sm text-[#f7ead9]">
-          <p class="font-mono text-[#f0bf75]">system.focus = automation</p>
-          <p class="mt-2 text-[#d8c8b4]">Infrastruktur, Datenqualität und saubere technische Abläufe.</p>
+        <figcaption class="border-t border-white/10 bg-[color:var(--graphite)] p-4 text-sm text-[color:var(--warm-text)] sm:p-5">
+          <p class="font-mono text-[color:var(--gold)]">system.focus = automation</p>
+          <p class="mt-2 text-[color:var(--warm-muted)]">Infrastruktur, Datenqualität und saubere technische Abläufe.</p>
         </figcaption>
       </figure>
     </div>
