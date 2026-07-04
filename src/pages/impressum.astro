@@ -1,0 +1,33 @@
+---
+import Container from '@components/Container.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+import { site } from '@lib/site';
+---
+
+<PageLayout
+  eyebrow="Legal"
+  title="Impressum"
+  description="Vorläufiger Platzhalter bis zur finalen rechtlichen Prüfung."
+  noindex={true}
+>
+  <section class="section pt-0">
+    <Container>
+      <div class="surface-card prose-site">
+        <p><strong>TODO:</strong> Impressumsangaben final rechtlich prüfen und ergänzen. Dies ist keine Rechtsberatung.</p>
+        <h2>Angaben zum Verantwortlichen</h2>
+        <p>
+          Tedd Schreiner<br />
+          TODO: ladungsfähige Anschrift ergänzen
+        </p>
+        <h2>Kontakt</h2>
+        <p>E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+        <h2>Prüfpunkte</h2>
+        <ul>
+          <li>Verantwortliche Angaben final prüfen.</li>
+          <li>Hosting und Domain-Konfiguration berücksichtigen.</li>
+          <li>Spätere kommerzielle Mentoring-Angebote separat prüfen.</li>
+        </ul>
+      </div>
+    </Container>
+  </section>
+</PageLayout>

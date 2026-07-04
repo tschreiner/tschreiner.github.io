@@ -1,0 +1,71 @@
+---
+import Callout from '@components/Callout.astro';
+import Container from '@components/Container.astro';
+import TechTag from '@components/TechTag.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+import { site } from '@lib/site';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.data.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const projectJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: project.data.title,
+  description: project.data.description,
+  url: `${site.url}/projects/${project.data.slug}/`,
+  author: {
+    '@type': 'Person',
+    name: site.name,
+  },
+};
+---
+
+<PageLayout
+  eyebrow="Projekt"
+  title={project.data.title}
+  description={project.data.description}
+  seoTitle={project.data.seo?.title}
+  seoDescription={project.data.seo?.description}
+  jsonLd={projectJsonLd}
+>
+  <section class="section pt-0">
+    <Container class="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+      <aside class="surface-card h-fit">
+        <h2 class="text-lg font-semibold text-zinc-950">Technologien</h2>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {project.data.technologies.map((tech) => <TechTag label={tech} />)}
+        </div>
+        <p class="mt-5 text-sm font-medium uppercase tracking-[0.14em] text-zinc-500">{project.data.status}</p>
+        {project.data.confidentialNote && (
+          <Callout title="Vertraulichkeit" tone="warning">
+            <p>{project.data.confidentialNote}</p>
+          </Callout>
+        )}
+        <a class="button-primary mt-2 w-full" href="/contact/">Über ähnliche Projekte sprechen</a>
+      </aside>
+
+      <article class="surface-card prose-site">
+        <h2>Problem</h2>
+        <p>{project.data.problem}</p>
+        <h2>Lösung</h2>
+        <p>{project.data.solution}</p>
+        <h2>Ergebnis</h2>
+        <p>{project.data.result}</p>
+        <h2>Lessons Learned</h2>
+        <ul>
+          {project.data.lessons.map((lesson) => <li>{lesson}</li>)}
+        </ul>
+        <Content />
+      </article>
+    </Container>
+  </section>
+</PageLayout>

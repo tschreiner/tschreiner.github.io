@@ -1,0 +1,36 @@
+---
+import BlogCard from '@components/BlogCard.astro';
+import Container from '@components/Container.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+import { byPubDateDesc, visiblePosts } from '@lib/content';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).filter(visiblePosts).sort(byPubDateDesc);
+const categories = ['Tech', 'DevOps', 'Automation', 'AI Tools', 'Webprojekte', 'Personal Notes'];
+---
+
+<PageLayout
+  eyebrow="Blog"
+  title="Notizen zu DevOps, Netzwerkdaten und Projekten."
+  description="MDX-Blog mit Kategorien, Tags, Datum, Lesedauer, SEO-Metadaten, RSS und Draft-Handling."
+>
+  <section class="section pt-0">
+    <Container>
+      <div class="mb-8 flex flex-wrap gap-2">
+        {categories.map((category) => <span class="rounded-md border border-zinc-200 bg-white px-3 py-1.5 text-sm text-zinc-700">{category}</span>)}
+      </div>
+      {posts.length > 0 ? (
+        <div class="grid gap-5 md:grid-cols-3">
+          {posts.map((post) => <BlogCard post={post} />)}
+        </div>
+      ) : (
+        <div class="surface-card max-w-2xl">
+          <h2 class="text-2xl font-semibold text-zinc-950">Artikel sind in Vorbereitung.</h2>
+          <p class="mt-3 leading-7 text-zinc-700">
+            Die ersten Entwürfe liegen als Drafts im Content-System. Im Entwicklungsmodus sind sie sichtbar; im Production Build bleiben sie verborgen.
+          </p>
+        </div>
+      )}
+    </Container>
+  </section>
+</PageLayout>

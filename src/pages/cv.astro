@@ -1,0 +1,64 @@
+---
+import ContactPanel from '@components/ContactPanel.astro';
+import Container from '@components/Container.astro';
+import SkillCluster from '@components/SkillCluster.astro';
+import TimelineItem from '@components/TimelineItem.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+import { byExperienceDateDesc } from '@lib/content';
+import { education, languages, skillClusters } from '@lib/site';
+import { getCollection } from 'astro:content';
+
+const experience = (await getCollection('experience')).sort(byExperienceDateDesc);
+---
+
+<PageLayout
+  eyebrow="CV / Lebenslauf"
+  title="Lebenslauf"
+  description="Aktuelle Rolle, relevante Erfahrung, Skills, Ausbildung und Sprachen. Gekürzt, sortiert und ohne leere CV-Altlasten."
+>
+  <section class="section pt-0">
+    <Container class="grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+      <aside class="grid content-start gap-5">
+        <div class="surface-card">
+          <h2 class="text-lg font-semibold text-zinc-950">Kurzprofil</h2>
+          <p class="mt-3 text-sm leading-7 text-zinc-700">
+            DevOps Engineer mit Fokus auf Netzwerkautomatisierung, Network Source of Truth, Linux-Automation und technischem Betrieb.
+          </p>
+        </div>
+        <div class="grid gap-4">
+          {skillClusters.map((cluster) => <SkillCluster {...cluster} />)}
+        </div>
+        <div class="surface-card">
+          <h2 class="text-lg font-semibold text-zinc-950">Ausbildung</h2>
+          <div class="mt-4 grid gap-4">
+            {education.map((item) => (
+              <div>
+                <p class="font-medium text-zinc-950">{item.title}</p>
+                <p class="mt-1 text-sm text-zinc-600">{item.institution} · {item.date}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="surface-card">
+          <h2 class="text-lg font-semibold text-zinc-950">Sprachen</h2>
+          <div class="mt-4 grid gap-2">
+            {languages.map((language) => (
+              <p class="text-sm text-zinc-700"><strong>{language.name}:</strong> {language.level}</p>
+            ))}
+          </div>
+        </div>
+      </aside>
+      <div>
+        <div class="grid gap-5">
+          {experience.map((item) => <TimelineItem item={item} />)}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="section pt-0">
+    <Container>
+      <ContactPanel />
+    </Container>
+  </section>
+</PageLayout>

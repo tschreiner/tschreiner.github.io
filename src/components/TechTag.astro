@@ -1,0 +1,18 @@
+---
+interface Props {
+  label: string;
+  tone?: 'default' | 'dark' | 'warm';
+}
+
+const { label, tone = 'default' } = Astro.props;
+const toneClass =
+  tone === 'dark'
+    ? 'border-white/10 bg-white/10 text-zinc-200'
+    : tone === 'warm'
+      ? 'border-amber-200 bg-amber-50 text-amber-900'
+      : 'border-zinc-200 bg-zinc-50 text-zinc-700';
+---
+
+<span class={`inline-flex items-center rounded-md border px-2.5 py-1 text-xs font-medium ${toneClass}`}>
+  {label}
+</span>

@@ -1,0 +1,16 @@
+{
+  "role": "IT-Systemadministrator",
+  "company": "Wunschgutschein GmbH",
+  "location": "Brilon",
+  "startDate": "2020-01",
+  "endDate": "2022-08",
+  "current": false,
+  "summary": "Breite Infrastrukturrolle in einem wachsenden Umfeld mit Fokus auf Modernisierung, ITSM, Monitoring und Automatisierung.",
+  "highlights": [
+    "Modernisierung von Netzwerk-, Server-, Datenbank- und Monitoring-Systemen.",
+    "Einführung von Microsoft 365 und Endpoint-Management-Prozessen.",
+    "Automatisierung von ITSM-Abläufen mit Jira Service Management, PowerShell und CI-Workflows.",
+    "Aufbau von IPAM- und Automatisierungsgrundlagen mit NetBox, REST, Ansible und NAPALM."
+  ],
+  "technologies": ["Microsoft 365", "PowerShell", "Ansible", "NetBox", "Jira Service Management", "PRTG", "Graylog", "Docker"]
+}

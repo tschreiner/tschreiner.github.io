@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+npm-debug.log*
+.DS_Store
+repomix.txt
+planung_audit.txt
+lighthouse-*.json
+.tmp/

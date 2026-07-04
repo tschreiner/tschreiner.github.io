@@ -1,0 +1,25 @@
+{
+  "name": "teddschreiner-de",
+  "version": "1.0.0",
+  "description": "Personal Brand Website von Tedd Schreiner",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "stop:dev": "powershell -ExecutionPolicy Bypass -File ./scripts/stop-dev.ps1",
+    "check": "astro check",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^7.0.2",
+    "@astrojs/rss": "^4.0.19",
+    "@tailwindcss/vite": "^4.3.2",
+    "astro": "^7.0.6",
+    "tailwindcss": "^4.3.2",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4"
+  }
+}

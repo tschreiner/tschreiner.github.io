@@ -1,0 +1,52 @@
+---
+import ContactPanel from '@components/ContactPanel.astro';
+import Container from '@components/Container.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+import { site } from '@lib/site';
+---
+
+<PageLayout
+  eyebrow="Separates Projekt"
+  title="Dating-Profil-Mentoring für introvertierte Nerds"
+  description="Ein Angebot in Vorbereitung: klarer, sympathischer und ehrlicher auf Dating-Apps wirken, ohne sich zu verstellen."
+>
+  <section class="section pt-0">
+    <Container class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="surface-card prose-site">
+        <p>
+          Viele Dating-Profile scheitern nicht daran, dass jemand uninteressant ist. Sie scheitern daran, dass gute Eigenschaften
+          nicht sichtbar werden: Humor, Verlässlichkeit, Neugier, Ruhe, Haltung.
+        </p>
+        <p>
+          Genau dort soll dieses separate Projekt ansetzen: respektvoll, ehrlich und ohne künstliche Rolle. Geplant ist Mentoring
+          für introvertierte, analytische Männer, die auf Dating-Apps klarer kommunizieren wollen und dabei sie selbst bleiben möchten.
+        </p>
+        <p>
+          Diese Seite ist bewusst nur eine Bridge. Das bezahlte Angebot bekommt später ein eigenes Zuhause und auf teddschreiner.de
+          bleibt der berufliche Fokus klar bei DevOps, Projekten und technischer Arbeit.
+        </p>
+      </div>
+      <aside class="surface-card h-fit">
+        <h2 class="text-2xl font-semibold text-zinc-950">Interesse?</h2>
+        <p class="mt-3 leading-7 text-zinc-700">
+          Für erste Gespräche oder eine Vormerkung reicht eine kurze Nachricht.
+        </p>
+        <div class="mt-6 grid gap-3">
+          <a class="button-primary" href={`mailto:${site.email}?subject=Interesse%20am%20Dating-Profil-Mentoring`}>
+            Interesse vormerken
+          </a>
+          <a class="button-secondary" href={`mailto:${site.email}?subject=Kostenloses%20Erstgespraech%20anfragen`}>
+            Kostenloses Erstgespräch anfragen
+          </a>
+          <a class="button-secondary" href={`mailto:${site.email}`}>Nachricht schreiben</a>
+        </div>
+      </aside>
+    </Container>
+  </section>
+
+  <section class="section pt-0">
+    <Container>
+      <ContactPanel />
+    </Container>
+  </section>
+</PageLayout>
