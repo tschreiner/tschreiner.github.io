@@ -1,0 +1,54 @@
+---
+import ContentLayout from '@layouts/ContentLayout.astro';
+import { byProjectOrder } from '@lib/content';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = (await getCollection('projects')).sort(byProjectOrder);
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<ContentLayout
+  eyebrow="Projekt"
+  title={project.data.title}
+  description={project.data.shortDescription}
+  seoTitle={project.data.seoTitle}
+  seoDescription={project.data.seoDescription}
+>
+  <section class="section pt-0">
+    <div class="container-page grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+      <aside class="card h-fit">
+        <h2 class="text-lg font-semibold text-zinc-950">Technologien</h2>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {project.data.technologies.map((tech) => <span class="tag">{tech}</span>)}
+        </div>
+        {project.data.anonymized && (
+          <p class="mt-5 rounded-md border border-amber-200 bg-amber-50 p-3 text-sm leading-6 text-amber-900">
+            Sensible Details, interne Namen und konkrete Umgebungsdaten wurden anonymisiert.
+          </p>
+        )}
+      </aside>
+
+      <article class="card prose-site">
+        <h2>Problem</h2>
+        <p>{project.data.problem}</p>
+        <h2>Lösung</h2>
+        <p>{project.data.solution}</p>
+        <h2>Ergebnis</h2>
+        <p>{project.data.result}</p>
+        <h2>Lessons Learned</h2>
+        <ul>
+          {project.data.lessons.map((lesson) => <li>{lesson}</li>)}
+        </ul>
+        <Content />
+      </article>
+    </div>
+  </section>
+</ContentLayout>

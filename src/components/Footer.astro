@@ -1,0 +1,37 @@
+---
+import { site } from '@lib/site';
+---
+
+<footer class="border-t border-zinc-200 bg-white">
+  <div class="container-page grid gap-8 py-10 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <p class="font-semibold text-zinc-950">{site.name}</p>
+      <p class="mt-3 max-w-md text-sm leading-7 text-zinc-600">
+        DevOps, Netzwerkautomatisierung und Web-/AI-Projekte mit Sinn für robuste Systeme und klare Kommunikation.
+      </p>
+    </div>
+    <div>
+      <p class="text-sm font-semibold text-zinc-950">Kontakt</p>
+      <div class="mt-3 grid gap-2 text-sm text-zinc-600">
+        <a class="hover:text-teal-800" href={`mailto:${site.email}`}>{site.email}</a>
+        <a class="hover:text-teal-800" href={site.social.linkedin}>LinkedIn</a>
+        <a class="hover:text-teal-800" href={site.social.github}>GitHub</a>
+        <a class="hover:text-teal-800" href={site.social.xing}>Xing</a>
+      </div>
+    </div>
+    <div>
+      <p class="text-sm font-semibold text-zinc-950">Links</p>
+      <div class="mt-3 grid gap-2 text-sm text-zinc-600">
+        <a class="hover:text-teal-800" href="/mentoring/">Dating-Mentoring</a>
+        <a class="hover:text-teal-800" href="/impressum/">Impressum</a>
+        <a class="hover:text-teal-800" href="/datenschutz/">Datenschutz</a>
+        <a class="hover:text-teal-800" href="/rss.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-zinc-200 py-4">
+    <div class="container-page text-sm text-zinc-500">
+      © {new Date().getFullYear()} {site.name}. Keine Tracking-Skripte, keine externen Webfonts.
+    </div>
+  </div>
+</footer>

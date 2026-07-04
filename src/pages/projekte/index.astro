@@ -1,0 +1,20 @@
+---
+import ProjectCard from '@components/ProjectCard.astro';
+import ContentLayout from '@layouts/ContentLayout.astro';
+import { byProjectOrder } from '@lib/content';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort(byProjectOrder);
+---
+
+<ContentLayout
+  eyebrow="Projekte"
+  title="Projekte aus DevOps, Netzwerkautomatisierung und Lab-Aufbau."
+  description="Ausgewählte Arbeiten, anonymisiert und auf Problem, Lösung, Technologien und Lernpunkte reduziert."
+>
+  <section class="section pt-0">
+    <div class="container-page grid gap-5 md:grid-cols-3">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</ContentLayout>

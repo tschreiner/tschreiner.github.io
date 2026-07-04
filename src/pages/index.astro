@@ -1,0 +1,165 @@
+---
+import ProjectCard from '@components/ProjectCard.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { byProjectOrder } from '@lib/content';
+import { experience, site, skills } from '@lib/site';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort(byProjectOrder).slice(0, 3);
+---
+
+<BaseLayout
+  title="Tedd Schreiner | DevOps Engineer, Automatisierer und Builder"
+  description="DevOps Engineer mit Fokus auf Netzwerkautomatisierung, Infrastructure Operations, Network Source of Truth und Web-/AI-Projekte."
+>
+  <section class="relative overflow-hidden">
+    <div class="container-page grid min-h-[calc(100vh-4rem)] items-center gap-10 py-12 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
+      <div>
+        <p class="eyebrow">DevOps · Automation · Builder</p>
+        <h1 class="mt-5 max-w-4xl text-5xl font-semibold leading-tight text-zinc-950 sm:text-6xl">
+          Tedd Schreiner
+        </h1>
+        <p class="mt-5 max-w-2xl text-xl leading-8 text-zinc-800">
+          DevOps Engineer, Automatisierer und Builder von Web- und AI-Projekten.
+        </p>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-zinc-700">
+          Ich arbeite an Infrastruktur, Netzwerkautomatisierung und technischen Systemen — und baue nebenbei Projekte,
+          die Technik, Kreativität und Alltag miteinander verbinden.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a class="button-primary" href="/projekte/">Projekte ansehen</a>
+          <a class="button-secondary" href="/cv/">Lebenslauf öffnen</a>
+          <a class="button-secondary" href="/kontakt/">Kontakt aufnehmen</a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute -inset-4 rounded-[2rem] bg-teal-700/10 blur-3xl" aria-hidden="true"></div>
+        <div class="relative overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-xl shadow-zinc-300/40">
+          <img
+            src="/images/profile.jpg"
+            alt="Portrait von Tedd Schreiner"
+            class="aspect-[4/3] w-full object-cover"
+            width="900"
+            height="675"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <div class="border-t border-zinc-200 bg-zinc-950 p-5 text-sm text-zinc-100">
+            <p class="font-mono text-teal-200">system.status = resilient</p>
+            <p class="mt-2 text-zinc-300">Infrastruktur, Automatisierung und saubere technische Dokumentation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container-page">
+      <p class="eyebrow">Fokus</p>
+      <h2 class="section-title">Technische Systeme, die nachvollziehbar bleiben.</h2>
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        {[
+          ['Network Source of Truth', 'Strukturierte Netzwerkdaten als Grundlage für Inventar, Betrieb und Automatisierung.'],
+          ['Netzwerkautomatisierung', 'Ansible, REST und Vendor-APIs für wiederholbare Änderungen statt manueller Klickstrecken.'],
+          ['Lab & Prototyping', 'Virtuelle Netzwerkumgebungen, um Topologien, Abläufe und Risiken vorab sichtbar zu machen.'],
+        ].map(([title, text]) => (
+          <article class="card">
+            <h3 class="text-lg font-semibold text-zinc-950">{title}</h3>
+            <p class="mt-3 leading-7 text-zinc-600">{text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-page">
+      <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div>
+          <p class="eyebrow">Projekte</p>
+          <h2 class="section-title">Ausgewählte Arbeiten aus Infrastruktur und Automation.</h2>
+        </div>
+        <a class="button-secondary self-start md:self-auto" href="/projekte/">Alle Projekte</a>
+      </div>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-zinc-950 text-white">
+    <div class="container-page grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+      <div>
+        <p class="eyebrow text-teal-200">Profil</p>
+        <h2 class="mt-3 text-3xl font-semibold sm:text-4xl">DevOps mit Blick für Betrieb, Menschen und Details.</h2>
+        <p class="mt-5 leading-8 text-zinc-300">
+          Meine Arbeit liegt dort, wo Infrastruktur, Dokumentation und Automatisierung zusammenkommen. Ich mag Systeme,
+          die nicht nur funktionieren, sondern erklärbar, wartbar und weiterentwickelbar sind.
+        </p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {skills.map((skill) => (
+          <article class="rounded-lg border border-white/10 bg-white/5 p-5">
+            <h3 class="font-semibold text-white">{skill.group}</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {skill.items.map((item) => <span class="rounded-md bg-white/10 px-2.5 py-1 text-xs text-zinc-200">{item}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container-page grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <p class="eyebrow">Aktuell</p>
+        <h2 class="section-title">Woran ich beruflich arbeite.</h2>
+        <p class="section-copy">
+          Der rote Faden: technische Grundlagen so ordnen, dass Automatisierung zuverlässig darauf aufbauen kann.
+        </p>
+      </div>
+      <div class="grid gap-4">
+        {experience.slice(0, 2).map((job) => (
+          <article class="card">
+            <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+              <h3 class="text-xl font-semibold text-zinc-950">{job.role}</h3>
+              <p class="text-sm text-zinc-500">{job.duration}</p>
+            </div>
+            <p class="mt-1 text-sm font-medium text-teal-800">{job.company} · {job.location}</p>
+            <ul class="mt-4 grid gap-2 text-sm leading-7 text-zinc-600">
+              {job.points.slice(0, 3).map((point) => <li>{point}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-page">
+      <div class="card grid gap-6 border-teal-200 bg-teal-50/70 md:grid-cols-[1fr_auto] md:items-center">
+        <div>
+          <p class="eyebrow">Separates Projekt</p>
+          <h2 class="mt-3 text-2xl font-semibold text-zinc-950">Dating-Profil-Mentoring in Vorbereitung.</h2>
+          <p class="mt-3 leading-7 text-zinc-700">
+            Für introvertierte, analytische Männer, die auf Dating-Apps klarer, sympathischer und ehrlicher wirken wollen,
+            ohne sich zu verstellen.
+          </p>
+        </div>
+        <a class="button-primary" href="/mentoring/">Mehr erfahren</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container-page flex flex-col justify-between gap-6 md:flex-row md:items-center">
+      <div>
+        <p class="eyebrow">Kontakt</p>
+        <h2 class="section-title">Austausch über Infrastruktur, Automation oder ein passendes Projekt?</h2>
+      </div>
+      <a class="button-primary self-start md:self-auto" href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+  </section>
+</BaseLayout>

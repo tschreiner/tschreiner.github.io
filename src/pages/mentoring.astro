@@ -1,0 +1,41 @@
+---
+import ContentLayout from '@layouts/ContentLayout.astro';
+import { site } from '@lib/site';
+---
+
+<ContentLayout
+  eyebrow="Separates Projekt"
+  title="Dating-Profil-Mentoring für analytische, introvertierte Männer."
+  description="Ein Angebot in Vorbereitung: klarer, sympathischer und ehrlicher auf Dating-Apps wirken, ohne sich zu verstellen."
+>
+  <section class="section pt-0">
+    <div class="container-page grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="card prose-site">
+        <p>
+          Viele Dating-Profile scheitern nicht daran, dass jemand uninteressant ist. Sie scheitern daran, dass gute Eigenschaften
+          nicht sichtbar werden: Humor, Verlässlichkeit, Neugier, Ruhe, Haltung. Genau dort soll dieses separate Projekt ansetzen.
+        </p>
+        <p>
+          Geplant ist ein respektvolles Mentoring für Männer, die analytisch denken, eher introvertiert sind und auf Dating-Apps
+          klarer kommunizieren wollen. Es geht nicht um Pick-up, Druck oder Manipulation. Es geht um ein Profil, das ehrlich wirkt,
+          konkrete Anknüpfungspunkte schafft und zur eigenen Persönlichkeit passt.
+        </p>
+      </div>
+      <aside class="card h-fit">
+        <h2 class="text-2xl font-semibold text-zinc-950">Interesse?</h2>
+        <p class="mt-3 leading-7 text-zinc-700">
+          Das Angebot ist noch in Vorbereitung. Für erste Gespräche oder Vormerkungen reicht eine kurze Nachricht.
+        </p>
+        <div class="mt-6 grid gap-3">
+          <a class="button-primary" href={`mailto:${site.email}?subject=Interesse%20am%20Dating-Profil-Mentoring`}>
+            Interesse vormerken
+          </a>
+          <a class="button-secondary" href={`mailto:${site.email}?subject=Kostenloses%20Erstgespraech%20anfragen`}>
+            Kostenloses Erstgespräch anfragen
+          </a>
+          <a class="button-secondary" href={`mailto:${site.email}`}>Nachricht schreiben</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</ContentLayout>

@@ -1,0 +1,30 @@
+---
+import { navigation, site } from '@lib/site';
+---
+
+<header class="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/88 backdrop-blur">
+  <a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2" href="#content">
+    Zum Inhalt springen
+  </a>
+  <div class="container-page flex min-h-16 items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-3 font-semibold text-zinc-950" aria-label="Startseite">
+      <span class="grid size-9 place-items-center rounded-md bg-zinc-950 text-sm text-white">TS</span>
+      <span>{site.name}</span>
+    </a>
+
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Hauptnavigation">
+      {navigation.map((item) => (
+        <a class="button-ghost" href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <details class="relative md:hidden">
+      <summary class="button-secondary cursor-pointer list-none">Menü</summary>
+      <nav class="absolute right-0 mt-3 grid w-52 gap-1 rounded-lg border border-zinc-200 bg-white p-2 shadow-xl" aria-label="Mobile Navigation">
+        {navigation.map((item) => (
+          <a class="rounded-md px-3 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-100" href={item.href}>{item.label}</a>
+        ))}
+      </nav>
+    </details>
+  </div>
+</header>

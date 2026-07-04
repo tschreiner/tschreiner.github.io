@@ -1,0 +1,30 @@
+---
+import ContentLayout from '@layouts/ContentLayout.astro';
+import { site } from '@lib/site';
+---
+
+<ContentLayout
+  eyebrow="Legal"
+  title="Impressum"
+  description="Vorläufiger Platzhalter bis zur finalen rechtlichen Prüfung."
+  noindex={true}
+>
+  <section class="section pt-0">
+    <div class="container-page">
+      <div class="card prose-site">
+        <p><strong>TODO:</strong> Impressumsangaben final rechtlich prüfen und ergänzen.</p>
+        <h2>Angaben gemäß § 5 TMG</h2>
+        <p>
+          Tedd Schreiner<br />
+          TODO: ladungsfähige Anschrift ergänzen
+        </p>
+        <h2>Kontakt</h2>
+        <p>E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+        <h2>Haftungshinweis</h2>
+        <p>
+          TODO: Rechtlich geprüfte Formulierungen zu Inhalten und externen Links ergänzen.
+        </p>
+      </div>
+    </div>
+  </section>
+</ContentLayout>

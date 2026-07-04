@@ -1,0 +1,37 @@
+---
+import ContentLayout from '@layouts/ContentLayout.astro';
+import { site } from '@lib/site';
+---
+
+<ContentLayout
+  eyebrow="Legal"
+  title="Datenschutz"
+  description="Vorläufige Datenschutzhinweise. Inhalte müssen vor Veröffentlichung final rechtlich geprüft werden."
+  noindex={true}
+>
+  <section class="section pt-0">
+    <div class="container-page">
+      <div class="card prose-site">
+        <p><strong>TODO:</strong> Datenschutzerklärung final rechtlich prüfen und ergänzen.</p>
+        <h2>Grundsatz</h2>
+        <p>
+          Diese Website ist als statische Astro-Seite geplant. Es werden keine Tracking-Skripte, keine externen Webfonts und
+          keine externen Analyse- oder Tag-Management-Dienste eingebunden.
+        </p>
+        <h2>Hosting</h2>
+        <p>
+          TODO: Cloudflare Pages als Hosting-Anbieter mit korrekten Vertrags- und Datenschutzhinweisen beschreiben.
+        </p>
+        <h2>Kontaktaufnahme</h2>
+        <p>
+          Bei Kontaktaufnahme per E-Mail werden die übermittelten Daten zur Bearbeitung der Anfrage verarbeitet.
+          Kontakt: <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+        <h2>Cookies und Analyse</h2>
+        <p>
+          TODO: Final prüfen. Aktuell sind keine Analyse-Cookies und keine Tracking-Dienste vorgesehen.
+        </p>
+      </div>
+    </div>
+  </section>
+</ContentLayout>

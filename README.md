@@ -1,33 +1,36 @@
-[![GitHub Pages](https://github.com/tschreiner/tschreiner.github.io/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/tschreiner/tschreiner.github.io/actions/workflows/gh-pages.yml)
-[![pages-build-deployment](https://github.com/tschreiner/tschreiner.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/tschreiner/tschreiner.github.io/actions/workflows/pages/pages-build-deployment)
+# teddschreiner.de
 
-# tschreiner.github.io
+Astro-Relaunch der Personal Brand Website von Tedd Schreiner.
 
-This is my personal website.
+## Stack
 
-## Requirements for deployment and building
+- Astro
+- TypeScript
+- Tailwind CSS über `@tailwindcss/vite`
+- MDX
+- Astro Content Collections
+- Cloudflare Pages
 
-* [HUGO](https://gohugo.io/)
+## Entwicklung
 
-## Hosting
+```bash
+npm install
+npm run dev
+npm run check
+npm run build
+```
 
-After the repository has been built into the gh-pages branch the static code will be deployed and hosted by GitHub Pages.
-## Building
+## Cloudflare Pages
 
-### Locally (for development)
+- Build command: `npm run build`
+- Output directory: `dist`
 
-Running the development server:
+## Inhalte
 
-    hugo serve --disableFastRender
+- Projekte liegen in `src/content/projects`
+- Blogartikel liegen in `src/content/blog`
+- Drafts werden im Production Build nicht veröffentlicht
 
-Building static HTML
+## Datenschutz
 
-    hugo
-
-### Production
-
-The code will be built by a GitHub Workflow which is defined in [gh-pages.yml](.github/workflows/gh-pages.yml)
-
-## Deployment
-
-This page is built and deployed by a GitHub Action ([gh-pages.yml](.github/workflows/gh-pages.yml)) and will notify me by a Telegram message after successfull deployment.
+Die Seite bindet keine Tracking-Skripte, keine externen Webfonts und keine Icon-CDNs ein.

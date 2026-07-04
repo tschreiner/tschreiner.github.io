@@ -1,0 +1,42 @@
+---
+import ContentLayout from '@layouts/ContentLayout.astro';
+import { formatDate, isVisiblePost } from '@lib/content';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter(isVisiblePost);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<ContentLayout
+  eyebrow={post.data.draft ? 'Blog Draft' : 'Blog'}
+  title={post.data.title}
+  description={post.data.description}
+  seoTitle={post.data.seoTitle}
+  seoDescription={post.data.seoDescription}
+  noindex={post.data.draft}
+>
+  <article class="section pt-0">
+    <div class="container-page">
+      <div class="card prose-site">
+        <div class="not-prose flex flex-wrap gap-3 text-sm text-zinc-500">
+          <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+          <span>{post.data.readingTime}</span>
+          {post.data.categories.map((category) => <span class="tag">{category}</span>)}
+          {post.data.draft && <span class="tag border-amber-200 bg-amber-50 text-amber-800">Draft</span>}
+        </div>
+        <Content />
+        <div class="not-prose mt-10 flex flex-wrap gap-2 border-t border-zinc-200 pt-6">
+          {post.data.tags.map((tag) => <span class="tag">#{tag}</span>)}
+        </div>
+      </div>
+    </div>
+  </article>
+</ContentLayout>

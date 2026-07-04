@@ -1,0 +1,21 @@
+---
+title: "Netzwerkautomatisierung mit Ansible"
+shortDescription: "Wiederholbare Netzwerkänderungen und Abfragen mit Ansible, REST und herstellerspezifischen Plattformen."
+problem: "Manuelle Netzwerkänderungen sind fehleranfällig, schwer nachvollziehbar und skalieren schlecht. Gleichzeitig unterscheiden sich Netzwerkgeräte in Verhalten, APIs und Betriebslogik deutlich von Servern."
+solution: "Automatisierungsabläufe wurden mit Ansible, REST-Schnittstellen und strukturierten Inventardaten aufgebaut. Besonderer Fokus lag auf Idempotenz, Testbarkeit und nachvollziehbaren Changes."
+technologies: ["Ansible", "REST", "HPE/H3C Comware", "Aruba", "YAML", "Git"]
+result: "Mehr Standardisierung, weniger manuelle Wiederholung und eine bessere Grundlage für dokumentierte Netzwerkänderungen."
+lessons:
+  - "Netzwerkautomatisierung braucht sehr klare Guardrails und gute Vorabvalidierung."
+  - "Gerätezustand, Konfigurationssyntax und Vendor-Eigenheiten müssen explizit eingeplant werden."
+  - "Kleine, nachvollziehbare Playbooks sind oft wertvoller als große Alleskönner."
+anonymized: true
+featured: true
+order: 2
+seoTitle: "Netzwerkautomatisierung mit Ansible | Tedd Schreiner"
+seoDescription: "Anonymisiertes Projekt zu Netzwerkautomatisierung mit Ansible, REST und Netzwerkplattformen."
+---
+
+Der wichtigste Unterschied zur Serverautomatisierung liegt im Risiko: Ein einzelner Netzwerkfehler kann viele abhängige Systeme treffen. Deshalb standen Validierung, Lesbarkeit und bewusst kleine Änderungsschritte im Vordergrund.
+
+Das Projekt verband operative Erfahrung mit Automatisierungspraxis: Inventar, Gerätetypen, Rollen und Abhängigkeiten mussten so gedacht werden, dass daraus robuste Abläufe entstehen.
