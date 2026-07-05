@@ -1,25 +1,37 @@
 ---
 title: "Netzwerkautomatisierung mit Ansible"
 slug: "network-automation-ansible"
-description: "Wiederholbare Netzwerkänderungen und Abfragen mit Ansible, REST und strukturierten Inventardaten."
-problem: "Manuelle Netzwerkänderungen sind fehleranfällig und schwer nachvollziehbar. Gleichzeitig verhalten sich Netzwerkgeräte anders als Server und benötigen vorsichtigere Guardrails."
-solution: "Automatisierungsabläufe wurden mit Ansible, REST-Schnittstellen und validierten Inventardaten aufgebaut. Fokus: kleine Schritte, Lesbarkeit, Vorabprüfung und nachvollziehbare Changes."
+description: "Wiederholbare Netzwerkänderungen und Abfragen mit Ansible, REST-Schnittstellen und strukturierten Inventardaten."
+problem: "Manuelle Netzwerkänderungen und wiederkehrende Abfragen sind fehleranfällig, schwer vergleichbar und oft nur begrenzt nachvollziehbar. Gleichzeitig verhalten sich Netzwerkgeräte anders als Server und benötigen vorsichtigere Guardrails."
+context: "Das Projekt lag im operativen Netzwerkbetrieb: wiederkehrende Tätigkeiten sollten reproduzierbarer werden, ohne produktive Änderungen unnötig zu beschleunigen oder Risiken zu verschleiern. Entscheidend war die Verbindung aus Inventardaten, Tooling, Herstellerbesonderheiten und einem realistischen Blick auf Change-Abläufe."
+role: "Tedds Beitrag lag in der Strukturierung der Automatisierungslogik: Aufgaben in kleine, prüfbare Schritte zerlegen, Inventardaten als Eingabe nutzbar machen, REST- und Ansible-Abläufe lesbar halten, Guardrails definieren und die Ergebnisse so dokumentieren, dass sie im Betrieb nachvollziehbar bleiben."
+constraints:
+  - "Produktive Netzwerkänderungen erfordern vorsichtige Ausführung, klare Eingaben und eine nachvollziehbare Trennung von Abfrage, Prüfung und Änderung."
+  - "Hersteller- und Plattformunterschiede mussten im Design berücksichtigt werden, ohne die Abläufe unnötig zu verkomplizieren."
+  - "Inventardaten mussten vor der Nutzung plausibel sein; fehlerhafte Eingaben sollten nicht stillschweigend in Änderungen münden."
+  - "Die Automatisierung sollte inkrementell wachsen und keine Big-Bang-Umstellung bestehender Betriebsabläufe erzwingen."
+approach:
+  - "Wiederkehrende Aufgaben wurden nach Risiko und Wiederholbarkeit sortiert, damit zuerst geeignete Abläufe automatisiert werden."
+  - "Playbooks und Schnittstellenaufrufe wurden bewusst klein gehalten, damit Eingaben, erwartete Zustände und Ergebnisse prüfbar bleiben."
+  - "Validierung und Lesbarkeit wurden als Teil der Umsetzung behandelt, nicht als nachträgliche Dokumentation."
+  - "Die Automatisierung wurde mit vorhandener Betriebsrealität abgeglichen: Was lässt sich sicher standardisieren, was braucht weiterhin bewusste Prüfung?"
+solution: "Automatisierungsabläufe wurden mit Ansible, REST-Schnittstellen und validierten Inventardaten aufgebaut. Fokus: kleine Schritte, Lesbarkeit, Vorabprüfung, nachvollziehbare Changes und klare Grenzen zwischen Informationserhebung und Änderung."
 technologies: ["Ansible", "REST", "YAML", "Git", "Aruba", "HPE/H3C"]
-result: "Mehr Standardisierung, weniger manuelle Wiederholung und eine bessere Grundlage für dokumentierte Änderungen."
+result: "Die Abläufe wurden stärker standardisiert und manuelle Wiederholung reduziert. Gleichzeitig entstand eine bessere Grundlage für dokumentierte, prüfbare Netzwerkänderungen, ohne produktive Details oder konkrete Konfigurationen öffentlich zu machen."
 featured: true
 category: "Automation"
 status: "Anonymisierte Case Study"
-confidentialNote: "Konkrete Gerätedetails, interne Prozesse und produktive Konfigurationsinhalte sind abstrahiert."
+confidentialNote: "Konkrete Gerätedetails, nicht öffentliche Abläufe und produktive Änderungsinhalte sind abstrahiert."
 links: []
 lessons:
-  - "Netzwerkautomation braucht mehr Validierung als viele klassische Serverabläufe."
-  - "Vendor-Eigenheiten gehören ins Design, nicht in spätere Workarounds."
-  - "Kleine Playbooks sind oft besser wartbar als große Alleskönner."
+  - "Netzwerkautomation braucht Validierung an den Eingaben und an den erwarteten Zuständen, nicht nur ein ausführbares Playbook."
+  - "Vendor-Eigenheiten gehören früh ins Design, damit sie nicht als schwer wartbare Sonderfälle wachsen."
+  - "Kleine, klar benannte Playbooks sind im Betrieb oft wertvoller als ein großer Alleskönner."
 seo:
   title: "Netzwerkautomatisierung mit Ansible | Tedd Schreiner"
-  description: "Anonymisierte Projektseite zu Netzwerkautomatisierung mit Ansible, REST und strukturierten Inventardaten."
+  description: "Anonymisierte Case Study zu Netzwerkautomatisierung mit Ansible, REST und validierten Inventardaten."
 ---
 
 Netzwerkautomatisierung ist besonders dann hilfreich, wenn sie nicht versucht, alles auf einmal zu lösen. Gute Abläufe machen wiederkehrende Aufgaben reproduzierbar und geben dem Betrieb mehr Sicherheit.
 
-Der Unterschied zur Serverautomatisierung liegt weniger im Werkzeug als im Risiko: Eine Änderung kann viele abhängige Systeme treffen. Deshalb waren Guardrails und transparente Ausführung zentrale Designkriterien.
+Der Unterschied zur Serverautomatisierung liegt weniger im Werkzeug als im Risiko: Eine Änderung kann viele abhängige Systeme treffen. Deshalb waren Guardrails, transparente Ausführung und prüfbare Eingaben zentrale Designkriterien.

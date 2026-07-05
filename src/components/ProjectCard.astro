@@ -12,7 +12,7 @@ const { project } = Astro.props;
 <article class="project-card surface-card interactive-card flex h-full flex-col">
   <div class="flex flex-1 flex-col p-6">
     <div class="flex items-start justify-between gap-4">
-      <span class="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--accent-dark)]">Projekt</span>
+      <span class="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--accent-dark)]">{project.data.category}</span>
       <span class="rounded-md border border-[color:var(--line)] bg-[color:var(--surface)] px-2.5 py-1 text-xs font-medium text-[color:var(--sky)]">
         {project.data.status}
       </span>
@@ -25,7 +25,7 @@ const { project } = Astro.props;
       {project.data.technologies.slice(0, 4).map((tech) => <TechTag label={tech} />)}
     </div>
     <a class="mt-6 inline-flex items-center self-start text-sm font-semibold text-[color:var(--accent-dark)] hover:text-[color:var(--ink)]" href={`/projects/${project.data.slug}/`}>
-      Details ansehen
+      Case Study lesen
       <span class="ml-2" aria-hidden="true">-&gt;</span>
     </a>
   </div>

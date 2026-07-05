@@ -9,9 +9,13 @@ interface Props {
   title?: string;
   description?: string;
   canonical?: string;
+  image?: string;
+  imageAlt?: string;
   noindex?: boolean;
   type?: 'website' | 'article';
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
 const personJsonLd = {
@@ -48,9 +52,13 @@ const propsJsonLd = Astro.props.jsonLd
       title={Astro.props.title}
       description={Astro.props.description}
       canonical={Astro.props.canonical}
+      image={Astro.props.image}
+      imageAlt={Astro.props.imageAlt}
       noindex={Astro.props.noindex}
       type={Astro.props.type}
       jsonLd={[personJsonLd, websiteJsonLd, ...propsJsonLd]}
+      publishedTime={Astro.props.publishedTime}
+      modifiedTime={Astro.props.modifiedTime}
     />
   </head>
   <body>

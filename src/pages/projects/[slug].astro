@@ -3,6 +3,7 @@ import Callout from '@components/Callout.astro';
 import Container from '@components/Container.astro';
 import TechTag from '@components/TechTag.astro';
 import PageLayout from '@layouts/PageLayout.astro';
+import { defaultSeoImage, defaultSeoImageAlt, imageUrl } from '@lib/seo';
 import { site } from '@lib/site';
 import { getCollection, render } from 'astro:content';
 
@@ -16,16 +17,24 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+const hasConstraints = project.data.constraints.length > 0;
+const hasApproach = project.data.approach.length > 0;
+const hasLessons = project.data.lessons.length > 0;
+const canonical = `/projects/${project.data.slug}/`;
+const projectImage = project.data.cover ?? defaultSeoImage;
+const projectImageAlt = project.data.cover ? `Sharing-Bild zur Case Study ${project.data.title}` : defaultSeoImageAlt;
 const projectJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CreativeWork',
   name: project.data.title,
   description: project.data.description,
-  url: `${site.url}/projects/${project.data.slug}/`,
+  url: `${site.url}${canonical}`,
   author: {
     '@type': 'Person',
     name: site.name,
   },
+  keywords: [project.data.category, ...project.data.technologies],
+  image: imageUrl(projectImage),
 };
 ---
 
@@ -35,35 +44,87 @@ const projectJsonLd = {
   description={project.data.description}
   seoTitle={project.data.seo?.title}
   seoDescription={project.data.seo?.description}
+  canonical={canonical}
+  image={projectImage}
+  imageAlt={projectImageAlt}
   jsonLd={projectJsonLd}
 >
   <section class="section pt-0">
-    <Container class="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
-      <aside class="surface-card h-fit">
-        <h2 class="text-lg font-semibold text-[color:var(--ink)]">Technologien</h2>
-        <div class="mt-4 flex flex-wrap gap-2">
-          {project.data.technologies.map((tech) => <TechTag label={tech} />)}
+    <Container class="grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+      <aside class="surface-card h-fit lg:sticky lg:top-8">
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--accent-dark)]">Case Study</p>
+
+        <div class="mt-5 space-y-5">
+          <div>
+            <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--muted)]">Status</h2>
+            <p class="mt-2 font-medium text-[color:var(--ink)]">{project.data.status}</p>
+          </div>
+
+          <div>
+            <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--muted)]">Kategorie</h2>
+            <p class="mt-2 font-medium text-[color:var(--ink)]">{project.data.category}</p>
+          </div>
+
+          <div>
+            <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--muted)]">Technologien</h2>
+            <div class="mt-3 flex flex-wrap gap-2">
+              {project.data.technologies.map((tech) => <TechTag label={tech} />)}
+            </div>
+          </div>
         </div>
-        <p class="mt-5 text-sm font-medium uppercase tracking-[0.14em] text-[color:var(--sky)]">{project.data.status}</p>
+
         {project.data.confidentialNote && (
           <Callout title="Vertraulichkeit" tone="warning">
             <p>{project.data.confidentialNote}</p>
           </Callout>
         )}
-        <a class="button-primary mt-2 w-full" href="/contact/">Über ähnliche Projekte sprechen</a>
+
+        <a class="button-primary mt-6 w-full" href="/contact/">Über ähnliche Projekte sprechen</a>
       </aside>
 
       <article class="surface-card prose-site">
         <h2>Problem</h2>
         <p>{project.data.problem}</p>
+        {project.data.context && (
+          <>
+            <h2>Kontext</h2>
+            <p>{project.data.context}</p>
+          </>
+        )}
+        {project.data.role && (
+          <>
+            <h2>Rolle / Beitrag</h2>
+            <p>{project.data.role}</p>
+          </>
+        )}
+        {hasConstraints && (
+          <>
+            <h2>Rahmenbedingungen</h2>
+            <ul>
+              {project.data.constraints.map((constraint) => <li>{constraint}</li>)}
+            </ul>
+          </>
+        )}
+        {hasApproach && (
+          <>
+            <h2>Vorgehen</h2>
+            <ul>
+              {project.data.approach.map((step) => <li>{step}</li>)}
+            </ul>
+          </>
+        )}
         <h2>Lösung</h2>
         <p>{project.data.solution}</p>
         <h2>Ergebnis</h2>
         <p>{project.data.result}</p>
-        <h2>Lessons Learned</h2>
-        <ul>
-          {project.data.lessons.map((lesson) => <li>{lesson}</li>)}
-        </ul>
+        {hasLessons && (
+          <>
+            <h2>Lessons Learned</h2>
+            <ul>
+              {project.data.lessons.map((lesson) => <li>{lesson}</li>)}
+            </ul>
+          </>
+        )}
         <Content />
       </article>
     </Container>

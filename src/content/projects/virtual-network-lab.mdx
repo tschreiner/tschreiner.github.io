@@ -1,25 +1,37 @@
 ---
-title: "Virtual Network Lab Environment"
+title: "Virtuelles Netzwerk-Lab"
 slug: "virtual-network-lab"
-description: "Virtuelle Netzwerkumgebung zur Abbildung relevanter Topologien, Tests und reproduzierbarer Automatisierungsszenarien."
-problem: "Viele Netzwerkentscheidungen lassen sich schwer risikobewusst vorbereiten, wenn Topologien und Verhalten nur in produktionsnahen Umgebungen sichtbar werden."
-solution: "Mit EVE-NG und GNS3 wurde ein virtuelles Lab aufgebaut, das relevante Ausschnitte physischer Topologien nachbildet und Experimente mit Design, Konfiguration und Automatisierung ermöglicht."
+description: "Virtuelle Netzwerkumgebung zur Abbildung relevanter Szenarien, Tests und reproduzierbarer Automatisierungsabläufe."
+problem: "Viele Netzwerkentscheidungen lassen sich schwer risikobewusst vorbereiten, wenn Verhalten, Abhängigkeiten und Automatisierungsannahmen erst in produktionsnahen Umgebungen sichtbar werden."
+context: "Das Lab schließt die Lücke zwischen Dokumentation, Betriebserfahrung und Automatisierung. Es bietet einen kontrollierten Raum, um technische Annahmen zu prüfen, Abläufe zu erklären und Änderungen vorzubereiten, ohne produktive Umgebungen oder vertrauliche Details offenzulegen."
+role: "Tedds Beitrag lag im Aufbau und in der fachlichen Einordnung des Labs: geeignete Szenarien auswählen, virtuelle Komponenten strukturieren, Dokumentation mit Tests verbinden, Automatisierungsabläufe vorbereiten und die Grenzen zwischen realer Umgebung und abstrahierter Lern- oder Testumgebung klar halten."
+constraints:
+  - "Das Lab durfte keine nicht öffentlichen Netzpläne, Gerätenamen, produktiven Gerätezustände oder vertraulichen Betriebsdetails enthalten."
+  - "Virtuelle Szenarien mussten relevante Fragen beantworten, ohne eine produktive Umgebung vollständig nachzubauen."
+  - "Testbarkeit und Dokumentierbarkeit waren wichtiger als maximale technische Komplexität."
+  - "Die Umgebung sollte für wiederholbare Experimente nutzbar bleiben und nicht von implizitem Einzelwissen abhängen."
+approach:
+  - "Szenarien wurden nach ihrem fachlichen Nutzen ausgewählt: Welche Betriebsfrage, Designannahme oder Automatisierungsidee soll damit überprüfbar werden?"
+  - "Virtuelle Netzwerkbausteine wurden so kombiniert, dass Verhalten und Abhängigkeiten nachvollziehbar bleiben."
+  - "Dokumentation, Testschritte und Automatisierungsideen wurden gemeinsam betrachtet, damit das Lab nicht nur als technische Spielwiese funktioniert."
+  - "Produktionsnähe wurde bewusst abstrahiert: genug Realismus für brauchbare Erkenntnisse, aber keine Offenlegung sensibler Details."
+solution: "Mit EVE-NG und GNS3 wurde ein virtuelles Lab aufgebaut, das relevante Szenarien abstrahiert nachbildet und Experimente mit Design, Dokumentation, Konfiguration und Automatisierung ermöglicht."
 technologies: ["EVE-NG", "GNS3", "Virtualisierung", "Ansible", "Netzwerkdesign", "Dokumentation"]
-result: "Bessere Vorbereitung von Änderungen, schnellere Experimente und ein Lernraum für Automatisierungs- und Betriebsentscheidungen."
+result: "Änderungen, Dokumentationsannahmen und Automatisierungsideen konnten besser vorbereitet werden. Das Lab machte technische Diskussionen konkreter, Annahmen testbarer und Betriebswissen expliziter, ohne produktive Details öffentlich zu machen."
 featured: true
 category: "Infrastructure Lab"
 status: "Anonymisierte Case Study"
-confidentialNote: "Das Lab wird ohne interne Topologiepläne, Hostnamen oder produktive Konfigurationsdetails beschrieben."
+confidentialNote: "Das Lab wird ohne nicht öffentliche Netzpläne, Gerätenamen oder produktive Gerätezustände beschrieben."
 links: []
 lessons:
-  - "Ein Lab muss die richtigen Fragen beantworten, nicht jede physische Komponente perfekt kopieren."
-  - "Dokumentation wird stärker, wenn sie testbar gedacht wird."
-  - "Virtuelle Szenarien helfen, Betriebswissen explizit zu machen."
+  - "Ein Lab muss die richtigen Betriebs- und Designfragen beantworten, nicht jede physische Komponente perfekt kopieren."
+  - "Dokumentation wird stärker, wenn sie mit testbaren Annahmen und reproduzierbaren Schritten verbunden ist."
+  - "Virtuelle Szenarien helfen, implizites Betriebswissen sichtbar und diskutierbar zu machen."
 seo:
-  title: "Virtual Network Lab Environment | Tedd Schreiner"
-  description: "Anonymisierte Projektseite zu einem Virtual Network Lab mit EVE-NG, GNS3 und Automatisierungsszenarien."
+  title: "Virtuelles Netzwerk-Lab | Tedd Schreiner"
+  description: "Anonymisierte Case Study zu einem virtuellen Netzwerk-Lab für Tests, Dokumentation und Automatisierungsszenarien."
 ---
 
-Das Lab ist ein Ort für kontrollierte Experimente: Was passiert, wenn ein Ablauf geändert wird? Wie lässt sich eine Topologie verständlich dokumentieren? Welche Annahmen stimmen erst, wenn man sie testet?
+Das Lab ist ein Ort für kontrollierte Experimente: Was passiert, wenn ein Ablauf geändert wird? Wie lässt sich eine Netzstruktur verständlich dokumentieren? Welche Annahmen stimmen erst, wenn man sie testet?
 
 Der Nutzen liegt vor allem in der Wiederholbarkeit. Ein gutes Lab macht technische Diskussionen konkreter und senkt die Schwelle, neue Abläufe zu prüfen.
