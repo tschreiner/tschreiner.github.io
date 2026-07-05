@@ -53,7 +53,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
           ].map(([title, text]) => (
             <article class="surface-card">
               <h3 class="font-semibold text-[color:var(--ink)]">{title}</h3>
-              <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{text}</p>
+              <p class="mt-3 text-sm leading-7 text-[color:var(--muted-strong)]">{text}</p>
             </article>
           ))
         }
@@ -139,9 +139,9 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
         Entwicklung, Infrastruktur, Automatisierung und Betrieb wachsen hier zu einem klaren technischen Profil zusammen.
       </p>
 
-      <div class="mt-8 grid gap-5">
-        {experience.map((item) => <TimelineItem item={item} />)}
-      </div>
+      <ol class="timeline-list mt-8" aria-label="Berufserfahrung im Überblick">
+        {experience.map((item) => <li><TimelineItem item={item} /></li>)}
+      </ol>
 
       <div class="mt-8">
         <a class="button-secondary" href="/cv/">Vollständigen CV öffnen</a>

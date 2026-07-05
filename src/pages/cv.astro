@@ -21,7 +21,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
       <aside class="grid content-start gap-5">
         <div class="surface-card">
           <h2 class="text-lg font-semibold text-[color:var(--ink)]">Kurzprofil</h2>
-          <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">
+          <p class="mt-3 text-sm leading-7 text-[color:var(--muted-strong)]">
             DevOps Engineer mit Fokus auf Netzwerkautomatisierung, Network Source of Truth, Linux-Automation und technischem Betrieb.
           </p>
         </div>
@@ -34,7 +34,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
             {education.map((item) => (
               <div>
                 <p class="font-medium text-[color:var(--ink)]">{item.title}</p>
-                <p class="mt-1 text-sm text-[color:var(--muted)]">{item.institution} · {item.date}</p>
+                <p class="mt-1 text-sm text-[color:var(--muted-strong)]">{item.institution} · {item.date}</p>
               </div>
             ))}
           </div>
@@ -43,15 +43,15 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
           <h2 class="text-lg font-semibold text-[color:var(--ink)]">Sprachen</h2>
           <div class="mt-4 grid gap-2">
             {languages.map((language) => (
-              <p class="text-sm text-[color:var(--muted)]"><strong>{language.name}:</strong> {language.level}</p>
+              <p class="text-sm text-[color:var(--muted-strong)]"><strong>{language.name}:</strong> {language.level}</p>
             ))}
           </div>
         </div>
       </aside>
       <div>
-        <div class="grid gap-5">
-          {experience.map((item) => <TimelineItem item={item} />)}
-        </div>
+        <ol class="timeline-list" aria-label="Berufserfahrung">
+          {experience.map((item) => <li><TimelineItem item={item} /></li>)}
+        </ol>
       </div>
     </Container>
   </section>

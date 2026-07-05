@@ -24,6 +24,8 @@ npm run preview
 
 `npm run quality` ist das Quality Gate vor PR, Push oder Deployment-relevanten Aenderungen. Der GitHub-Actions-Workflow `.github/workflows/quality.yml` fuehrt denselben Check mit `npm ci` aus.
 
+GitHub Actions ist hier bewusst nur ein Qualitaetsgate. Cloudflare Pages baut weiter direkt aus Git und braucht dafuer keine Deployment-Secrets im Repository.
+
 ## Cloudflare Pages
 
 - Production Branch: `main`
@@ -32,7 +34,9 @@ npm run preview
 - Node.js: `22.12.0` oder neuer, in Cloudflare Pages bei Bedarf `NODE_VERSION=22.12.0`
 - Kein Wrangler erforderlich; die Seite bleibt ein statischer Astro-Build.
 
-`public/CNAME` enthaelt die Custom Domain. `public/_headers` wird in den Build kopiert und setzt Security-Header. `src/pages/404.astro` erzeugt `dist/404.html`.
+`public/CNAME` enthaelt die Custom Domain. `public/_headers` wird in den Build kopiert, setzt Security-Header und haelt `*.pages.dev`-URLs per `X-Robots-Tag` auf `noindex`. `src/pages/404.astro` erzeugt `dist/404.html`.
+
+Dieses Repository nutzt ein statisches `public/robots.txt` statt einer `src/pages/robots.txt.ts`-Route. Die Sitemap wird ueber `src/pages/sitemap.xml.ts` erzeugt.
 
 ## Inhalte
 
@@ -40,6 +44,11 @@ npm run preview
 - Projekte: `src/content/projects`
 - Experience-Daten: `src/content/experience`
 - Site-Daten und Navigation: `src/lib/site.ts` und `src/content/site`
+
+## Assets
+
+- Optimierbare UI-Bilder liegen unter `src/assets`, damit Astro sie fuer den Build responsiv verarbeiten kann.
+- `public` bleibt fuer unverarbeitete statische Dateien wie `CNAME`, `_headers`, `robots.txt`, Favicons und stabile OG-Bilder.
 
 Draft-Blogposts bleiben aus statischen Blog-Routen, RSS und Sitemap heraus. RSS wird ueber `src/pages/rss.xml.ts` erzeugt, die Sitemap ueber `src/pages/sitemap.xml.ts`; `public/robots.txt` verweist auf die Production-Sitemap.
 
@@ -50,6 +59,6 @@ Draft-Blogposts bleiben aus statischen Blog-Routen, RSS und Sitemap heraus. RSS 
 - Build Command ist `npm run build`, Output Directory ist `dist`.
 - Node-Version ist `22.12.0` oder `NODE_VERSION=22.12.0`.
 - Custom Domain `teddschreiner.de` ist aktiv.
-- Preview-/Staging-Verhalten ausserhalb des Repos in Cloudflare Pages pruefen.
+- Preview- und `pages.dev`-URLs liefern weiter `noindex`; bei zusaetzlichen Branch-Domains ausserhalb des Repos dieselbe Regel mitpruefen.
 
 Die lokalen Migrationsquellen `repomix.txt` und `planung_audit.txt` bleiben unveroeffentlicht.

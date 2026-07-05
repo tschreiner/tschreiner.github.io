@@ -80,6 +80,7 @@ const structuredDataJson = structuredData.map(serializeJsonLd);
 
 <title>{metaTitle}</title>
 <meta name="description" content={metaDescription} />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="canonical" href={canonicalUrl} />
 {props.noindex && <meta name="robots" content="noindex, nofollow" />}
 <meta property="og:type" content={props.type ?? 'website'} />

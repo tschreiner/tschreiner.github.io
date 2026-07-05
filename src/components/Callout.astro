@@ -11,8 +11,8 @@ const className =
     : 'border-[color:var(--surface-cool-line)] bg-[color:var(--surface-cool)] text-[color:var(--graphite)]';
 ---
 
-<aside class={`my-6 rounded-lg border p-4 ${className}`}>
-  {title && <p class="font-semibold">{title}</p>}
+<aside class={`my-6 rounded-lg border p-4 ${className}`} role="note">
+  {title && <h3 class="text-base font-semibold">{title}</h3>}
   <div class="mt-2 leading-7">
     <slot />
   </div>

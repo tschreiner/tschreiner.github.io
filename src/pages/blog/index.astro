@@ -1,6 +1,7 @@
 ---
 import BlogCard from '@components/BlogCard.astro';
 import Container from '@components/Container.astro';
+import TechTag from '@components/TechTag.astro';
 import PageLayout from '@layouts/PageLayout.astro';
 import { byPubDateDesc, visiblePosts } from '@lib/content';
 import { getCollection } from 'astro:content';
@@ -18,11 +19,7 @@ const categories = ['Tech', 'DevOps', 'Automation', 'AI Tools', 'Webprojekte', '
     <Container>
       <div class="mb-8 flex flex-wrap gap-2">
         {
-          categories.map((category) => (
-            <span class="rounded-md border border-[color:var(--line)] bg-[color:var(--surface)] px-3 py-1.5 text-sm text-[color:var(--muted)]">
-              {category}
-            </span>
-          ))
+          categories.map((category) => <TechTag label={category} />)
         }
       </div>
       {posts.length > 0 ? (

@@ -1,5 +1,7 @@
 ---
 import Container from '@components/Container.astro';
+import { Picture } from 'astro:assets';
+import heroImage from '../assets/images/tedd-schreiner-hero.jpg';
 ---
 
 <section class="hero-section relative overflow-hidden">
@@ -47,13 +49,14 @@ import Container from '@components/Container.astro';
 
     <div class="relative">
       <figure class="hero-photo-frame relative overflow-hidden rounded-lg">
-        <img
-          src="/images/tedd-schreiner-hero.jpg"
+        <Picture
+          src={heroImage}
           alt="Portrait von Tedd Schreiner"
+          formats={['avif', 'webp']}
+          widths={[480, 720, 960, 1280, 1600]}
+          sizes="(min-width: 1280px) 33rem, (min-width: 1024px) 42vw, 100vw"
           class="w-full object-cover"
           style="object-position: 52% 46%;"
-          width="1600"
-          height="1600"
           loading="eager"
           decoding="async"
           fetchpriority="high"
