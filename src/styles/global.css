@@ -19,10 +19,12 @@
   --accent-soft: #d6b083;
   --gold: #f0bf75;
   --warm-text: #f7ead9;
-  --warm-muted: #d8c8b4;
-  --sky: #587383;
-  --sky-strong: #425d6d;
+  --warm-muted: #e3d3bf;
+  --sky: #4d6878;
+  --sky-strong: #36505f;
   --graphite: #24201d;
+  --focus-ring: rgba(116, 66, 31, 0.72);
+  --focus-ring-soft: rgba(116, 66, 31, 0.22);
   --shadow-soft: 0 14px 34px rgba(41, 31, 24, 0.08);
   --shadow-lift: 0 20px 42px rgba(116, 66, 31, 0.16);
 }
@@ -47,7 +49,7 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(116, 66, 31, 0.72);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
@@ -65,6 +67,10 @@ a {
     border: 1px solid rgba(116, 66, 31, 0.2);
     background: var(--graphite);
     box-shadow: 0 24px 60px rgba(41, 31, 24, 0.22);
+  }
+
+  .hero-photo-frame picture {
+    display: block;
   }
 
   .hero-photo-frame img {
@@ -108,6 +114,8 @@ a {
   }
 
   .interactive-card:focus-within {
+    outline: 2px solid var(--focus-ring-soft);
+    outline-offset: 4px;
     border-color: rgba(116, 66, 31, 0.62);
     box-shadow: var(--shadow-lift);
   }
@@ -181,6 +189,11 @@ a {
     color: var(--ink);
   }
 
+  .text-link:focus-visible {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+  }
+
   .button-ghost {
     @apply inline-flex min-h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-semibold transition;
     color: var(--muted-strong);
@@ -205,6 +218,12 @@ a {
 
   .mobile-menu-button:hover {
     border-color: rgba(184, 112, 47, 0.58);
+    color: var(--accent-dark);
+  }
+
+  details[open] > .mobile-menu-button {
+    border-color: rgba(184, 112, 47, 0.58);
+    background: var(--surface);
     color: var(--accent-dark);
   }
 
@@ -250,6 +269,63 @@ a {
   .prose-site a {
     @apply font-semibold underline;
     color: var(--accent-dark);
+  }
+
+  .footer-link {
+    @apply rounded-sm underline-offset-4 transition;
+    color: var(--muted-strong);
+  }
+
+  .footer-link:hover {
+    color: var(--accent-dark);
+    text-decoration-line: underline;
+  }
+
+  .footer-link:focus-visible {
+    color: var(--accent-dark);
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  .card-link {
+    @apply rounded-sm underline-offset-4 transition;
+    color: var(--ink);
+  }
+
+  .card-link:hover {
+    color: var(--accent-dark);
+    text-decoration-line: underline;
+  }
+
+  .card-link:focus-visible {
+    color: var(--accent-dark);
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  .meta-chip {
+    @apply inline-flex items-center rounded-md border px-2.5 py-1 text-xs font-medium;
+    border-color: var(--line);
+    background: var(--cream-muted);
+    color: var(--muted-strong);
+  }
+
+  .meta-label {
+    @apply text-xs font-semibold uppercase tracking-[0.14em];
+    color: var(--muted-strong);
+  }
+
+  .meta-note {
+    @apply text-sm;
+    color: var(--muted-strong);
+  }
+
+  .timeline-list {
+    @apply grid gap-5;
+  }
+
+  .timeline-list > li {
+    list-style: none;
   }
 }
 

@@ -80,6 +80,7 @@ npm run preview
 - Build Command: `npm run build`.
 - Output Directory: `dist`.
 - Node.js: `22.12.0` oder neuer; in Cloudflare Pages bei Bedarf `NODE_VERSION=22.12.0` setzen.
+- `public/_headers` haelt Security-Header im Repo und soll `*.pages.dev`- bzw. Preview-URLs per `X-Robots-Tag` auf `noindex` halten.
 - Es ist kein Wrangler-Projekt. Ein fehlendes `wrangler.toml` ist für Cloudflare Pages hier erwartbar.
 - Wenn Cloudflare einen alten Commit baut, nicht einen alten Deploy "retryen"; einen neuen Deploy vom aktuellen `main` starten.
 
