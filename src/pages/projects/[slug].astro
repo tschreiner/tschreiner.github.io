@@ -3,6 +3,7 @@ import Callout from '@components/Callout.astro';
 import Container from '@components/Container.astro';
 import TechTag from '@components/TechTag.astro';
 import PageLayout from '@layouts/PageLayout.astro';
+import { defaultSeoImage, defaultSeoImageAlt, imageUrl } from '@lib/seo';
 import { site } from '@lib/site';
 import { getCollection, render } from 'astro:content';
 
@@ -19,16 +20,21 @@ const { Content } = await render(project);
 const hasConstraints = project.data.constraints.length > 0;
 const hasApproach = project.data.approach.length > 0;
 const hasLessons = project.data.lessons.length > 0;
+const canonical = `/projects/${project.data.slug}/`;
+const projectImage = project.data.cover ?? defaultSeoImage;
+const projectImageAlt = project.data.cover ? `Sharing-Bild zur Case Study ${project.data.title}` : defaultSeoImageAlt;
 const projectJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CreativeWork',
   name: project.data.title,
   description: project.data.description,
-  url: `${site.url}/projects/${project.data.slug}/`,
+  url: `${site.url}${canonical}`,
   author: {
     '@type': 'Person',
     name: site.name,
   },
+  keywords: [project.data.category, ...project.data.technologies],
+  image: imageUrl(projectImage),
 };
 ---
 
@@ -38,6 +44,9 @@ const projectJsonLd = {
   description={project.data.description}
   seoTitle={project.data.seo?.title}
   seoDescription={project.data.seo?.description}
+  canonical={canonical}
+  image={projectImage}
+  imageAlt={projectImageAlt}
   jsonLd={projectJsonLd}
 >
   <section class="section pt-0">

@@ -12,8 +12,6 @@ export async function GET() {
     '/blog/',
     '/mentoring/',
     '/contact/',
-    '/impressum/',
-    '/datenschutz/',
   ];
 
   const urls = [
