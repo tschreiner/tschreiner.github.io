@@ -66,11 +66,13 @@ npm run preview
 
 - SEO Defaults laufen über `src/components/SEOHead.astro` und `src/lib/site.ts`.
 - Canonical URLs müssen auf `https://teddschreiner.de` zeigen.
-- RSS liegt in `src/pages/rss.xml.ts`; Sitemap in `src/pages/sitemap.xml.ts`; Robots in `src/pages/robots.txt.ts`.
+- RSS liegt in `src/pages/rss.xml.ts`; Sitemap in `src/pages/sitemap.xml.ts`; Robots in `public/robots.txt`.
 - Drafts dürfen nicht in RSS oder Sitemap erscheinen.
 - Seitentitel und Beschreibungen sollen konkret, kurz und deutschsprachig sein.
 - Jede Seite braucht klare Landmarks, genau einen sinnvollen Hauptinhalt und nutzbare Fokuszustände.
 - Links müssen als Links verständlich sein; keine vagen Linktexte wie "hier", wenn der Kontext nicht eindeutig ist.
+- Fokuszustände nicht entfernen; kleine Meta-Texte, Tags und Links dürfen subtil sein, brauchen aber ausreichend Kontrast.
+- Neue Navigation darf nicht nur per Hover funktionieren.
 
 ## Cloudflare Pages Deployment
 
@@ -88,6 +90,8 @@ Vor Commit, Push oder PR:
 ```bash
 npm run quality
 ```
+
+Der GitHub-Actions-Workflow `.github/workflows/quality.yml` fuehrt dasselbe Quality Gate mit `npm ci` aus.
 
 Bei Content-only-Änderungen reicht mindestens:
 

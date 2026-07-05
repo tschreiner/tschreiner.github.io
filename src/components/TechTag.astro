@@ -7,10 +7,10 @@ interface Props {
 const { label, tone = 'default' } = Astro.props;
 const toneClass =
   tone === 'dark'
-    ? 'border-white/10 bg-white/10 text-[#f7ead9]'
+    ? 'border-white/10 bg-white/10 text-[color:var(--warm-text)]'
     : tone === 'warm'
-      ? 'border-[#d6b083] bg-[#fff1df] text-[color:var(--accent-dark)]'
-      : 'border-[color:var(--line)] bg-[#f8efe3] text-[color:var(--muted)]';
+      ? 'border-[color:var(--accent-soft)] bg-[color:var(--cream-strong)] text-[color:var(--accent-dark)]'
+      : 'border-[color:var(--line)] bg-[color:var(--cream-muted)] text-[color:var(--muted-strong)]';
 ---
 
 <span class={`inline-flex items-center rounded-md border px-2.5 py-1 text-xs font-medium ${toneClass}`}>

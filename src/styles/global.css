@@ -3,12 +3,16 @@
 :root {
   color-scheme: light;
   --ink: #1b1815;
-  --muted: #6f655d;
+  --muted: #5f564f;
+  --muted-strong: #4d4640;
   --paper: #f3eadf;
   --surface: #fffaf2;
   --surface-cool: #edf3f5;
+  --surface-cool-line: #b9c9d1;
   --cream: #fff7ed;
   --cream-strong: #fff1df;
+  --cream-muted: #f8efe3;
+  --cream-tint: #fff4e5;
   --line: #ddcfbd;
   --accent: #b8702f;
   --accent-dark: #74421f;
@@ -16,7 +20,8 @@
   --gold: #f0bf75;
   --warm-text: #f7ead9;
   --warm-muted: #d8c8b4;
-  --sky: #738a99;
+  --sky: #587383;
+  --sky-strong: #425d6d;
   --graphite: #24201d;
   --shadow-soft: 0 14px 34px rgba(41, 31, 24, 0.08);
   --shadow-lift: 0 20px 42px rgba(116, 66, 31, 0.16);
@@ -42,7 +47,7 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(184, 112, 47, 0.45);
+  outline: 3px solid rgba(116, 66, 31, 0.72);
   outline-offset: 3px;
 }
 
@@ -53,7 +58,7 @@ a {
 @layer components {
   .hero-section {
     border-bottom: 1px solid var(--line);
-    background: linear-gradient(135deg, var(--surface-cool) 0%, var(--paper) 52%, #fff4e5 100%);
+    background: linear-gradient(135deg, var(--surface-cool) 0%, var(--paper) 52%, var(--cream-tint) 100%);
   }
 
   .hero-photo-frame {
@@ -102,6 +107,11 @@ a {
     @apply transition duration-200 hover:-translate-y-1 hover:shadow-lg;
   }
 
+  .interactive-card:focus-within {
+    border-color: rgba(116, 66, 31, 0.62);
+    box-shadow: var(--shadow-lift);
+  }
+
   .interactive-card:hover {
     border-color: rgba(184, 112, 47, 0.48);
     box-shadow: var(--shadow-lift);
@@ -129,7 +139,7 @@ a {
     content: "";
     display: block;
     height: 4px;
-    background: linear-gradient(90deg, var(--sky), var(--line), var(--accent-soft));
+    background: linear-gradient(90deg, var(--sky-strong), var(--line), var(--accent-soft));
   }
 
   .button-primary {
@@ -139,6 +149,14 @@ a {
 
   .button-primary:hover {
     background: var(--accent-dark);
+  }
+
+  .button-primary:focus-visible,
+  .button-secondary:focus-visible,
+  .button-ghost:focus-visible,
+  .text-link:focus-visible,
+  .mobile-menu-button:focus-visible {
+    outline-offset: 4px;
   }
 
   .button-secondary {
@@ -165,7 +183,7 @@ a {
 
   .button-ghost {
     @apply inline-flex min-h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-semibold transition;
-    color: var(--muted);
+    color: var(--muted-strong);
   }
 
   .button-ghost:hover {
@@ -243,5 +261,9 @@ a {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .interactive-card:hover {
+    transform: none !important;
   }
 }

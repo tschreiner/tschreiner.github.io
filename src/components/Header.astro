@@ -9,7 +9,7 @@ const isContact = (href: string) => href === '/contact/';
 
 <header class="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--surface)]/88 backdrop-blur">
   <a
-    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-[color:var(--surface)] focus:px-4 focus:py-2"
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:border focus:border-[color:var(--line)] focus:bg-[color:var(--surface)] focus:px-4 focus:py-2 focus:font-semibold focus:text-[color:var(--ink)] focus:shadow-lg"
     href="#content"
   >
     Zum Inhalt springen
@@ -62,8 +62,8 @@ const isContact = (href: string) => href === '/contact/';
             const className = isContact(item.href)
               ? 'mt-1 rounded-md bg-[color:var(--graphite)] px-3 py-2 text-sm font-semibold text-white hover:bg-[color:var(--accent-dark)]'
               : active
-                ? 'rounded-md bg-[#f3eadf] px-3 py-2 text-sm font-semibold text-[color:var(--accent-dark)]'
-                : 'rounded-md px-3 py-2 text-sm font-semibold text-[color:var(--ink)] hover:bg-[#f3eadf]';
+                ? 'rounded-md bg-[color:var(--paper)] px-3 py-2 text-sm font-semibold text-[color:var(--accent-dark)]'
+                : 'rounded-md px-3 py-2 text-sm font-semibold text-[color:var(--ink)] hover:bg-[color:var(--paper)]';
 
             return (
               <a class={className} href={item.href} aria-current={active ? 'page' : undefined}>

@@ -10,3 +10,4 @@ repomix.txt
 planung_audit.txt
 lighthouse-*.json
 .tmp/
+.wrangler/
