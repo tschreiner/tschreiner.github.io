@@ -9,9 +9,9 @@ export const site = {
     city: 'Brilon',
     country: 'Deutschland',
   },
-  title: 'Tedd Schreiner | DevOps Engineer, Automatisierer und Builder',
+  title: 'Tedd Schreiner | DevOps Engineer für Network Automation',
   description:
-    'Personal Brand Website von Tedd Schreiner: DevOps, Netzwerkautomatisierung, Network Source of Truth, Web- und AI-Projekte.',
+    'Tedd Schreiner ist DevOps Engineer mit Fokus auf Netzwerkautomatisierung, Network Source of Truth, Linux-Automation und robuste technische Betriebsabläufe.',
   social: {
     github: 'https://github.com/tschreiner',
     linkedin: 'https://www.linkedin.com/in/teddschreiner/',
@@ -20,9 +20,9 @@ export const site = {
 };
 
 export const navigation = [
-  { label: 'Über mich', href: '/about/' },
   { label: 'Projekte', href: '/projects/' },
   { label: 'Blog', href: '/blog/' },
+  { label: 'Über mich', href: '/about/' },
   { label: 'CV', href: '/cv/' },
   { label: 'Kontakt', href: '/contact/' },
 ];
@@ -30,22 +30,26 @@ export const navigation = [
 export const skillClusters = [
   {
     title: 'Network Automation',
-    description: 'Wiederholbare Abläufe für Netzwerkgeräte, Inventar und Betriebsprozesse.',
+    description:
+      'Wiederholbare Netzwerkabläufe mit klaren Guardrails, validierten Daten und nachvollziehbaren Changes.',
     items: ['Ansible', 'REST', 'HPE/H3C Comware', 'Aruba', 'Network as Code'],
   },
   {
     title: 'Source of Truth',
-    description: 'Datenmodelle, Inventarqualität und Synchronisation als Fundament für Automatisierung.',
+    description:
+      'Strukturierte Netzwerkdaten als Grundlage für Dokumentation, Betrieb, Synchronisation und Automatisierung.',
     items: ['i-doit', 'NSoT', 'API-Synchronisation', 'Datenmodellierung', 'Dokumentation'],
   },
   {
     title: 'Platform Operations',
-    description: 'Linux, Monitoring, Log Analytics und Tooling für robuste technische Systeme.',
+    description:
+      'Linux, Monitoring, Log Analytics und Tooling für robuste, wartbare technische Plattformen.',
     items: ['AlmaLinux', 'Foreman', 'Docker', 'PRTG', 'Graylog'],
   },
   {
     title: 'Service & Workflow',
-    description: 'ITSM, Prozessautomation und Schnittstellen zwischen Betrieb und Fachlichkeit.',
+    description:
+      'Pragmatische Automatisierung an der Schnittstelle zwischen Betrieb, Prozessen und technischer Umsetzung.',
     items: ['Jira Service Management', 'PowerShell', 'Python', 'Jenkins', 'BPMN'],
   },
 ];

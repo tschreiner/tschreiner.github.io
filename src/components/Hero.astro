@@ -3,24 +3,46 @@ import Container from '@components/Container.astro';
 ---
 
 <section class="hero-section relative overflow-hidden">
-  <Container class="grid items-center gap-8 py-10 sm:py-14 lg:min-h-[calc(100vh-4rem)] lg:grid-cols-[1.14fr_0.86fr] lg:gap-10 lg:py-20">
+  <Container class="grid items-center gap-8 py-10 sm:py-14 lg:min-h-[calc(100vh-4rem)] lg:grid-cols-[1.08fr_0.92fr] lg:gap-12 lg:py-20">
     <div>
-      <p class="eyebrow">DevOps · Automation · Builder</p>
+      <p class="eyebrow">DevOps · Network Automation · Source of Truth</p>
+
       <h1 class="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-[color:var(--ink)] sm:mt-5 sm:text-6xl">
-        Tedd Schreiner
+        Tedd Schreiner: DevOps Engineering für Netzwerkautomatisierung und robuste Betriebsabläufe.
       </h1>
-      <p class="mt-4 max-w-2xl text-lg leading-8 text-[color:var(--graphite)] sm:mt-5 sm:text-xl">
-        DevOps Engineer, Automatisierer und Builder von Web- und AI-Projekten.
+
+      <p class="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--graphite)] sm:text-xl">
+        Ich verbinde Infrastrukturpraxis, Source-of-Truth-Daten und Automatisierung, damit technische Changes
+        nachvollziehbarer, wiederholbarer und wartbarer werden.
       </p>
-      <p class="mt-5 max-w-2xl text-base leading-8 text-[color:var(--muted)] sm:mt-6 sm:text-lg">
-        Ich arbeite an Infrastruktur, Netzwerkautomatisierung und technischen Systemen - und baue nebenbei Projekte,
-        die Technik, Kreativität und Alltag miteinander verbinden.
+
+      <p class="mt-5 max-w-2xl text-base leading-8 text-[color:var(--muted)] sm:text-lg">
+        Mein Schwerpunkt liegt auf Netzwerkautomatisierung, Linux-nahen Betriebsabläufen, Datenqualität,
+        Dokumentation und technischen Labs, die Entscheidungen testbar machen.
       </p>
+
       <div class="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
-        <a class="button-primary" href="/projects/">Projekte ansehen</a>
+        <a class="button-primary" href="/projects/">Case Studies ansehen</a>
         <a class="button-secondary" href="/contact/">Kontakt aufnehmen</a>
-        <a class="text-link self-center sm:self-auto" href="/cv/">Lebenslauf öffnen</a>
+        <a class="text-link self-center sm:self-auto" href="/about/">Mehr über Tedd</a>
       </div>
+
+      <dl class="mt-8 grid gap-3 sm:grid-cols-3">
+        {
+          [
+            ['Fokus', 'Network Automation'],
+            ['Basis', 'Source-of-Truth-Daten'],
+            ['Arbeitsweise', 'Pragmatisch & dokumentiert'],
+          ].map(([label, value]) => (
+            <div class="rounded-lg border border-[color:var(--line)] bg-[color:var(--surface)]/70 p-4">
+              <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--accent-dark)]">
+                {label}
+              </dt>
+              <dd class="mt-2 text-sm font-medium leading-6 text-[color:var(--ink)]">{value}</dd>
+            </div>
+          ))
+        }
+      </dl>
     </div>
 
     <div class="relative">
@@ -37,8 +59,10 @@ import Container from '@components/Container.astro';
           fetchpriority="high"
         />
         <figcaption class="border-t border-white/10 bg-[color:var(--graphite)] p-4 text-sm text-[color:var(--warm-text)] sm:p-5">
-          <p class="font-mono text-[color:var(--gold)]">system.focus = automation</p>
-          <p class="mt-2 text-[color:var(--warm-muted)]">Infrastruktur, Datenqualität und saubere technische Abläufe.</p>
+          <p class="font-mono text-[color:var(--gold)]">system.focus = reliable automation</p>
+          <p class="mt-2 text-[color:var(--warm-muted)]">
+            Infrastruktur, Netzwerkdaten und saubere technische Abläufe.
+          </p>
         </figcaption>
       </figure>
     </div>

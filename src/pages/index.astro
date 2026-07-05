@@ -23,25 +23,40 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
   <section class="section bg-[color:var(--surface)]">
     <Container class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
       <div>
-        <p class="eyebrow">Kurzprofil / Status</p>
-        <h2 class="section-title">Aktuell: DevOps, Netzwerkdaten und Automatisierung.</h2>
+        <p class="eyebrow">Kurzprofil</p>
+        <h2 class="section-title">Ich arbeite dort, wo Infrastruktur, Datenqualität und Automatisierung zusammenkommen.</h2>
         <p class="section-copy">
-          Ich arbeite an den Stellen, an denen Infrastruktur, Datenqualität und wiederholbare Abläufe zusammenkommen.
-          Besonders spannend: Network Source of Truth, Netzwerkautomation und Labs, die technische Entscheidungen testbar machen.
+          Gute Automatisierung beginnt nicht beim Tool, sondern bei verständlichen Daten, klaren Abläufen und einem
+          realistischen Blick auf den Betrieb. Genau an dieser Schnittstelle liegt mein Schwerpunkt.
         </p>
       </div>
+
       <div class="grid gap-4 sm:grid-cols-2">
-        {[
-          ['Fokus', 'Network Source of Truth, i-doit und Automatisierung'],
-          ['Arbeitsweise', 'Pragmatisch, dokumentiert, risiko- und betriebsbewusst'],
-          ['Nebenbei', 'Web-/AI-Projekte und kleine Systeme, die Alltag vereinfachen'],
-          ['Schreibtischnotiz', 'Nicht jede gute Lösung braucht mehr Komplexität. Manchmal nur bessere Daten.'],
-        ].map(([title, text]) => (
-          <article class="surface-card">
-            <h3 class="font-semibold text-[color:var(--ink)]">{title}</h3>
-            <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{text}</p>
-          </article>
-        ))}
+        {
+          [
+            [
+              'Netzwerkdaten ordnen',
+              'Source-of-Truth-Modelle, Inventarqualität und Beziehungen so strukturieren, dass daraus belastbare Abläufe entstehen.',
+            ],
+            [
+              'Automation mit Guardrails',
+              'Wiederkehrende Änderungen und Abfragen reproduzierbar machen, ohne Betriebsrisiken zu ignorieren.',
+            ],
+            [
+              'Betrieb verständlich machen',
+              'Dokumentation, Monitoring und Workflows so schneiden, dass technische Entscheidungen nachvollziehbar bleiben.',
+            ],
+            [
+              'Labs und Projekte bauen',
+              'Technische Annahmen in virtuellen Labs, Webprojekten und kleinen AI-Experimenten testbar machen.',
+            ],
+          ].map(([title, text]) => (
+            <article class="surface-card">
+              <h3 class="font-semibold text-[color:var(--ink)]">{title}</h3>
+              <p class="mt-3 text-sm leading-7 text-[color:var(--muted)]">{text}</p>
+            </article>
+          ))
+        }
       </div>
     </Container>
   </section>
@@ -50,11 +65,16 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
     <Container>
       <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <div>
-          <p class="eyebrow">Featured Projects</p>
-          <h2 class="section-title">Ausgewählte Arbeiten aus Infrastruktur und Automation.</h2>
+          <p class="eyebrow">Case Studies</p>
+          <h2 class="section-title">Ausgewählte Arbeiten aus Netzwerkautomatisierung, Source of Truth und technischen Labs.</h2>
+          <p class="section-copy">
+            Die Projektseiten sind bewusst anonymisiert. Sie zeigen Problem, Lösung, Technologien, Ergebnis und Lernpunkte,
+            ohne vertrauliche Betriebsdetails offenzulegen.
+          </p>
         </div>
         <a class="button-secondary self-start md:self-auto" href="/projects/">Alle Projekte</a>
       </div>
+
       <div class="mt-8 grid gap-5 md:grid-cols-3">
         {projects.map((project) => <ProjectCard project={project} />)}
       </div>
@@ -65,12 +85,15 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
     <Container class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
       <div>
         <p class="eyebrow text-[#f0bf75]">Skills / Expertise</p>
-        <h2 class="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">Technische Tiefe, aber bitte wartbar.</h2>
+        <h2 class="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+          Technische Tiefe, aber bitte wartbar.
+        </h2>
         <p class="mt-5 leading-8 text-[#d8c8b4]">
-          Meine technischen Schwerpunkte sind so gebuendelt, dass sie nachvollziehbar bleiben: Datenqualitaet,
-          Automatisierung, Betrieb und klare Schnittstellen zwischen Systemen.
+          Meine Arbeit verbindet Infrastrukturpraxis mit sauberer Modellierung, nachvollziehbarer Automatisierung und
+          pragmatischen Betriebsabläufen. Der gemeinsame Nenner: Systeme sollen verständlicher und zuverlässiger werden.
         </p>
       </div>
+
       <div class="grid gap-4 sm:grid-cols-2">
         {skillClusters.map((cluster) => <SkillCluster {...cluster} dark />)}
       </div>
@@ -81,11 +104,16 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
     <Container>
       <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <div>
-          <p class="eyebrow">Latest Writing</p>
-          <h2 class="section-title">Notizen und Entwürfe aus Technik, Projekten und Praxis.</h2>
+          <p class="eyebrow">Blog</p>
+          <h2 class="section-title">Notizen zu DevOps, Netzwerkdaten und technischen Projekten.</h2>
+          <p class="section-copy">
+            Der Blog ist für Praxisnotizen gedacht: Entscheidungen, Learnings, kleine Experimente und technische
+            Zusammenhänge, die nicht in eine klassische Projektseite passen.
+          </p>
         </div>
         <a class="button-secondary self-start md:self-auto" href="/blog/">Zum Blog</a>
       </div>
+
       {posts.length > 0 ? (
         <div class="mt-8 grid gap-5 md:grid-cols-3">
           {posts.map((post) => <BlogCard post={post} />)}
@@ -94,7 +122,8 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
         <div class="surface-card mt-8 max-w-2xl">
           <h3 class="text-xl font-semibold text-[color:var(--ink)]">Artikel sind in Vorbereitung.</h3>
           <p class="mt-3 leading-7 text-[color:var(--muted)]">
-            Die ersten Blogentwürfe liegen im Content-System und werden veröffentlicht, sobald Inhalt und Ton sitzen.
+            Der Blog startet mit kompakten, praxisnahen Notizen zu DevOps, Netzwerkautomatisierung, Webprojekten und
+            technischen Entscheidungen.
           </p>
         </div>
       )}
@@ -105,8 +134,17 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
     <Container>
       <p class="eyebrow">Career Snapshot</p>
       <h2 class="section-title">Der rote Faden: Systeme verstehen, ordnen und automatisieren.</h2>
+      <p class="section-copy">
+        Der vollständige Lebenslauf bleibt verfügbar, aber auf der Startseite zählt vor allem der Zusammenhang:
+        Entwicklung, Infrastruktur, Automatisierung und Betrieb wachsen hier zu einem klaren technischen Profil zusammen.
+      </p>
+
       <div class="mt-8 grid gap-5">
         {experience.map((item) => <TimelineItem item={item} />)}
+      </div>
+
+      <div class="mt-8">
+        <a class="button-secondary" href="/cv/">Vollständigen CV öffnen</a>
       </div>
     </Container>
   </section>

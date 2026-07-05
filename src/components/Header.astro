@@ -4,15 +4,22 @@ import { navigation, site } from '@lib/site';
 
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) => (href === '/' ? currentPath === '/' : currentPath.startsWith(href));
+const isContact = (href: string) => href === '/contact/';
 ---
 
 <header class="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--surface)]/88 backdrop-blur">
-  <a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-[color:var(--surface)] focus:px-4 focus:py-2" href="#content">
+  <a
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-[color:var(--surface)] focus:px-4 focus:py-2"
+    href="#content"
+  >
     Zum Inhalt springen
   </a>
+
   <Container class="flex min-h-16 items-center justify-between gap-4">
     <a href="/" class="flex items-center gap-3 font-semibold text-[color:var(--ink)]" aria-label="Startseite">
-      <span class="grid size-9 place-items-center rounded-md bg-[color:var(--graphite)] text-sm text-[color:var(--warm-text)]">TS</span>
+      <span class="grid size-9 place-items-center rounded-md bg-[color:var(--graphite)] text-sm text-[color:var(--warm-text)]">
+        TS
+      </span>
       <span>{site.name}</span>
     </a>
 
@@ -20,8 +27,14 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
       {
         navigation.map((item) => {
           const active = isActive(item.href);
+          const className = isContact(item.href)
+            ? 'button-primary ml-1'
+            : active
+              ? 'button-ghost is-active'
+              : 'button-ghost';
+
           return (
-            <a class={active ? 'button-ghost is-active' : 'button-ghost'} href={item.href} aria-current={active ? 'page' : undefined}>
+            <a class={className} href={item.href} aria-current={active ? 'page' : undefined}>
               {item.label}
             </a>
           );
@@ -38,16 +51,22 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
         </span>
         Menü
       </summary>
-      <nav class="absolute right-0 mt-3 grid w-56 gap-1 rounded-lg border border-[color:var(--line)] bg-[color:var(--surface)] p-2 shadow-xl" aria-label="Mobile Navigation">
+
+      <nav
+        class="absolute right-0 mt-3 grid w-60 gap-1 rounded-lg border border-[color:var(--line)] bg-[color:var(--surface)] p-2 shadow-xl"
+        aria-label="Mobile Navigation"
+      >
         {
           navigation.map((item) => {
             const active = isActive(item.href);
+            const className = isContact(item.href)
+              ? 'mt-1 rounded-md bg-[color:var(--graphite)] px-3 py-2 text-sm font-semibold text-white hover:bg-[color:var(--accent-dark)]'
+              : active
+                ? 'rounded-md bg-[#f3eadf] px-3 py-2 text-sm font-semibold text-[color:var(--accent-dark)]'
+                : 'rounded-md px-3 py-2 text-sm font-semibold text-[color:var(--ink)] hover:bg-[#f3eadf]';
+
             return (
-              <a
-                class={active ? 'rounded-md bg-[#f3eadf] px-3 py-2 text-sm font-semibold text-[color:var(--accent-dark)]' : 'rounded-md px-3 py-2 text-sm font-semibold text-[color:var(--ink)] hover:bg-[#f3eadf]'}
-                href={item.href}
-                aria-current={active ? 'page' : undefined}
-              >
+              <a class={className} href={item.href} aria-current={active ? 'page' : undefined}>
                 {item.label}
               </a>
             );
