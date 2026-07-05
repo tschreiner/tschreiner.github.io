@@ -15,41 +15,82 @@ interface Props {
   modifiedTime?: string;
 }
 
-const {
-  title,
-  description,
-  canonical,
-  image = defaultSeoImage,
-  imageAlt = defaultSeoImageAlt,
-  type = 'website',
-  noindex = false,
-  jsonLd,
-  publishedTime,
-  modifiedTime,
-} = Astro.props;
+const trimToValue = (value?: string) => value?.trim() || undefined;
 
-const metaTitle = title?.trim() || site.title;
-const metaDescription = description?.trim() || site.description;
-const canonicalUrl = toCanonicalUrl(canonical ?? Astro.url.pathname);
-const imageUrl = toImageUrl(image);
-const safeImageAlt = imageAlt?.trim();
-const structuredData = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
-const structuredDataJson = structuredData.map((item) => JSON.stringify(item).replace(/</g, '\\u003c'));
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
+
+const isDefined = <T,>(value: T | undefined): value is T => value !== undefined;
+
+const sanitizeJsonLdValue = (value: unknown): unknown => {
+  if (typeof value === 'string') {
+    return trimToValue(value);
+  }
+
+  if (typeof value === 'number') {
+    return Number.isFinite(value) ? value : undefined;
+  }
+
+  if (typeof value === 'boolean') {
+    return value;
+  }
+
+  if (value instanceof Date) {
+    return Number.isNaN(value.getTime()) ? undefined : value.toISOString();
+  }
+
+  if (Array.isArray(value)) {
+    const items = value.map(sanitizeJsonLdValue).filter(isDefined);
+    return items.length > 0 ? items : undefined;
+  }
+
+  if (isRecord(value)) {
+    const entries = Object.entries(value)
+      .map(([key, entryValue]) => [key, sanitizeJsonLdValue(entryValue)] as const)
+      .filter(([, entryValue]) => entryValue !== undefined);
+
+    return entries.length > 0 ? Object.fromEntries(entries) : undefined;
+  }
+
+  return undefined;
+};
+
+const serializeJsonLd = (value: Record<string, unknown>) =>
+  JSON.stringify(value)
+    .replace(/</g, '\\u003c')
+    .replace(/-->/g, '--\\u003e')
+    .replace(/<\/script/gi, '<\\/script')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029');
+
+const props = Astro.props as Props;
+
+const metaTitle = trimToValue(props.title) ?? site.title;
+const metaDescription = trimToValue(props.description) ?? site.description;
+const canonicalUrl = toCanonicalUrl(trimToValue(props.canonical) ?? Astro.url.pathname);
+const imageUrl = toImageUrl(trimToValue(props.image) ?? defaultSeoImage);
+const safeImageAlt = trimToValue(props.imageAlt) ?? defaultSeoImageAlt;
+const publishedTime = trimToValue(props.publishedTime);
+const modifiedTime = trimToValue(props.modifiedTime);
+const structuredData = (Array.isArray(props.jsonLd) ? props.jsonLd : props.jsonLd ? [props.jsonLd] : [])
+  .map((item) => sanitizeJsonLdValue(item))
+  .filter(isRecord);
+const structuredDataJson = structuredData.map(serializeJsonLd);
 ---
 
 <title>{metaTitle}</title>
 <meta name="description" content={metaDescription} />
 <link rel="canonical" href={canonicalUrl} />
-{noindex && <meta name="robots" content="noindex, nofollow" />}
-<meta property="og:type" content={type} />
+{props.noindex && <meta name="robots" content="noindex, nofollow" />}
+<meta property="og:type" content={props.type ?? 'website'} />
 <meta property="og:site_name" content={site.name} />
 <meta property="og:title" content={metaTitle} />
 <meta property="og:description" content={metaDescription} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:image" content={imageUrl} />
 {safeImageAlt && <meta property="og:image:alt" content={safeImageAlt} />}
-{type === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
-{type === 'article' && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+{props.type === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{props.type === 'article' && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={metaTitle} />
 <meta name="twitter:description" content={metaDescription} />

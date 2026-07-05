@@ -18,13 +18,15 @@ interface Props {
   modifiedTime?: string;
 }
 
+const props = Astro.props as Props;
+
 const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: site.name,
   url: site.url,
   jobTitle: 'DevOps Engineer',
-  sameAs: [site.social.github, site.social.linkedin],
+  sameAs: [site.social.github, site.social.linkedin, site.social.xing].filter(Boolean),
 };
 
 const websiteJsonLd = {
@@ -35,10 +37,10 @@ const websiteJsonLd = {
   description: site.description,
 };
 
-const propsJsonLd = Astro.props.jsonLd
-  ? Array.isArray(Astro.props.jsonLd)
-    ? Astro.props.jsonLd
-    : [Astro.props.jsonLd]
+const propsJsonLd = props.jsonLd
+  ? Array.isArray(props.jsonLd)
+    ? props.jsonLd
+    : [props.jsonLd]
   : [];
 ---
 
@@ -49,16 +51,16 @@ const propsJsonLd = Astro.props.jsonLd
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#edf3f5" />
     <SEOHead
-      title={Astro.props.title}
-      description={Astro.props.description}
-      canonical={Astro.props.canonical}
-      image={Astro.props.image}
-      imageAlt={Astro.props.imageAlt}
-      noindex={Astro.props.noindex}
-      type={Astro.props.type}
+      title={props.title}
+      description={props.description}
+      canonical={props.canonical}
+      image={props.image}
+      imageAlt={props.imageAlt}
+      noindex={props.noindex}
+      type={props.type}
       jsonLd={[personJsonLd, websiteJsonLd, ...propsJsonLd]}
-      publishedTime={Astro.props.publishedTime}
-      modifiedTime={Astro.props.modifiedTime}
+      publishedTime={props.publishedTime}
+      modifiedTime={props.modifiedTime}
     />
   </head>
   <body>

@@ -17,27 +17,29 @@ interface Props {
   publishedTime?: string;
   modifiedTime?: string;
 }
+
+const props = Astro.props as Props;
 ---
 
 <BaseLayout
-  title={Astro.props.seoTitle ?? `${Astro.props.title} | Tedd Schreiner`}
-  description={Astro.props.seoDescription ?? Astro.props.description}
-  canonical={Astro.props.canonical}
-  image={Astro.props.image}
-  imageAlt={Astro.props.imageAlt}
-  noindex={Astro.props.noindex}
-  type={Astro.props.type}
-  jsonLd={Astro.props.jsonLd}
-  publishedTime={Astro.props.publishedTime}
-  modifiedTime={Astro.props.modifiedTime}
+  title={props.seoTitle ?? `${props.title} | Tedd Schreiner`}
+  description={props.seoDescription ?? props.description}
+  canonical={props.canonical}
+  image={props.image}
+  imageAlt={props.imageAlt}
+  noindex={props.noindex}
+  type={props.type}
+  jsonLd={props.jsonLd}
+  publishedTime={props.publishedTime}
+  modifiedTime={props.modifiedTime}
 >
   <section class="section">
     <Container>
-      {Astro.props.eyebrow && <p class="eyebrow">{Astro.props.eyebrow}</p>}
+      {props.eyebrow && <p class="eyebrow">{props.eyebrow}</p>}
       <h1 class="mt-3 max-w-4xl text-4xl font-semibold leading-tight text-[color:var(--ink)] sm:text-5xl">
-        {Astro.props.title}
+        {props.title}
       </h1>
-      <p class="section-copy">{Astro.props.description}</p>
+      <p class="section-copy">{props.description}</p>
     </Container>
   </section>
   <slot />

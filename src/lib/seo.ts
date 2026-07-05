@@ -3,17 +3,36 @@ import { site } from './site';
 export const defaultSeoImage = '/images/tedd-schreiner-hero.jpg';
 export const defaultSeoImageAlt = 'Portrait von Tedd Schreiner auf einer Treppe.';
 
-export const absoluteUrl = (pathOrUrl: string) => new URL(pathOrUrl, site.url).toString();
+const trimToValue = (value?: string) => value?.trim();
 
-export const canonicalUrl = (pathOrUrl = '/') => {
-  const value = pathOrUrl.trim() || '/';
+const hasFileExtension = (pathname: string) => /\/[^/]+\.[a-z0-9]+$/i.test(pathname);
 
-  try {
-    const parsed = new URL(value);
-    return new URL(`${parsed.pathname}${parsed.search}`, site.url).toString();
-  } catch {
-    return new URL(value, site.url).toString();
+const normalizeSitePath = (pathname: string) => {
+  if (!pathname || pathname === '/') {
+    return '/';
   }
+
+  if (pathname.endsWith('/') || hasFileExtension(pathname)) {
+    return pathname;
+  }
+
+  return `${pathname}/`;
 };
 
-export const imageUrl = (pathOrUrl = defaultSeoImage) => absoluteUrl(pathOrUrl);
+export const absoluteUrl = (pathOrUrl = '/') => {
+  const value = trimToValue(pathOrUrl) ?? '/';
+  return new URL(value, site.url).toString();
+};
+
+export const canonicalUrl = (pathOrUrl = '/') => {
+  const value = trimToValue(pathOrUrl) ?? '/';
+  const parsed = new URL(value, site.url);
+  const pathname = normalizeSitePath(parsed.pathname);
+
+  return new URL(`${pathname}${parsed.search}`, site.url).toString();
+};
+
+export const imageUrl = (pathOrUrl = defaultSeoImage) => {
+  const value = trimToValue(pathOrUrl) ?? defaultSeoImage;
+  return absoluteUrl(value);
+};
