@@ -10,21 +10,21 @@ const { project } = Astro.props;
 ---
 
 <article class="project-card surface-card interactive-card flex h-full flex-col">
-  <div class="flex flex-1 flex-col p-6">
+  <div class="flex flex-1 flex-col p-6 sm:p-7">
     <div class="flex items-start justify-between gap-4">
       <span class="meta-label text-[color:var(--accent-dark)]">{project.data.category}</span>
       <span class="meta-chip">
         {project.data.status}
       </span>
     </div>
-    <h3 class="mt-5 text-xl font-semibold leading-snug text-[color:var(--ink)]">
+    <h3 class="mt-6 text-2xl font-semibold leading-tight text-[color:var(--ink)]">
       <a class="card-link" href={`/projects/${project.data.slug}/`}>{project.data.title}</a>
     </h3>
-    <p class="mt-3 flex-1 leading-7 text-[color:var(--muted)]">{project.data.description}</p>
-    <div class="mt-5 flex flex-wrap gap-2">
+    <p class="mt-4 flex-1 leading-7 text-[color:var(--muted)]">{project.data.description}</p>
+    <div class="mt-6 flex flex-wrap gap-2">
       {project.data.technologies.slice(0, 4).map((tech) => <TechTag label={tech} />)}
     </div>
-    <a class="text-link mt-6 self-start" href={`/projects/${project.data.slug}/`} aria-label={`Case Study ${project.data.title} lesen`}>
+    <a class="text-link mt-7 self-start" href={`/projects/${project.data.slug}/`} aria-label={`Case Study ${project.data.title} lesen`}>
       Case Study lesen
       <span class="ml-2" aria-hidden="true">-&gt;</span>
     </a>

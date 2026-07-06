@@ -20,7 +20,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
 <BaseLayout title={site.title} description={site.description}>
   <Hero />
 
-  <section class="section bg-[color:var(--surface)]">
+  <section class="section section-soft">
     <Container class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
       <div>
         <p class="eyebrow">Kurzprofil</p>
@@ -51,8 +51,8 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
               'Technische Annahmen in virtuellen Labs, Webprojekten und kleinen AI-Experimenten testbar machen.',
             ],
           ].map(([title, text]) => (
-            <article class="surface-card">
-              <h3 class="font-semibold text-[color:var(--ink)]">{title}</h3>
+            <article class="feature-card">
+              <h3 class="text-lg font-semibold text-[color:var(--ink)]">{title}</h3>
               <p class="mt-3 text-sm leading-7 text-[color:var(--muted-strong)]">{text}</p>
             </article>
           ))
@@ -75,20 +75,20 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
         <a class="button-secondary self-start md:self-auto" href="/projects/">Alle Projekte</a>
       </div>
 
-      <div class="mt-8 grid gap-5 md:grid-cols-3">
+      <div class="mt-10 grid gap-5 lg:grid-cols-3">
         {projects.map((project) => <ProjectCard project={project} />)}
       </div>
     </Container>
   </section>
 
-  <section class="section bg-[color:var(--graphite)] text-[color:var(--cream)]">
-    <Container class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+  <section class="section section-dark">
+    <Container class="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
       <div>
         <p class="eyebrow text-[color:var(--gold)]">Skills / Expertise</p>
         <h2 class="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
           Technische Tiefe, aber bitte wartbar.
         </h2>
-        <p class="mt-5 leading-8 text-[color:var(--warm-muted)]">
+        <p class="mt-5 max-w-xl leading-8 text-[color:var(--warm-muted)]">
           Meine Arbeit verbindet Infrastrukturpraxis mit sauberer Modellierung, nachvollziehbarer Automatisierung und
           pragmatischen Betriebsabläufen. Der gemeinsame Nenner: Systeme sollen verständlicher und zuverlässiger werden.
         </p>
@@ -100,7 +100,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
     </Container>
   </section>
 
-  <section class="section bg-[color:var(--surface)]">
+  <section class="section section-soft">
     <Container>
       <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <div>
@@ -115,7 +115,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
       </div>
 
       {posts.length > 0 ? (
-        <div class="mt-8 grid gap-5 md:grid-cols-3">
+        <div class="mt-10 grid gap-5 lg:grid-cols-3">
           {posts.map((post) => <BlogCard post={post} />)}
         </div>
       ) : (
@@ -139,7 +139,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
         Entwicklung, Infrastruktur, Automatisierung und Betrieb wachsen hier zu einem klaren technischen Profil zusammen.
       </p>
 
-      <ol class="timeline-list mt-8" aria-label="Berufserfahrung im Überblick">
+      <ol class="timeline-list mt-10 max-w-4xl" aria-label="Berufserfahrung im Überblick">
         {experience.map((item) => <li><TimelineItem item={item} /></li>)}
       </ol>
 
@@ -149,7 +149,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
     </Container>
   </section>
 
-  <section class="section bg-[color:var(--surface)]">
+  <section class="section section-soft">
     <Container>
       <BridgeCard />
     </Container>

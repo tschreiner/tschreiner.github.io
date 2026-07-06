@@ -3,17 +3,17 @@ import Container from '@components/Container.astro';
 import { navigation, site } from '@lib/site';
 ---
 
-<footer class="border-t border-[color:var(--line)] bg-[color:var(--surface)]">
-  <Container class="grid gap-8 py-10 md:grid-cols-[1.25fr_0.9fr_0.9fr]">
+<footer class="border-t border-black/10 bg-[color:var(--graphite)] text-[color:var(--warm-muted)]">
+  <Container class="grid gap-10 py-12 md:grid-cols-[1.25fr_0.9fr_0.9fr]">
     <div>
-      <p class="font-semibold text-[color:var(--ink)]">{site.name}</p>
-      <p class="mt-3 max-w-md text-sm leading-7 text-[color:var(--muted-strong)]">
+      <p class="font-semibold text-[color:var(--warm-text)]">{site.name}</p>
+      <p class="mt-3 max-w-md text-sm leading-7">
         DevOps, Netzwerkautomatisierung und Web-/AI-Projekte mit Sinn für robuste Systeme und klare Kommunikation.
       </p>
     </div>
 
     <nav aria-label="Footer Navigation">
-      <p class="text-sm font-semibold text-[color:var(--ink)]">Navigation</p>
+      <p class="text-sm font-semibold text-[color:var(--warm-text)]">Navigation</p>
       <ul class="mt-3 grid gap-2 text-sm">
         {navigation.map((item) => <li><a class="footer-link" href={item.href}>{item.label}</a></li>)}
         <li><a class="footer-link" href="/mentoring/">Mentoring</a></li>
@@ -21,7 +21,7 @@ import { navigation, site } from '@lib/site';
     </nav>
 
     <nav aria-label="Footer Kontakt und Rechtliches">
-      <p class="text-sm font-semibold text-[color:var(--ink)]">Kontakt & Legal</p>
+      <p class="text-sm font-semibold text-[color:var(--warm-text)]">Kontakt & Legal</p>
       <ul class="mt-3 grid gap-2 text-sm">
         <li><a class="footer-link" href={`mailto:${site.email}`}>{site.email}</a></li>
         <li><a class="footer-link" href={site.social.linkedin}>LinkedIn</a></li>
@@ -34,8 +34,8 @@ import { navigation, site } from '@lib/site';
     </nav>
   </Container>
 
-  <div class="border-t border-[color:var(--line)] py-4">
-    <Container class="text-sm text-[color:var(--muted-strong)]">
+  <div class="border-t border-white/10 py-4">
+    <Container class="text-sm text-[color:var(--warm-muted)]">
       © {new Date().getFullYear()}{' '}{site.name}. Statisch gebaut, ohne Tracking-Skripte und ohne externe Webfonts.
     </Container>
   </div>

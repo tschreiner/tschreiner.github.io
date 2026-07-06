@@ -7,7 +7,7 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
 const isContact = (href: string) => href === '/contact/';
 ---
 
-<header class="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--surface)]/88 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--surface)]/90 shadow-sm backdrop-blur">
   <a
     class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:border focus:border-[color:var(--line)] focus:bg-[color:var(--surface)] focus:px-4 focus:py-2 focus:font-semibold focus:text-[color:var(--ink)] focus:shadow-lg"
     href="#content"
@@ -15,12 +15,12 @@ const isContact = (href: string) => href === '/contact/';
     Zum Inhalt springen
   </a>
 
-  <Container class="flex min-h-16 items-center justify-between gap-4">
-    <a href="/" class="flex items-center gap-3 font-semibold text-[color:var(--ink)]" aria-label="Startseite">
-      <span class="grid size-9 place-items-center rounded-md bg-[color:var(--graphite)] text-sm text-[color:var(--warm-text)]">
+  <Container class="flex min-h-18 items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-3 rounded-md font-semibold text-[color:var(--ink)]" aria-label="Startseite">
+      <span class="grid size-10 place-items-center rounded-md border border-[color:var(--graphite)] bg-[color:var(--graphite)] text-sm text-[color:var(--warm-text)] shadow-sm">
         TS
       </span>
-      <span>{site.name}</span>
+      <span class="tracking-wide">{site.name}</span>
     </a>
 
     <nav class="hidden items-center gap-1 md:flex" aria-label="Hauptnavigation">

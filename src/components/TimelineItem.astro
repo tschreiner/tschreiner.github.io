@@ -10,15 +10,17 @@ const { item } = Astro.props;
 const end = item.data.current ? 'Heute' : item.data.endDate;
 ---
 
-<article class="relative border-l border-[color:var(--line)] pl-6">
-  <span class="absolute -left-[7px] top-1.5 size-3 rounded-full border-2 border-[color:var(--surface)] bg-[color:var(--accent)] shadow-sm" aria-hidden="true"></span>
+<article class="relative border-l border-[color:var(--accent-soft)] pl-6 sm:pl-8">
+  <span class="absolute -left-[7px] top-2 size-3 rounded-full border-2 border-[color:var(--surface)] bg-[color:var(--accent)] shadow-sm" aria-hidden="true"></span>
   <div class="surface-card">
-    <div class="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
       <div>
         <h3 class="text-xl font-semibold text-[color:var(--ink)]">{item.data.role}</h3>
         <p class="mt-1 text-sm font-medium text-[color:var(--accent-dark)]">{item.data.company} · {item.data.location}</p>
       </div>
-      <p class="text-sm text-[color:var(--sky-strong)]">{item.data.startDate} - {end}</p>
+      <p class="w-fit rounded-md border border-[color:var(--surface-cool-line)] bg-[color:var(--surface-cool)] px-3 py-1 text-sm font-semibold text-[color:var(--sky-strong)]">
+        {item.data.startDate} - {end}
+      </p>
     </div>
     <p class="mt-4 leading-7 text-[color:var(--muted)]">{item.data.summary}</p>
     <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-[color:var(--muted-strong)] marker:text-[color:var(--accent)]">

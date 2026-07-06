@@ -14,7 +14,7 @@ const projects = (await getCollection('projects')).sort(byProjectTitle);
   description="Anonymisierte Projektbeispiele aus DevOps, Infrastruktur, Netzwerkdaten und Automatisierung. Fokus: Problemraum, Rolle, Vorgehen, Ergebnis und Lernpunkte, ohne vertrauliche Details offenzulegen."
 >
   <section class="section pt-0">
-    <Container class="grid gap-5 md:grid-cols-3">
+    <Container class="grid gap-5 lg:grid-cols-3">
       {projects.map((project) => <ProjectCard project={project} />)}
     </Container>
   </section>

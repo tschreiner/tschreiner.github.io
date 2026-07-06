@@ -5,69 +5,60 @@ import heroImage from '../assets/images/tedd-schreiner-hero.jpg';
 ---
 
 <section class="hero-section relative overflow-hidden">
-  <Container class="grid items-center gap-8 py-10 sm:py-14 lg:min-h-[calc(100vh-4rem)] lg:grid-cols-[1.08fr_0.92fr] lg:gap-12 lg:py-20">
-    <div>
-      <p class="eyebrow">DevOps · Network Automation · Source of Truth</p>
+  <Picture
+    src={heroImage}
+    alt="Portrait von Tedd Schreiner auf einer Treppe"
+    formats={['avif', 'webp']}
+    widths={[720, 960, 1280, 1600, 1920]}
+    sizes="100vw"
+    class="hero-media"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  />
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
 
-      <h1 class="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-[color:var(--ink)] sm:mt-5 sm:text-6xl">
-        Tedd Schreiner: DevOps Engineering für Netzwerkautomatisierung und robuste Betriebsabläufe.
+  <Container class="relative z-10 grid min-h-[calc(100svh-4rem)] content-center py-16 sm:py-20 lg:min-h-[720px]">
+    <div class="max-w-4xl">
+      <p class="eyebrow text-[color:var(--gold)]">DevOps · Network Automation · Source of Truth</p>
+
+      <h1 class="mt-5 max-w-4xl text-4xl font-semibold leading-tight text-[color:var(--warm-text)] sm:text-6xl lg:text-7xl">
+        Tedd Schreiner baut robuste Automatisierung für Netzwerkbetrieb und Infrastruktur.
       </h1>
 
-      <p class="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--graphite)] sm:text-xl">
-        Ich verbinde Infrastrukturpraxis, Source-of-Truth-Daten und Automatisierung, damit technische Changes
-        nachvollziehbarer, wiederholbarer und wartbarer werden.
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-[color:var(--warm-text)] sm:text-xl">
+        DevOps Engineering für Source-of-Truth-Daten, Netzwerkautomatisierung und technische Abläufe, die im Betrieb
+        nachvollziehbar bleiben.
       </p>
 
-      <p class="mt-5 max-w-2xl text-base leading-8 text-[color:var(--muted)] sm:text-lg">
-        Mein Schwerpunkt liegt auf Netzwerkautomatisierung, Linux-nahen Betriebsabläufen, Datenqualität,
-        Dokumentation und technischen Labs, die Entscheidungen testbar machen.
+      <p class="mt-4 max-w-2xl text-base leading-8 text-[color:var(--warm-muted)] sm:text-lg">
+        Der Schwerpunkt liegt auf Linux-nahen Plattformen, Datenqualität, Dokumentation und Labs, die technische
+        Entscheidungen prüfbar machen.
       </p>
 
-      <div class="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
         <a class="button-primary" href="/projects/">Case Studies ansehen</a>
         <a class="button-secondary" href="/contact/">Kontakt aufnehmen</a>
-        <a class="text-link self-center sm:self-auto" href="/about/">Mehr über Tedd</a>
+        <a class="text-link self-center text-[color:var(--warm-text)] hover:bg-white/10 hover:text-white sm:self-auto" href="/about/">
+          Mehr über Tedd
+        </a>
       </div>
 
-      <dl class="mt-8 grid gap-3 sm:grid-cols-3">
+      <dl class="mt-10 grid max-w-3xl gap-3 sm:grid-cols-3">
         {
           [
             ['Fokus', 'Network Automation'],
             ['Basis', 'Source-of-Truth-Daten'],
-            ['Arbeitsweise', 'Pragmatisch & dokumentiert'],
+            ['Arbeitsweise', 'Pragmatisch dokumentiert'],
           ].map(([label, value]) => (
-            <div class="rounded-lg border border-[color:var(--line)] bg-[color:var(--surface)]/70 p-4">
-              <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--accent-dark)]">
-                {label}
-              </dt>
-              <dd class="mt-2 text-sm font-medium leading-6 text-[color:var(--ink)]">{value}</dd>
+            <div class="hero-metric">
+              <dt>{label}</dt>
+              <dd>{value}</dd>
             </div>
           ))
         }
       </dl>
-    </div>
-
-    <div class="relative">
-      <figure class="hero-photo-frame relative overflow-hidden rounded-lg">
-        <Picture
-          src={heroImage}
-          alt="Portrait von Tedd Schreiner"
-          formats={['avif', 'webp']}
-          widths={[480, 720, 960, 1280, 1600]}
-          sizes="(min-width: 1280px) 33rem, (min-width: 1024px) 42vw, 100vw"
-          class="w-full object-cover"
-          style="object-position: 52% 46%;"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
-        <figcaption class="border-t border-white/10 bg-[color:var(--graphite)] p-4 text-sm text-[color:var(--warm-text)] sm:p-5">
-          <p class="font-mono text-[color:var(--gold)]">system.focus = reliable automation</p>
-          <p class="mt-2 text-[color:var(--warm-muted)]">
-            Infrastruktur, Netzwerkdaten und saubere technische Abläufe.
-          </p>
-        </figcaption>
-      </figure>
     </div>
   </Container>
 </section>
