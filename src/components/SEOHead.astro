@@ -1,6 +1,15 @@
 ---
 import { site } from '@lib/site';
-import { canonicalUrl as toCanonicalUrl, defaultSeoImage, defaultSeoImageAlt, imageUrl as toImageUrl } from '@lib/seo';
+import {
+  canonicalUrl as toCanonicalUrl,
+  defaultSeoImage,
+  defaultSeoImageAlt,
+  defaultSeoImageHeight,
+  defaultSeoImageType,
+  defaultSeoImageWidth,
+  imageUrl as toImageUrl,
+  themeColor,
+} from '@lib/seo';
 
 interface Props {
   title?: string;
@@ -80,19 +89,34 @@ const structuredDataJson = structuredData.map(serializeJsonLd);
 
 <title>{metaTitle}</title>
 <meta name="description" content={metaDescription} />
+<meta name="application-name" content={site.name} />
+<meta name="apple-mobile-web-app-title" content={site.name} />
+<meta name="format-detection" content="telephone=no" />
+<meta name="color-scheme" content="light" />
+<meta name="theme-color" content={themeColor} />
+<meta name="msapplication-TileColor" content={themeColor} />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <link rel="canonical" href={canonicalUrl} />
 {props.noindex && <meta name="robots" content="noindex, nofollow" />}
+<meta property="og:locale" content="de_DE" />
 <meta property="og:type" content={props.type ?? 'website'} />
 <meta property="og:site_name" content={site.name} />
 <meta property="og:title" content={metaTitle} />
 <meta property="og:description" content={metaDescription} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:image" content={imageUrl} />
+<meta property="og:image:secure_url" content={imageUrl} />
+<meta property="og:image:type" content={defaultSeoImageType} />
+<meta property="og:image:width" content={String(defaultSeoImageWidth)} />
+<meta property="og:image:height" content={String(defaultSeoImageHeight)} />
 {safeImageAlt && <meta property="og:image:alt" content={safeImageAlt} />}
 {props.type === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
 {props.type === 'article' && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:domain" content={site.domain} />
+<meta name="twitter:url" content={canonicalUrl} />
 <meta name="twitter:title" content={metaTitle} />
 <meta name="twitter:description" content={metaDescription} />
 <meta name="twitter:image" content={imageUrl} />

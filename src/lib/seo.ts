@@ -1,7 +1,12 @@
 import { site } from './site';
 
-export const defaultSeoImage = '/images/tedd-schreiner-hero.jpg';
-export const defaultSeoImageAlt = 'Portrait von Tedd Schreiner auf einer Treppe.';
+export const defaultSeoImage = '/images/social-preview.jpg';
+export const defaultSeoImageAlt =
+  'Social Preview für Tedd Schreiner, DevOps Engineer für AWS Cloud, Automation und AI Software Engineering.';
+export const defaultSeoImageHeight = 630;
+export const defaultSeoImageType = 'image/jpeg';
+export const defaultSeoImageWidth = 1200;
+export const themeColor = '#24201d';
 
 const trimToValue = (value?: string) => value?.trim();
 

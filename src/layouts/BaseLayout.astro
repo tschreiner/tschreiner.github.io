@@ -4,6 +4,7 @@ import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import SEOHead from '@components/SEOHead.astro';
 import { googleAnalyticsId } from '@lib/analytics';
+import { defaultSeoImage, imageUrl } from '@lib/seo';
 import { site } from '@lib/site';
 import '../styles/global.css';
 
@@ -28,6 +29,7 @@ const personJsonLd = {
   name: site.name,
   url: site.url,
   jobTitle: 'DevOps Engineer für Cloud Automation und AI Software Engineering',
+  image: imageUrl(defaultSeoImage),
   sameAs: [site.social.github, site.social.linkedin, site.social.xing].filter(Boolean),
 };
 
@@ -51,7 +53,6 @@ const propsJsonLd = props.jsonLd
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#edf3f5" />
     <script is:inline define:vars={{ googleAnalyticsId }}>
       window.dataLayer = window.dataLayer || [];
       window.gtag = function gtag() {

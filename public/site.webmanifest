@@ -1,0 +1,25 @@
+{
+  "name": "Tedd Schreiner",
+  "short_name": "Tedd Schreiner",
+  "description": "DevOps Engineer f\u00fcr AWS Cloud, Automation und AI Software Engineering.",
+  "lang": "de",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f3eadf",
+  "theme_color": "#24201d",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
