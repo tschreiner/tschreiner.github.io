@@ -69,5 +69,61 @@ const propsJsonLd = props.jsonLd
       <slot />
     </main>
     <Footer />
+    <script>
+      const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      if (!motionQuery.matches && 'IntersectionObserver' in window) {
+        const revealItems = document.querySelectorAll<HTMLElement>(
+          '.section .surface-card, .section .project-card, .section .blog-card, .section .feature-card, .section .timeline-list > li',
+        );
+
+        revealItems.forEach((item) => {
+          item.dataset.reveal = '';
+        });
+
+        document.documentElement.classList.add('reveal-ready');
+
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            });
+          },
+          { rootMargin: '0px 0px -12% 0px', threshold: 0.12 },
+        );
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+      }
+
+      const sectionLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-section-link]'));
+      const projectSections = Array.from(document.querySelectorAll<HTMLElement>('[data-project-section]'));
+
+      if (sectionLinks.length > 0 && projectSections.length > 0 && 'IntersectionObserver' in window) {
+        const setActiveSection = (id: string) => {
+          sectionLinks.forEach((link) => {
+            link.dataset.active = link.dataset.sectionLink === id ? 'true' : 'false';
+          });
+        };
+
+        const sectionObserver = new IntersectionObserver(
+          (entries) => {
+            const visibleEntry = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+            if (visibleEntry?.target.id) {
+              setActiveSection(visibleEntry.target.id);
+            }
+          },
+          { rootMargin: '-22% 0px -58% 0px', threshold: [0.1, 0.35, 0.6] },
+        );
+
+        projectSections.forEach((section) => sectionObserver.observe(section));
+        setActiveSection(projectSections[0]?.id ?? '');
+      }
+    </script>
   </body>
 </html>

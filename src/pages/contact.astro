@@ -1,6 +1,7 @@
 ---
 import ContactPanel from '@components/ContactPanel.astro';
 import Container from '@components/Container.astro';
+import SocialIcon from '@components/SocialIcon.astro';
 import PageLayout from '@layouts/PageLayout.astro';
 import { site } from '@lib/site';
 ---
@@ -9,6 +10,7 @@ import { site } from '@lib/site';
   eyebrow="Kontakt"
   title="Kontakt aufnehmen"
   description="Kontakt für passende DevOps-, AWS-Cloud-, Automation- und AI-Software-Engineering-Anfragen."
+  tags={['Rollen', 'Projekte', 'Cloud', 'Automation']}
 >
   <section class="section section-after-header">
     <Container class="grid gap-6 md:grid-cols-[1.12fr_0.88fr]">
@@ -16,9 +18,18 @@ import { site } from '@lib/site';
       <div class="surface-card">
         <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Profile</h2>
         <div class="mt-5 grid gap-3">
-          <a class="button-secondary justify-start" href={site.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="button-secondary justify-start" href={site.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="button-secondary justify-start" href={site.social.xing} target="_blank" rel="noopener noreferrer">Xing</a>
+          <a class="button-secondary justify-start gap-2" href={site.social.linkedin} target="_blank" rel="noopener noreferrer">
+            <SocialIcon name="linkedin" />
+            LinkedIn
+          </a>
+          <a class="button-secondary justify-start gap-2" href={site.social.github} target="_blank" rel="noopener noreferrer">
+            <SocialIcon name="github" />
+            GitHub
+          </a>
+          <a class="button-secondary justify-start gap-2" href={site.social.xing} target="_blank" rel="noopener noreferrer">
+            <SocialIcon name="xing" />
+            Xing
+          </a>
         </div>
       </div>
       <div class="surface-card md:col-span-2 sm:p-8">

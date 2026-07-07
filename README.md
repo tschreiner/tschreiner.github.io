@@ -34,6 +34,16 @@ GitHub Actions ist hier bewusst nur ein Qualitaetsgate. Cloudflare Pages baut we
 - Node.js: `22.12.0` oder neuer, in Cloudflare Pages bei Bedarf `NODE_VERSION=22.12.0`
 - Kein Wrangler erforderlich; die Seite bleibt ein statischer Astro-Build.
 
+Das Kontaktformular laeuft ueber eine Cloudflare Pages Function unter `functions/api/contact.ts` und versendet E-Mails per Resend. Dafuer muessen in Cloudflare Pages diese Umgebungsvariablen gesetzt sein:
+
+```text
+RESEND_API_KEY=...
+CONTACT_FROM_EMAIL=Website Kontakt <kontakt@teddschreiner.de>
+CONTACT_TO_EMAIL=info@teddschreiner.de
+```
+
+`CONTACT_FROM_EMAIL` muss bei Resend als Absender-Domain verifiziert sein. Ohne diese Variablen zeigt das Formular eine Fehlermeldung und verweist auf die direkte E-Mail.
+
 `public/CNAME` enthaelt die Custom Domain. `public/_headers` wird in den Build kopiert, setzt Security-Header und haelt `*.pages.dev`-URLs per `X-Robots-Tag` auf `noindex`. `src/pages/404.astro` erzeugt `dist/404.html`.
 
 Dieses Repository nutzt ein statisches `public/robots.txt` statt einer `src/pages/robots.txt.ts`-Route. Die Sitemap wird ueber `src/pages/sitemap.xml.ts` erzeugt.

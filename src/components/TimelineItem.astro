@@ -1,4 +1,5 @@
 ---
+import EmployerLogo from '@components/EmployerLogo.astro';
 import TechTag from '@components/TechTag.astro';
 import type { CollectionEntry } from 'astro:content';
 
@@ -23,12 +24,15 @@ const end = item.data.current ? 'heute' : formatMonthYear(item.data.endDate);
 const dateLabel = end ? `${start} – ${end}` : start;
 ---
 
-<article>
-  <div class="surface-card">
+<article class="timeline-item">
+  <div class="timeline-card surface-card">
     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-      <div>
-        <h3 class="text-xl font-semibold text-[color:var(--ink)]">{item.data.role}</h3>
-        <p class="mt-1 text-sm font-medium text-[color:var(--accent-dark)]">{item.data.company} · {item.data.location}</p>
+      <div class="flex items-start gap-3">
+        <EmployerLogo company={item.data.company} />
+        <div>
+          <h3 class="text-xl font-semibold text-[color:var(--ink)]">{item.data.role}</h3>
+          <p class="mt-1 text-sm font-medium text-[color:var(--accent-dark)]">{item.data.company} · {item.data.location}</p>
+        </div>
       </div>
       <p class="w-fit rounded-md border border-[color:var(--surface-cool-line)] bg-[color:var(--surface-cool)] px-3 py-1 text-sm font-semibold text-[color:var(--sky-strong)]">
         {dateLabel}

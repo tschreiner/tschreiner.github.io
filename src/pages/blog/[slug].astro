@@ -51,6 +51,7 @@ const blogJsonLd = {
   eyebrow="Blog"
   title={post.data.title}
   description={post.data.description}
+  tags={[post.data.category, post.data.readingTime, ...post.data.tags.slice(0, 2)]}
   seoTitle={post.data.seo?.title}
   seoDescription={post.data.seo?.description}
   canonical={canonical}

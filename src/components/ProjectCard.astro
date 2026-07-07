@@ -34,12 +34,17 @@ const projectHref = `/projects/${project.data.slug}/`;
           </p>
         )}
       </div>
-      <div class="mt-6 flex flex-wrap gap-2">
+      <div class="project-card-tags mt-6 flex flex-wrap gap-2">
         {project.data.technologies.slice(0, 4).map((tech) => <TechTag label={tech} />)}
       </div>
       <span class="card-cta mt-7 self-start">
         Case Study lesen
-        <span class="card-cta-icon" aria-hidden="true">-&gt;</span>
+        <span class="card-cta-icon" aria-hidden="true">
+          <svg viewBox="0 0 20 20" focusable="false">
+            <path d="M4 10h10" />
+            <path d="m10 6 4 4-4 4" />
+          </svg>
+        </span>
       </span>
     </div>
   </a>

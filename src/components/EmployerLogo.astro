@@ -1,0 +1,18 @@
+---
+interface Props {
+  company: string;
+}
+
+const { company } = Astro.props;
+
+const logo = (() => {
+  if (company.includes('EOS')) return { label: 'EOS', tone: 'eos' };
+  if (company.includes('Wunschgutschein')) return { label: 'WG', tone: 'wunschgutschein' };
+  if (company.includes('HAMMELSPRUNG')) return { label: 'HS', tone: 'hammelsprung' };
+  return { label: 'WEB', tone: 'web' };
+})();
+---
+
+<span class={`employer-logo employer-logo-${logo.tone}`} aria-label={`Logo ${company}`} title={company}>
+  {logo.label}
+</span>

@@ -6,6 +6,7 @@ interface Props {
   eyebrow?: string;
   title: string;
   description: string;
+  tags?: string[];
   seoTitle?: string;
   seoDescription?: string;
   canonical?: string;
@@ -19,6 +20,7 @@ interface Props {
 }
 
 const props = Astro.props as Props;
+const headerTags = props.tags?.filter(Boolean) ?? [];
 ---
 
 <BaseLayout
@@ -33,13 +35,23 @@ const props = Astro.props as Props;
   publishedTime={props.publishedTime}
   modifiedTime={props.modifiedTime}
 >
-  <section class="section-compact section-soft border-b border-[color:var(--line)]">
+  <section class="page-hero section-compact section-soft border-b border-[color:var(--line)]">
     <Container>
       {props.eyebrow && <p class="eyebrow">{props.eyebrow}</p>}
       <h1 class="mt-4 max-w-4xl text-3xl font-semibold leading-tight text-[color:var(--ink)] sm:text-5xl">
         {props.title}
       </h1>
       <p class="section-copy">{props.description}</p>
+      {headerTags.length > 0 && (
+        <ul class="page-header-tags" aria-label="Thematische Schwerpunkte">
+          {headerTags.map((tag) => (
+            <li class="page-header-tag">
+              <span aria-hidden="true"></span>
+              {tag}
+            </li>
+          ))}
+        </ul>
+      )}
     </Container>
   </section>
   <slot />
