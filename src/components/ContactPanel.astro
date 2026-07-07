@@ -79,6 +79,10 @@ import { site } from '@lib/site';
 
 <script>
   const contactForms = document.querySelectorAll<HTMLFormElement>('[data-contact-form]');
+  type TrackingWindow = Window & {
+    trackSiteEvent?: (name: string, params?: Record<string, string | number | boolean>) => void;
+  };
+  const trackingWindow = window as TrackingWindow;
 
   contactForms.forEach((form) => {
     const status = form.querySelector<HTMLElement>('[data-contact-status]');
@@ -107,6 +111,7 @@ import { site } from '@lib/site';
         copyLabel.textContent = 'Kopiert';
         copyButton.dataset.state = 'success';
         copyButton.setAttribute('aria-label', 'E-Mail-Adresse kopiert');
+        trackingWindow.trackSiteEvent?.('email_copy', { location: 'contact_form' });
       } catch {
         copyLabel.textContent = 'Nicht kopiert';
         copyButton.dataset.state = 'error';
@@ -131,6 +136,7 @@ import { site } from '@lib/site';
       status.textContent = 'Die Anfrage wird gesendet.';
       status.dataset.state = 'pending';
       submitButton.disabled = true;
+      trackingWindow.trackSiteEvent?.('contact_form_submit', { form_name: 'contact' });
 
       try {
         const response = await fetch(form.action, {
@@ -149,13 +155,14 @@ import { site } from '@lib/site';
         form.reset();
         status.textContent = result.message || 'Danke, die Anfrage wurde gesendet. Ich melde mich zeitnah zurück.';
         status.dataset.state = 'success';
-        status.focus({ preventScroll: true });
-        status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        trackingWindow.trackSiteEvent?.('generate_lead', {
+          form_name: 'contact',
+          lead_source: 'website_contact_form',
+        });
       } catch (error) {
         status.textContent = error instanceof Error ? error.message : 'Die Anfrage konnte nicht gesendet werden.';
         status.dataset.state = 'error';
-        status.focus({ preventScroll: true });
-        status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        trackingWindow.trackSiteEvent?.('contact_form_error', { form_name: 'contact' });
       } finally {
         submitButton.disabled = false;
       }

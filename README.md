@@ -60,6 +60,25 @@ Dieses Repository nutzt ein statisches `public/robots.txt` statt einer `src/page
 - Optimierbare UI-Bilder liegen unter `src/assets`, damit Astro sie fuer den Build responsiv verarbeiten kann.
 - `public` bleibt fuer unverarbeitete statische Dateien wie `CNAME`, `_headers`, `robots.txt`, Favicons und stabile OG-Bilder.
 
+## Analytics
+
+Google Analytics 4 ist mit der Mess-ID `G-W6T1TJ8W7N` integriert. Der Google-Tag wird erst nach aktiver Zustimmung im Cookie-Hinweis geladen; ohne Zustimmung bleiben Analytics Storage und ad-bezogene Consent-Flags auf `denied`.
+
+Erfasste Website-Events nach Zustimmung:
+
+- `page_view`
+- `select_content` fuer Projekt- und Blog-Karten
+- `contact_cta_click`
+- `view_cv`
+- `contact_email_click`
+- `email_copy`
+- `social_click`
+- `contact_form_submit`
+- `generate_lead` bei erfolgreichem Kontaktformularversand
+- `contact_form_error`
+
+In Google Analytics kann `generate_lead` optional als Key Event markiert werden.
+
 Draft-Blogposts bleiben aus statischen Blog-Routen, RSS und Sitemap heraus. RSS wird ueber `src/pages/rss.xml.ts` erzeugt, die Sitemap ueber `src/pages/sitemap.xml.ts`; `public/robots.txt` verweist auf die Production-Sitemap.
 
 ## Production-Checkliste
@@ -69,6 +88,7 @@ Draft-Blogposts bleiben aus statischen Blog-Routen, RSS und Sitemap heraus. RSS 
 - Build Command ist `npm run build`, Output Directory ist `dist`.
 - Node-Version ist `22.12.0` oder `NODE_VERSION=22.12.0`.
 - Custom Domain `teddschreiner.de` ist aktiv.
+- `http://teddschreiner.de` sowie `www.teddschreiner.de` sind in Cloudflare Pages/DNS erreichbar und werden per `public/_redirects` dauerhaft auf `https://teddschreiner.de` weitergeleitet.
 - Preview- und `pages.dev`-URLs liefern weiter `noindex`; bei zusaetzlichen Branch-Domains ausserhalb des Repos dieselbe Regel mitpruefen.
 
 Die lokalen Migrationsquellen `repomix.txt` und `planung_audit.txt` bleiben unveroeffentlicht.

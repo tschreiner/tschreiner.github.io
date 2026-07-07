@@ -1,7 +1,9 @@
 ---
+import AnalyticsConsent from '@components/AnalyticsConsent.astro';
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import SEOHead from '@components/SEOHead.astro';
+import { googleAnalyticsId } from '@lib/analytics';
 import { site } from '@lib/site';
 import '../styles/global.css';
 
@@ -50,6 +52,21 @@ const propsJsonLd = props.jsonLd
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#edf3f5" />
+    <script is:inline define:vars={{ googleAnalyticsId }}>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+      });
+      window.googleAnalyticsId = googleAnalyticsId;
+    </script>
     <SEOHead
       title={props.title}
       description={props.description}
@@ -69,6 +86,7 @@ const propsJsonLd = props.jsonLd
       <slot />
     </main>
     <Footer />
+    <AnalyticsConsent />
     <script>
       const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 

@@ -567,6 +567,57 @@ a {
     @apply sr-only;
   }
 
+  .cookie-consent {
+    @apply fixed inset-x-0 bottom-0 z-[80] p-4 sm:p-6;
+    background: linear-gradient(180deg, rgba(36, 32, 29, 0), rgba(36, 32, 29, 0.28));
+  }
+
+  .cookie-consent[hidden],
+  .cookie-settings-button[hidden] {
+    display: none;
+  }
+
+  .cookie-consent-panel {
+    @apply mx-auto grid max-w-4xl gap-5 rounded-lg border p-5 shadow-2xl sm:p-6;
+    border-color: rgba(116, 66, 31, 0.22);
+    background:
+      linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 250, 242, 0.96)),
+      var(--surface-raised);
+  }
+
+  .cookie-option {
+    @apply flex items-start gap-3 rounded-md border p-4 text-sm leading-6;
+    border-color: rgba(116, 66, 31, 0.16);
+    background: rgba(255, 253, 248, 0.72);
+    color: var(--muted-strong);
+  }
+
+  .cookie-option input {
+    @apply mt-1 size-4 shrink-0;
+    accent-color: var(--accent-dark);
+  }
+
+  .cookie-option small {
+    @apply mt-1 block;
+    color: var(--muted);
+  }
+
+  .cookie-actions {
+    @apply flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center;
+  }
+
+  .cookie-settings-button {
+    @apply fixed bottom-4 left-4 z-[70] rounded-md border px-3 py-2 text-xs font-semibold shadow-lg transition;
+    border-color: rgba(116, 66, 31, 0.22);
+    background: rgba(255, 253, 248, 0.94);
+    color: var(--accent-dark);
+  }
+
+  .cookie-settings-button:hover {
+    border-color: rgba(184, 112, 47, 0.58);
+    color: var(--ink);
+  }
+
   .card-link {
     @apply rounded-sm underline-offset-4 transition;
     color: var(--ink);
