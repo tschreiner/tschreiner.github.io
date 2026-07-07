@@ -80,12 +80,12 @@ a {
 
   .hero-media {
     object-fit: cover;
-    object-position: 58% 30%;
+    object-position: 58% 10%;
   }
 
   .hero-media img {
     object-fit: cover;
-    object-position: 58% 30%;
+    object-position: 58% 10%;
   }
 
   .hero-overlay {
