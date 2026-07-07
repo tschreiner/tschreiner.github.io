@@ -99,6 +99,12 @@ const siteData = defineCollection({
       headline: z.string(),
       subheadline: z.string(),
     }),
+    socialPreview: z
+      .object({
+        claim: z.array(z.string()).min(1),
+        headline: z.string().optional(),
+      })
+      .optional(),
     navigation: z.array(
       z.object({
         label: z.string(),

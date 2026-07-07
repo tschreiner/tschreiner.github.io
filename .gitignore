@@ -11,3 +11,4 @@ planung_audit.txt
 lighthouse-*.json
 .tmp/
 .wrangler/
+.cursor/

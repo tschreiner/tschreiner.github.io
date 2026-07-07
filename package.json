@@ -7,9 +7,12 @@
   "scripts": {
     "dev": "astro dev",
     "stop:dev": "powershell -ExecutionPolicy Bypass -File ./scripts/stop-dev.ps1",
+    "generate:og": "node scripts/generate-og-image.mjs",
+    "check:og": "node scripts/generate-og-image.mjs --check",
+    "prebuild": "npm run generate:og",
     "check": "astro check",
     "build": "astro build",
-    "quality": "npm run check && npm run build",
+    "quality": "npm run check && npm run build && npm run check:og",
     "preview": "astro preview"
   },
   "engines": {

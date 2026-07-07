@@ -7,6 +7,10 @@
     "headline": "DevOps Engineer für AWS Cloud, Automatisierung und AI-assisted Software Engineering.",
     "subheadline": "Ich entwickle und betreibe Cloud-Infrastruktur, CI/CD-Workflows und Automatisierungen für Software-Deployments, ITSM-Prozesse und Netzwerkbetrieb."
   },
+  "socialPreview": {
+    "claim": ["DevOps", "AWS Cloud", "Automation"],
+    "headline": "DevOps Engineer f\u00fcr AWS Cloud, Automation & AI Software Engineering"
+  },
   "navigation": [
     { "label": "Projekte", "href": "/projects/" },
     { "label": "Über mich", "href": "/about/" },
