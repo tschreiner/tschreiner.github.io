@@ -12,7 +12,7 @@ const locale = props.locale ?? getLocaleFromPath(currentPath);
 const deLink = switchLocalePath(currentPath, 'de');
 const enLink = switchLocalePath(currentPath, 'en');
 const label = locale === 'de' ? 'Sprache wechseln' : 'Switch language';
-const thumbTranslate = locale === 'de' ? 'translateX(0)' : 'translateX(calc(100% + 0.25rem))';
+const thumbTranslate = locale === 'de' ? 'translateX(0)' : 'translateX(100%)';
 const rootClass = props.mobile
   ? 'relative inline-grid h-11 w-full max-w-[9rem] grid-cols-2 rounded-full border border-[color:var(--line)] bg-[color:var(--paper)] p-1 shadow-sm'
   : 'relative inline-grid h-11 w-[9rem] grid-cols-2 rounded-full border border-[color:var(--line)] bg-[color:var(--surface)] p-1 shadow-sm';
@@ -45,7 +45,7 @@ const inactiveClass = 'text-[color:var(--muted-strong)] hover:text-[color:var(--
     data-locale-switch
     data-locale-target="en"
     data-locale-storage-key={localeStorageKey}
-    data-locale-thumb-x="translateX(calc(100% + 0.25rem))"
+    data-locale-thumb-x="translateX(100%)"
     aria-current={locale === 'en' ? 'true' : undefined}
   >
     {localeMeta.en.label}
