@@ -1,6 +1,5 @@
 ---
 import BlogCard from '@components/BlogCard.astro';
-import BridgeCard from '@components/BridgeCard.astro';
 import ContactPanel from '@components/ContactPanel.astro';
 import Container from '@components/Container.astro';
 import Hero from '@components/Hero.astro';
@@ -8,65 +7,89 @@ import ProjectCard from '@components/ProjectCard.astro';
 import SkillCluster from '@components/SkillCluster.astro';
 import TimelineItem from '@components/TimelineItem.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { byExperienceDateDesc, byProjectTitle, byPubDateDesc, visiblePosts } from '@lib/content';
+import { byExperienceDateDesc, byProjectTitle, byPubDateDesc } from '@lib/content';
 import { site, skillClusters } from '@lib/site';
 import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects')).filter((project) => project.data.featured).sort(byProjectTitle);
-const posts = (await getCollection('blog')).filter(visiblePosts).sort(byPubDateDesc).slice(0, 3);
+const posts = (await getCollection('blog')).filter((post) => !post.data.draft).sort(byPubDateDesc).slice(0, 3);
 const experience = (await getCollection('experience')).sort(byExperienceDateDesc).slice(0, 2);
+
+const recruiterFitCards = [
+  {
+    title: 'DevOps & AWS Cloud',
+    text: 'AWS-nahe Infrastruktur, Linux, Betriebsabläufe, Automatisierung und technische Plattformen.',
+  },
+  {
+    title: 'CI/CD & Software Deployment',
+    text: 'GitHub/GitLab Workflows, Deployment-Prozesse, Build-/Release-Abläufe und nachvollziehbare Änderungen.',
+  },
+  {
+    title: 'Kubernetes & Platform Engineering',
+    text: 'Containerisierte Umgebungen, Plattformlogik, Betriebsfähigkeit und wiederholbare technische Abläufe.',
+  },
+  {
+    title: 'Automation & AI Software Engineering',
+    text: 'Automatisierung von ITSM-, Infrastruktur- und Engineering-Prozessen, klassisch, skriptbasiert und AI-unterstützt.',
+  },
+  {
+    title: 'Network Automation',
+    text: 'Netzwerkdaten, Source of Truth, Ansible, REST APIs und Automatisierung im operativen Netzwerkbetrieb.',
+  },
+];
 ---
 
 <BaseLayout title={site.title} description={site.description}>
   <Hero />
 
   <section class="section section-soft">
-    <Container class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-      <div>
-        <p class="eyebrow">Kurzprofil</p>
-        <h2 class="section-title">Ich arbeite dort, wo Infrastruktur, Datenqualität und Automatisierung zusammenkommen.</h2>
+    <Container>
+      <div class="max-w-3xl">
+        <p class="eyebrow">Für Recruiter</p>
+        <h2 class="section-title">Relevant für Rollen an der Schnittstelle von Cloud, Automation und Betrieb.</h2>
         <p class="section-copy">
-          Gute Automatisierung beginnt nicht beim Tool, sondern bei verständlichen Daten, klaren Abläufen und einem
-          realistischen Blick auf den Betrieb. Genau an dieser Schnittstelle liegt mein Schwerpunkt.
+          Ich bin besonders passend für Rollen, in denen Infrastruktur, Deployments und technische Prozesse
+          zuverlässiger, nachvollziehbarer und stärker automatisiert werden sollen.
         </p>
       </div>
 
-      <div class="grid gap-4 sm:grid-cols-2">
-        {
-          [
-            [
-              'Netzwerkdaten ordnen',
-              'Source-of-Truth-Modelle, Inventarqualität und Beziehungen so strukturieren, dass daraus belastbare Abläufe entstehen.',
-            ],
-            [
-              'Automation mit Guardrails',
-              'Wiederkehrende Änderungen und Abfragen reproduzierbar machen, ohne Betriebsrisiken zu ignorieren.',
-            ],
-            [
-              'Betrieb verständlich machen',
-              'Dokumentation, Monitoring und Workflows so schneiden, dass technische Entscheidungen nachvollziehbar bleiben.',
-            ],
-            [
-              'Labs und Projekte bauen',
-              'Technische Annahmen in virtuellen Labs, Webprojekten und kleinen AI-Experimenten testbar machen.',
-            ],
-          ].map(([title, text]) => (
-            <article class="feature-card">
-              <h3 class="text-lg font-semibold text-[color:var(--ink)]">{title}</h3>
-              <p class="mt-3 text-sm leading-7 text-[color:var(--muted-strong)]">{text}</p>
-            </article>
-          ))
-        }
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {recruiterFitCards.map((card) => (
+          <article class="feature-card">
+            <h3 class="text-lg font-semibold text-[color:var(--ink)]">{card.title}</h3>
+            <p class="mt-3 text-sm leading-7 text-[color:var(--muted-strong)]">{card.text}</p>
+          </article>
+        ))}
       </div>
     </Container>
   </section>
 
-  <section class="section">
+  <section class="section section-dark">
+    <Container class="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+      <div>
+        <p class="eyebrow text-[color:var(--gold)]">Technische Schwerpunkte</p>
+        <h2 class="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+          Cloud-Infrastruktur, Deployment-Automation und Betrieb zusammen gedacht.
+        </h2>
+        <p class="mt-5 max-w-xl leading-8 text-[color:var(--warm-muted)]">
+          Meine Arbeit verbindet AWS-nahe Infrastruktur, CI/CD, Kubernetes, ITSM-Workflows,
+          Netzwerkautomatisierung und AI-unterstützte Engineering-Prozesse. Der gemeinsame Nenner:
+          Systeme sollen verständlicher, zuverlässiger und besser automatisierbar werden.
+        </p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        {skillClusters.map((cluster) => <SkillCluster {...cluster} dark />)}
+      </div>
+    </Container>
+  </section>
+
+  <section class="section section-tight-bottom">
     <Container>
       <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <div>
           <p class="eyebrow">Case Studies</p>
-          <h2 class="section-title">Ausgewählte Arbeiten aus Netzwerkautomatisierung, Source of Truth und technischen Labs.</h2>
+          <h2 class="section-title">Ausgewählte Arbeiten aus Infrastruktur, Automatisierung, Source of Truth und technischen Labs.</h2>
           <p class="section-copy">
             Die Projektseiten sind bewusst anonymisiert. Sie zeigen Problem, Lösung, Technologien, Ergebnis und Lernpunkte,
             ohne vertrauliche Betriebsdetails offenzulegen.
@@ -81,56 +104,7 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
     </Container>
   </section>
 
-  <section class="section section-dark">
-    <Container class="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-      <div>
-        <p class="eyebrow text-[color:var(--gold)]">Skills / Expertise</p>
-        <h2 class="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
-          Technische Tiefe, aber bitte wartbar.
-        </h2>
-        <p class="mt-5 max-w-xl leading-8 text-[color:var(--warm-muted)]">
-          Meine Arbeit verbindet Infrastrukturpraxis mit sauberer Modellierung, nachvollziehbarer Automatisierung und
-          pragmatischen Betriebsabläufen. Der gemeinsame Nenner: Systeme sollen verständlicher und zuverlässiger werden.
-        </p>
-      </div>
-
-      <div class="grid gap-4 sm:grid-cols-2">
-        {skillClusters.map((cluster) => <SkillCluster {...cluster} dark />)}
-      </div>
-    </Container>
-  </section>
-
-  <section class="section section-soft">
-    <Container>
-      <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-        <div>
-          <p class="eyebrow">Blog</p>
-          <h2 class="section-title">Notizen zu DevOps, Netzwerkdaten und technischen Projekten.</h2>
-          <p class="section-copy">
-            Der Blog ist für Praxisnotizen gedacht: Entscheidungen, Learnings, kleine Experimente und technische
-            Zusammenhänge, die nicht in eine klassische Projektseite passen.
-          </p>
-        </div>
-        <a class="button-secondary self-start md:self-auto" href="/blog/">Zum Blog</a>
-      </div>
-
-      {posts.length > 0 ? (
-        <div class="mt-10 grid gap-5 lg:grid-cols-3">
-          {posts.map((post) => <BlogCard post={post} />)}
-        </div>
-      ) : (
-        <div class="surface-card mt-8 max-w-2xl">
-          <h3 class="text-xl font-semibold text-[color:var(--ink)]">Noch keine veröffentlichten Artikel.</h3>
-          <p class="mt-3 leading-7 text-[color:var(--muted)]">
-            Sobald erste Beiträge live sind, erscheinen hier praxisnahe Notizen zu DevOps, Netzwerkautomatisierung,
-            Webprojekten und technischen Entscheidungen.
-          </p>
-        </div>
-      )}
-    </Container>
-  </section>
-
-  <section class="section">
+  <section class="section section-tight-y">
     <Container>
       <p class="eyebrow">Career Snapshot</p>
       <h2 class="section-title">Der rote Faden: Systeme verstehen, ordnen und automatisieren.</h2>
@@ -143,21 +117,37 @@ const experience = (await getCollection('experience')).sort(byExperienceDateDesc
         {experience.map((item) => <li><TimelineItem item={item} /></li>)}
       </ol>
 
-      <div class="mt-8">
+      <div class="mt-5 pl-8 sm:pl-10">
         <a class="button-secondary" href="/cv/">Vollständigen CV öffnen</a>
       </div>
     </Container>
   </section>
 
-  <section class="section section-soft">
-    <Container>
-      <BridgeCard />
-    </Container>
-  </section>
-
-  <section class="section">
+  <section class="section section-tight-top">
     <Container>
       <ContactPanel />
     </Container>
   </section>
+
+  {posts.length > 0 && (
+    <section class="section section-soft">
+      <Container>
+        <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p class="eyebrow">Blog</p>
+            <h2 class="section-title">Notizen zu DevOps, Netzwerkdaten und technischen Projekten.</h2>
+            <p class="section-copy">
+              Der Blog ist für Praxisnotizen gedacht: Entscheidungen, Learnings, kleine Experimente und technische
+              Zusammenhänge, die nicht in eine klassische Projektseite passen.
+            </p>
+          </div>
+          <a class="button-secondary self-start md:self-auto" href="/blog/">Zum Blog</a>
+        </div>
+
+        <div class="mt-10 grid gap-5 lg:grid-cols-3">
+          {posts.map((post) => <BlogCard post={post} />)}
+        </div>
+      </Container>
+    </section>
+  )}
 </BaseLayout>

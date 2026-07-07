@@ -7,11 +7,23 @@ interface Props {
 }
 
 const { item } = Astro.props;
-const end = item.data.current ? 'Heute' : item.data.endDate;
+const formatMonthYear = (value?: string) => {
+  if (!value) return '';
+
+  const [year, month] = value.split('-');
+  if (/^\d{4}$/.test(year) && /^\d{1,2}$/.test(month ?? '')) {
+    return `${month.padStart(2, '0')}.${year}`;
+  }
+
+  return value;
+};
+
+const start = formatMonthYear(item.data.startDate);
+const end = item.data.current ? 'heute' : formatMonthYear(item.data.endDate);
+const dateLabel = end ? `${start} – ${end}` : start;
 ---
 
-<article class="relative border-l border-[color:var(--accent-soft)] pl-6 sm:pl-8">
-  <span class="absolute -left-[7px] top-2 size-3 rounded-full border-2 border-[color:var(--surface)] bg-[color:var(--accent)] shadow-sm" aria-hidden="true"></span>
+<article>
   <div class="surface-card">
     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
       <div>
@@ -19,7 +31,7 @@ const end = item.data.current ? 'Heute' : item.data.endDate;
         <p class="mt-1 text-sm font-medium text-[color:var(--accent-dark)]">{item.data.company} · {item.data.location}</p>
       </div>
       <p class="w-fit rounded-md border border-[color:var(--surface-cool-line)] bg-[color:var(--surface-cool)] px-3 py-1 text-sm font-semibold text-[color:var(--sky-strong)]">
-        {item.data.startDate} - {end}
+        {dateLabel}
       </p>
     </div>
     <p class="mt-4 leading-7 text-[color:var(--muted)]">{item.data.summary}</p>

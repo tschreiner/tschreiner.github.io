@@ -9,9 +9,9 @@ export const site = {
     city: 'Brilon',
     country: 'Deutschland',
   },
-  title: 'Tedd Schreiner | DevOps Engineer für Network Automation',
+  title: 'Tedd Schreiner | DevOps Engineer für AWS Cloud, Automation & AI Software Engineering',
   description:
-    'Tedd Schreiner ist DevOps Engineer mit Fokus auf Netzwerkautomatisierung, Network Source of Truth, Linux-Automation und robuste technische Betriebsabläufe.',
+    'Tedd Schreiner ist DevOps Engineer mit Fokus auf AWS Cloud, CI/CD, Kubernetes, Infrastrukturautomatisierung, Netzwerkautomatisierung, ITSM-Prozesse und AI Software Engineering.',
   social: {
     github: 'https://github.com/tschreiner',
     linkedin: 'https://www.linkedin.com/in/teddschreiner/',
@@ -21,7 +21,6 @@ export const site = {
 
 export const navigation = [
   { label: 'Projekte', href: '/projects/' },
-  { label: 'Blog', href: '/blog/' },
   { label: 'Über mich', href: '/about/' },
   { label: 'CV', href: '/cv/' },
   { label: 'Kontakt', href: '/contact/' },
@@ -29,28 +28,34 @@ export const navigation = [
 
 export const skillClusters = [
   {
-    title: 'Network Automation',
+    title: 'AWS Cloud & Infrastructure',
     description:
-      'Wiederholbare Netzwerkabläufe mit klaren Guardrails, validierten Daten und nachvollziehbaren Changes.',
-    items: ['Ansible', 'REST', 'HPE/H3C Comware', 'Aruba', 'Network as Code'],
+      'AWS-nahe Infrastruktur, Linux, Container, Betriebsfähigkeit und technische Plattformgrundlagen.',
+    items: ['AWS', 'Linux', 'Docker', 'Kubernetes', 'Cloud Infrastructure', 'Infrastructure Operations'],
   },
   {
-    title: 'Source of Truth',
+    title: 'CI/CD & Deployment Automation',
     description:
-      'Strukturierte Netzwerkdaten als Grundlage für Dokumentation, Betrieb, Synchronisation und Automatisierung.',
-    items: ['i-doit', 'NSoT', 'API-Synchronisation', 'Datenmodellierung', 'Dokumentation'],
+      'Build-, Test- und Deployment-Abläufe mit nachvollziehbaren Workflows und klaren Übergängen in den Betrieb.',
+    items: ['GitHub Actions', 'GitLab CI', 'Jenkins', 'Git', 'Deployment Automation', 'Release Workflows'],
   },
   {
-    title: 'Platform Operations',
+    title: 'Automation & ITSM Workflows',
     description:
-      'Linux, Monitoring, Log Analytics und Tooling für robuste, wartbare technische Plattformen.',
-    items: ['AlmaLinux', 'Foreman', 'Docker', 'PRTG', 'Graylog'],
+      'Automatisierung technischer Prozesse an der Schnittstelle von Betrieb, Service Management und Engineering.',
+    items: ['Ansible', 'Python', 'PowerShell', 'Jira Service Management', 'REST APIs', 'Workflow Automation'],
   },
   {
-    title: 'Service & Workflow',
+    title: 'Network Automation & Source of Truth',
     description:
-      'Pragmatische Automatisierung an der Schnittstelle zwischen Betrieb, Prozessen und technischer Umsetzung.',
-    items: ['Jira Service Management', 'PowerShell', 'Python', 'Jenkins', 'BPMN'],
+      'Strukturierte Netzwerkdaten, Schnittstellen und Automatisierung für nachvollziehbare Netzwerkbetriebsabläufe.',
+    items: ['Ansible', 'i-doit', 'NetBox', 'NSoT', 'REST APIs', 'Network Automation'],
+  },
+  {
+    title: 'AI Software Engineering',
+    description:
+      'AI-unterstützte Entwicklung, technische Analyse und Automatisierung von Engineering-Prozessen.',
+    items: ['AI-assisted Development', 'AI Workflows', 'Code Review', 'Automation', 'Developer Tooling'],
   },
 ];
 

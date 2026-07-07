@@ -8,7 +8,7 @@ import { navigation, site } from '@lib/site';
     <div>
       <p class="font-semibold text-[color:var(--warm-text)]">{site.name}</p>
       <p class="mt-3 max-w-md text-sm leading-7">
-        DevOps, Netzwerkautomatisierung und Web-/AI-Projekte mit Sinn für robuste Systeme und klare Kommunikation.
+        DevOps Engineer mit Fokus auf AWS Cloud, CI/CD, Automatisierung, Netzwerkbetrieb und AI Software Engineering.
       </p>
     </div>
 
@@ -16,7 +16,6 @@ import { navigation, site } from '@lib/site';
       <p class="text-sm font-semibold text-[color:var(--warm-text)]">Navigation</p>
       <ul class="mt-3 grid gap-2 text-sm">
         {navigation.map((item) => <li><a class="footer-link" href={item.href}>{item.label}</a></li>)}
-        <li><a class="footer-link" href="/mentoring/">Mentoring</a></li>
       </ul>
     </nav>
 
@@ -24,12 +23,11 @@ import { navigation, site } from '@lib/site';
       <p class="text-sm font-semibold text-[color:var(--warm-text)]">Kontakt & Legal</p>
       <ul class="mt-3 grid gap-2 text-sm">
         <li><a class="footer-link" href={`mailto:${site.email}`}>{site.email}</a></li>
-        <li><a class="footer-link" href={site.social.linkedin}>LinkedIn</a></li>
-        <li><a class="footer-link" href={site.social.github}>GitHub</a></li>
-        <li><a class="footer-link" href={site.social.xing}>Xing</a></li>
+        <li><a class="footer-link" href={site.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a class="footer-link" href={site.social.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a class="footer-link" href={site.social.xing} target="_blank" rel="noopener noreferrer">Xing</a></li>
         <li><a class="footer-link" href="/impressum/">Impressum</a></li>
         <li><a class="footer-link" href="/datenschutz/">Datenschutz</a></li>
-        <li><a class="footer-link" href="/rss.xml">RSS</a></li>
       </ul>
     </nav>
   </Container>

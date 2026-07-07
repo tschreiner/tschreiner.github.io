@@ -5,31 +5,56 @@ import PageLayout from '@layouts/PageLayout.astro';
 
 <PageLayout
   eyebrow="Über mich"
-  title="Ich baue technische Systeme, die Arbeit leichter machen."
-  description="Mein Hintergrund verbindet Softwareentwicklung, Infrastruktur, Online-Marketing-Automatisierung und heutigen DevOps-Alltag."
+  title="Ich verbinde Cloud-Infrastruktur, Automatisierung und AI Software Engineering mit praktischem Betrieb."
+  description="Mein Hintergrund verbindet Softwareentwicklung, Infrastruktur, DevOps, Netzwerkautomatisierung und AI-gestützte Engineering-Workflows."
 >
-  <section class="section pt-0">
+  <section class="section section-after-header">
     <Container class="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
       <div class="surface-card sm:p-8">
         <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Kurzprofil</h2>
         <p class="mt-4 leading-8 text-[color:var(--muted)]">
-          Ich bin DevOps Engineer mit Schwerpunkt auf Netzwerkautomatisierung, Infrastructure Operations und technischen
-          Workflows. Mich interessieren Systeme, in denen Datenqualität, Betrieb und Automatisierung zusammenkommen.
+          Ich bin DevOps Engineer mit Schwerpunkt auf AWS Cloud, CI/CD, Kubernetes, Infrastrukturautomatisierung,
+          Netzwerkautomatisierung und AI Software Engineering. Mich interessieren technische Systeme, in denen gute Daten,
+          klare Abläufe und zuverlässiger Betrieb zusammenkommen.
         </p>
       </div>
       <div class="surface-card prose-site sm:p-8">
         <p>
           Mein Weg begann in der Softwareentwicklung und führte über Webprojekte, E-Commerce, Online-Marketing-Automation und
-          Systemadministration immer stärker in Richtung Infrastruktur.
+          Systemadministration immer stärker in Richtung Infrastruktur, DevOps und Automatisierung.
         </p>
         <p>
-          Dadurch sehe ich technische Arbeit nicht nur als Betrieb, sondern auch als Produkt: Ein gutes System muss verständlich,
-          wartbar und erklärbar sein. Es soll Menschen helfen, bessere Entscheidungen zu treffen.
+          Dadurch betrachte ich technische Arbeit nicht nur als Betrieb, sondern auch als Gestaltung von Abläufen: Ein gutes
+          System muss verständlich, wartbar und erklärbar sein. Es soll Deployments, Änderungen und Entscheidungen
+          nachvollziehbarer machen.
         </p>
         <p>
-          Neben der beruflichen Arbeit baue ich Web- und AI-Projekte. Mal ist das ein Experiment, mal ein kleines Tool, manchmal
-          nur der Versuch, eine gute Idee sauber genug zu Ende zu bringen.
+          Heute liegt mein Fokus auf Cloud- und Infrastrukturthemen, CI/CD-Workflows, Netzwerkautomatisierung, ITSM-Prozessen
+          und AI-gestützten Engineering-Workflows. Entscheidend ist für mich nicht das einzelne Tool, sondern ob daraus robuste
+          und praktikable Lösungen für den Betrieb entstehen.
         </p>
+      </div>
+    </Container>
+  </section>
+
+  <section class="section section-tight-top">
+    <Container>
+      <div class="max-w-3xl">
+        <p class="eyebrow">Fachlicher Fokus</p>
+        <h2 class="section-title">Was mich fachlich interessiert</h2>
+      </div>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {[
+          'Cloud & Platform Engineering',
+          'Deployment Automation',
+          'ITSM & Betriebsprozesse',
+          'Network Automation',
+          'AI Software Engineering',
+        ].map((topic) => (
+          <article class="surface-card flex min-h-28 items-center p-5">
+            <h3 class="text-base font-semibold leading-6 text-[color:var(--ink)]">{topic}</h3>
+          </article>
+        ))}
       </div>
     </Container>
   </section>

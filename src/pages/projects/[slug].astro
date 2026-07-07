@@ -56,7 +56,7 @@ const projectJsonLd = {
   imageAlt={projectImageAlt}
   jsonLd={projectJsonLd}
 >
-  <section class="section pt-0">
+  <section class="section section-after-header">
     <Container class="grid gap-8 lg:grid-cols-[0.66fr_1.34fr]">
       <aside class="surface-card h-fit sm:p-7 lg:sticky lg:top-24">
         <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--accent-dark)]">Case Study</p>
@@ -122,6 +122,11 @@ const projectJsonLd = {
         )}
         <h2>Lösung</h2>
         <p>{project.data.solution}</p>
+        {project.data.impact && (
+          <p class="not-prose my-6 border-l-2 border-[color:var(--accent)] bg-[color:var(--surface)] px-5 py-4 text-base leading-7 text-[color:var(--muted-strong)]">
+            <span class="font-semibold text-[color:var(--ink)]">Wirkung:</span> {project.data.impact}
+          </p>
+        )}
         <h2>Ergebnis</h2>
         <p>{project.data.result}</p>
         {hasLessons && (

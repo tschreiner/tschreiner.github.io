@@ -10,10 +10,10 @@ const projects = (await getCollection('projects')).sort(byProjectTitle);
 
 <PageLayout
   eyebrow="Projekte"
-  title="Case Studies zu Netzwerkautomatisierung, Source of Truth und technischen Labs."
+  title="Case Studies zu Infrastruktur, Automatisierung, Netzwerkdaten und technischen Labs."
   description="Anonymisierte Projektbeispiele aus DevOps, Infrastruktur, Netzwerkdaten und Automatisierung. Fokus: Problemraum, Rolle, Vorgehen, Ergebnis und Lernpunkte, ohne vertrauliche Details offenzulegen."
 >
-  <section class="section pt-0">
+  <section class="section section-after-header">
     <Container class="grid gap-5 lg:grid-cols-3">
       {projects.map((project) => <ProjectCard project={project} />)}
     </Container>

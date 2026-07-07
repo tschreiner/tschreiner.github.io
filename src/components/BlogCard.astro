@@ -8,25 +8,32 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const postHref = `/blog/${post.id}/`;
 ---
 
-<article class="blog-card surface-card interactive-card flex h-full flex-col">
-  <div class="flex flex-1 flex-col p-6 sm:p-7">
-    <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
-      <span class="meta-label text-[color:var(--sky-strong)]">{post.data.category}</span>
-      <time class="meta-note" datetime={post.data.pubDate.toISOString()}>{readingLabel(post)}</time>
+<article class="h-full">
+  <a
+    class="blog-card surface-card interactive-card flex h-full flex-col no-underline"
+    href={postHref}
+    aria-label={`Artikel ${post.data.title} lesen`}
+  >
+    <div class="flex flex-1 flex-col p-6 sm:p-7">
+      <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
+        <span class="meta-label text-[color:var(--sky-strong)]">{post.data.category}</span>
+        <time class="meta-note" datetime={post.data.pubDate.toISOString()}>{readingLabel(post)}</time>
+      </div>
+      <h3 class="mt-6 text-2xl font-semibold leading-tight text-[color:var(--ink)]">
+        {post.data.title}
+      </h3>
+      <p class="mt-4 flex-1 leading-7 text-[color:var(--muted)]">{post.data.description}</p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        {post.data.draft && <TechTag label="Entwurf" tone="warm" />}
+        {post.data.tags.slice(0, 3).map((tag) => <TechTag label={tag} />)}
+      </div>
+      <span class="card-cta mt-7 self-start">
+        Artikel lesen
+        <span class="card-cta-icon" aria-hidden="true">-&gt;</span>
+      </span>
     </div>
-    <h3 class="mt-6 text-2xl font-semibold leading-tight text-[color:var(--ink)]">
-      <a class="card-link" href={`/blog/${post.id}/`}>{post.data.title}</a>
-    </h3>
-    <p class="mt-4 flex-1 leading-7 text-[color:var(--muted)]">{post.data.description}</p>
-    <div class="mt-6 flex flex-wrap gap-2">
-      {post.data.draft && <TechTag label="Entwurf" tone="warm" />}
-      {post.data.tags.slice(0, 3).map((tag) => <TechTag label={tag} />)}
-    </div>
-    <a class="text-link mt-7 self-start" href={`/blog/${post.id}/`} aria-label={`Artikel ${post.data.title} lesen`}>
-      Artikel lesen
-      <span class="ml-2" aria-hidden="true">-&gt;</span>
-    </a>
-  </div>
+  </a>
 </article>

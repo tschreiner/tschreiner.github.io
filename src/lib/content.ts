@@ -1,6 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 
-export const visiblePosts = (post: CollectionEntry<'blog'>) => import.meta.env.DEV || !post.data.draft;
+export const visiblePosts = (post: CollectionEntry<'blog'>) => !post.data.draft;
 
 export const byPubDateDesc = (a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) =>
   b.data.pubDate.getTime() - a.data.pubDate.getTime();

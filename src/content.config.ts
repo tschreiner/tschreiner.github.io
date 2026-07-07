@@ -40,6 +40,7 @@ const projects = defineCollection({
     solution: z.string(),
     technologies: z.array(z.string()),
     result: z.string(),
+    impact: z.string().optional(),
     featured: z.boolean().default(false),
     category: z.string(),
     status: z.string(),

@@ -15,17 +15,22 @@ const categories = ['Tech', 'DevOps', 'Automation', 'AI Tools', 'Webprojekte', '
   title="Notizen zu DevOps, Netzwerkdaten und technischen Projekten."
   description="Praxisnahe Gedanken zu Automatisierung, Infrastruktur, Webprojekten, AI-Tools und technischen Entscheidungen."
 >
-  <section class="section pt-0">
+  <section class="section section-after-header">
     <Container>
-      <div class="mb-8 flex flex-wrap gap-2">
-        {
-          categories.map((category) => <TechTag label={category} />)
-        }
-      </div>
       {posts.length > 0 ? (
-        <div class="grid gap-5 md:grid-cols-3">
-          {posts.map((post) => <BlogCard post={post} />)}
-        </div>
+        <>
+          <div class="mb-8" aria-label="Themen">
+            <p class="meta-label mb-3">Themen</p>
+            <div class="flex flex-wrap gap-2">
+              {
+                categories.map((category) => <TechTag label={category} />)
+              }
+            </div>
+          </div>
+          <div class="grid gap-5 md:grid-cols-3">
+            {posts.map((post) => <BlogCard post={post} />)}
+          </div>
+        </>
       ) : (
         <div class="surface-card max-w-2xl">
           <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Noch keine veröffentlichten Artikel.</h2>

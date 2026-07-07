@@ -4,13 +4,12 @@
   "email": "info@teddschreiner.de",
   "hero": {
     "title": "Tedd Schreiner",
-    "headline": "DevOps Engineer, Automatisierer und Builder von Web- und AI-Projekten.",
-    "subheadline": "Ich arbeite an Infrastruktur, Netzwerkautomatisierung und technischen Systemen — und baue nebenbei Projekte, die Technik, Kreativität und Alltag miteinander verbinden."
+    "headline": "DevOps Engineer für AWS Cloud, Automatisierung und AI Software Engineering.",
+    "subheadline": "Ich entwickle und betreibe Cloud-Infrastruktur, CI/CD-Workflows und Automatisierungen für Software-Deployments, ITSM-Prozesse und Netzwerkbetrieb."
   },
   "navigation": [
-    { "label": "Über mich", "href": "/about/" },
     { "label": "Projekte", "href": "/projects/" },
-    { "label": "Blog", "href": "/blog/" },
+    { "label": "Über mich", "href": "/about/" },
     { "label": "CV", "href": "/cv/" },
     { "label": "Kontakt", "href": "/contact/" }
   ],
