@@ -126,12 +126,12 @@ a {
   @media (max-width: 639px) {
     .hero-media,
     .hero-media img {
-      object-position: 66% 24%;
+      object-position: 34% 14%;
     }
 
     .hero-overlay {
       background:
-        linear-gradient(90deg, rgba(27, 24, 21, 0.95) 0%, rgba(27, 24, 21, 0.84) 54%, rgba(27, 24, 21, 0.48) 100%),
+        linear-gradient(90deg, rgba(27, 24, 21, 0.96) 0%, rgba(27, 24, 21, 0.88) 58%, rgba(27, 24, 21, 0.5) 100%),
         linear-gradient(180deg, rgba(36, 32, 29, 0.22) 0%, rgba(36, 32, 29, 0.78) 100%);
     }
 

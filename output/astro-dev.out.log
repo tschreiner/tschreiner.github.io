@@ -1,0 +1,5 @@
+
+> teddschreiner-de@1.0.0 dev
+> astro dev --host 127.0.0.1 --port 4321
+
+{"message":"Dev server already running at http://localhost:4321 (pid 40056)\n  Stop:   astro dev stop\n  Status: astro dev status\n  Logs:   astro dev logs","label":"SKIP_FORMAT","level":"info"}
