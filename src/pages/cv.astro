@@ -19,12 +19,13 @@ const suitableRoles = [
   'Network Automation Engineer',
   'AI Software Engineer mit Automatisierungsfokus',
 ];
+const profileFocus = ['DevOps Engineer', 'Cloud', 'Automation', 'AI-assisted Engineering'];
 ---
 
 <PageLayout
   eyebrow="CV / Lebenslauf"
   title="Lebenslauf"
-  description="Aktuelle Rolle, technische Schwerpunkte und relevante Erfahrung für DevOps-, AWS-Cloud-, Platform-, Automation- und AI-Software-Engineering-Rollen."
+  description="Aktuelle Rolle, technische Schwerpunkte und relevante Erfahrung für DevOps-, AWS-Cloud-, Platform-, Automation- und AI-assisted Software Engineering-Rollen."
   tags={['DevOps', 'AWS Cloud', 'CI/CD', 'Network Automation']}
 >
   <section class="section section-after-header">
@@ -35,7 +36,7 @@ const suitableRoles = [
         </ol>
       </div>
 
-      <aside class="grid content-start gap-5 lg:sticky lg:top-24 lg:col-start-1 lg:row-start-1">
+      <aside class="grid min-w-0 content-start gap-5 lg:sticky lg:top-24 lg:col-start-1 lg:row-start-1">
         <div class="surface-card overflow-hidden p-0">
           <img
             src="/images/profile.jpg"
@@ -49,9 +50,20 @@ const suitableRoles = [
           <div class="p-6">
             <p class="eyebrow">Kurzprofil</p>
             <h2 class="mt-3 text-xl font-semibold text-[color:var(--ink)]">Tedd Schreiner</h2>
-            <p class="mt-1 text-sm font-medium text-[color:var(--accent-dark)]">DevOps Engineer · Cloud · Automation</p>
+            <p class="mt-1 flex min-w-0 flex-wrap items-baseline text-sm font-medium leading-6 text-[color:var(--accent-dark)]">
+              {
+                profileFocus.map((item, index) => (
+                  <span class="inline-flex items-baseline whitespace-nowrap">
+                    <span>{item}</span>
+                    {index < profileFocus.length - 1 && (
+                      <span aria-hidden="true" class="mx-1 text-[color:var(--accent-soft)]">·</span>
+                    )}
+                  </span>
+                ))
+              }
+            </p>
             <p class="mt-4 text-sm leading-7 text-[color:var(--muted-strong)]">
-              DevOps Engineer mit Fokus auf AWS Cloud, CI/CD, Kubernetes, Infrastrukturautomatisierung, Netzwerkautomatisierung, ITSM-Prozesse und AI Software Engineering.
+              DevOps Engineer mit Fokus auf AWS Cloud, CI/CD, Kubernetes, Infrastrukturautomatisierung, Netzwerkautomatisierung, ITSM-Prozesse und AI-assisted Software Engineering.
             </p>
           </div>
         </div>

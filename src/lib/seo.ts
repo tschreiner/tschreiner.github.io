@@ -2,7 +2,7 @@ import { site } from './site';
 
 export const defaultSeoImage = '/images/social-preview.jpg';
 export const defaultSeoImageAlt =
-  'Social Preview für Tedd Schreiner, DevOps Engineer für AWS Cloud, Automation und AI Software Engineering.';
+  'Social Preview für Tedd Schreiner, DevOps Engineer für AWS Cloud, Automation und AI-assisted Software Engineering.';
 export const defaultSeoImageHeight = 630;
 export const defaultSeoImageType = 'image/jpeg';
 export const defaultSeoImageWidth = 1200;

@@ -9,9 +9,9 @@ export const site = {
     city: 'Brilon',
     country: 'Deutschland',
   },
-  title: 'Tedd Schreiner | DevOps Engineer für AWS Cloud, Automation & AI Software Engineering',
+  title: 'Tedd Schreiner | DevOps Engineer für AWS Cloud, Automation & AI-assisted Software Engineering',
   description:
-    'Tedd Schreiner ist DevOps Engineer mit Fokus auf AWS Cloud, CI/CD, Kubernetes, Infrastrukturautomatisierung, Netzwerkautomatisierung, ITSM-Prozesse und AI Software Engineering.',
+    'Tedd Schreiner ist DevOps Engineer mit Fokus auf AWS Cloud, CI/CD, Kubernetes, Infrastrukturautomatisierung, Netzwerkautomatisierung, ITSM-Prozesse und AI-assisted Software Engineering.',
   social: {
     github: 'https://github.com/tschreiner',
     linkedin: 'https://www.linkedin.com/in/teddschreiner/',
@@ -52,7 +52,7 @@ export const skillClusters = [
     items: ['Ansible', 'i-doit', 'NetBox', 'NSoT', 'REST APIs', 'Network Automation'],
   },
   {
-    title: 'AI Software Engineering',
+    title: 'AI-assisted Software Engineering',
     description:
       'AI-unterstützte Entwicklung, technische Analyse und Automatisierung von Engineering-Prozessen.',
     items: ['AI-assisted Development', 'AI Workflows', 'Code Review', 'Automation', 'Developer Tooling'],
