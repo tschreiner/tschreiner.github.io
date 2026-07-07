@@ -4,40 +4,92 @@ interface Props {
 }
 
 const { company } = Astro.props;
+const companyLower = company.toLowerCase();
 
-const logo = (() => {
+type LogoConfig =
+  | { kind: 'image'; alt: string; src: string; tone: string; width: number; height: number }
+  | { kind: 'initials'; alt: string; initials: string; tone: string };
+
+const logo: LogoConfig = (() => {
   if (company.includes('EOS')) {
     return {
+      kind: 'image',
       alt: 'EOS Logo',
       src: '/images/logos/eos-technology-solutions.svg',
       tone: 'eos',
+      width: 120,
+      height: 48,
     };
   }
 
   if (company.includes('Wunschgutschein')) {
     return {
+      kind: 'image',
       alt: 'Wunschgutschein Logo',
       src: '/images/logos/wunschgutschein.png',
       tone: 'wunschgutschein',
+      width: 48,
+      height: 48,
     };
   }
 
   if (company.includes('HAMMELSPRUNG')) {
     return {
+      kind: 'image',
       alt: 'HAMMELSPRUNG Logo',
       src: '/images/logos/hammelsprung.png',
       tone: 'hammelsprung',
+      width: 120,
+      height: 12,
+    };
+  }
+
+  if (companyLower.includes('maxconvert')) {
+    return {
+      kind: 'image',
+      alt: 'maxconvert Logo',
+      src: '/images/logos/maxconvert.svg',
+      tone: 'maxconvert',
+      width: 132,
+      height: 40,
+    };
+  }
+
+  if (companyLower.includes('myboom')) {
+    return {
+      kind: 'image',
+      alt: 'MYBOOM Logo',
+      src: '/images/logos/myboom.png',
+      tone: 'myboom',
+      width: 120,
+      height: 20,
     };
   }
 
   return {
-    alt: 'MYBOOM Logo',
-    src: '/images/logos/myboom.png',
-    tone: 'myboom',
+    kind: 'initials',
+    alt: `${company} Logo`,
+    initials: company.slice(0, 2).toUpperCase(),
+    tone: 'generic',
   };
 })();
 ---
 
 <span class={`employer-logo employer-logo-${logo.tone}`} title={company}>
-  <img src={logo.src} alt={logo.alt} width="120" height="48" loading="lazy" decoding="async" />
+  {
+    logo.kind === 'image' ? (
+      <img
+        src={logo.src}
+        alt={logo.alt}
+        width={logo.width}
+        height={logo.height}
+        loading="lazy"
+        decoding="async"
+      />
+    ) : (
+      <span class="employer-logo-initials" aria-hidden="true">
+        {logo.initials}
+      </span>
+    )
+  }
 </span>

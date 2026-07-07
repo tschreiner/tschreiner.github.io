@@ -1,0 +1,15 @@
+{
+  "role": "Software Developer",
+  "company": "MyBOOM Internet GmbH",
+  "location": "Bottrop",
+  "startDate": "2015-07",
+  "endDate": "2018-08",
+  "current": false,
+  "summary": "Entwicklung von Webanwendungen, Shop-Erweiterungen und Integrationen im angestellten E-Commerce-Umfeld.",
+  "highlights": [
+    "Entwicklung von Webanwendungen, Shop-Erweiterungen und Integrationen.",
+    "Einsatz von PHP, Symfony und Magento in produktiven Shop-Projekten.",
+    "Mitwirkung an Development- und Staging-Umgebungen mit Vagrant und Docker."
+  ],
+  "technologies": ["PHP", "Symfony", "Magento", "Docker", "Vagrant"]
+}

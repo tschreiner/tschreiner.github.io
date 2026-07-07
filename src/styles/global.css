@@ -724,10 +724,12 @@ a {
   }
 
   .employer-logo-eos {
-    background: linear-gradient(135deg, #ffffff 0%, #edf3f5 100%);
+    background: #ffffff;
   }
 
   .employer-logo-wunschgutschein {
+    width: 3rem;
+    padding: 0.375rem;
     background: #ffffff;
   }
 
@@ -742,6 +744,23 @@ a {
     width: 6rem;
     background: #ffffff;
     padding-inline: 0.7rem;
+  }
+
+  .employer-logo-maxconvert {
+    width: 6rem;
+    background: #ffffff;
+    padding: 0.2rem 0.25rem;
+  }
+
+  .employer-logo-generic {
+    background: linear-gradient(135deg, #ffffff 0%, #f4efe8 100%);
+  }
+
+  .employer-logo-initials {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
   }
 
   .timeline-list {

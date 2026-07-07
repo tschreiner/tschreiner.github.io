@@ -1,0 +1,15 @@
+{
+  "role": "Gründer und Softwareentwickler",
+  "company": "maxconvert UG (haftungsbeschränkt)",
+  "location": "Brilon",
+  "startDate": "2017-08",
+  "endDate": "2019-07",
+  "current": false,
+  "summary": "Selbstständige Arbeit an Webprojekten, Linux-Systemen und automatisierten Entwicklungs- und Betriebsumgebungen.",
+  "highlights": [
+    "Administration von Linux-Systemen und AWS-basierten Umgebungen.",
+    "Aufbau von Development-, Staging- und Produktionsabläufen mit Vagrant, Docker und Ansible.",
+    "Umsetzung eigener Kunden- und Produktprojekte als Gründer."
+  ],
+  "technologies": ["PHP", "Symfony", "Docker", "Ansible", "AWS", "Linux"]
+}
