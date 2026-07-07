@@ -11,13 +11,24 @@ import PageLayout from '@layouts/PageLayout.astro';
 >
   <section class="section section-after-header">
     <Container class="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
-      <div class="surface-card sm:p-8">
-        <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Kurzprofil</h2>
-        <p class="mt-4 leading-8 text-[color:var(--muted)]">
-          Ich bin DevOps Engineer mit Schwerpunkt auf AWS Cloud, CI/CD, Kubernetes, Infrastrukturautomatisierung,
-          Netzwerkautomatisierung und AI Software Engineering. Mich interessieren technische Systeme, in denen gute Daten,
-          klare Abläufe und zuverlässiger Betrieb zusammenkommen.
-        </p>
+      <div class="surface-card overflow-hidden p-0">
+        <img
+          src="/images/profile.jpg"
+          alt="Portrait von Tedd Schreiner"
+          width="1200"
+          height="1223"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[5/4] w-full object-cover object-[50%_58%]"
+        />
+        <div class="p-6 sm:p-8">
+          <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Kurzprofil</h2>
+          <p class="mt-4 leading-8 text-[color:var(--muted)]">
+            Ich bin DevOps Engineer mit Schwerpunkt auf AWS Cloud, CI/CD, Kubernetes, Infrastrukturautomatisierung,
+            Netzwerkautomatisierung und AI Software Engineering. Mich interessieren technische Systeme, in denen gute Daten,
+            klare Abläufe und zuverlässiger Betrieb zusammenkommen.
+          </p>
+        </div>
       </div>
       <div class="surface-card prose-site sm:p-8">
         <p>

@@ -6,13 +6,38 @@ interface Props {
 const { company } = Astro.props;
 
 const logo = (() => {
-  if (company.includes('EOS')) return { label: 'EOS', tone: 'eos' };
-  if (company.includes('Wunschgutschein')) return { label: 'WG', tone: 'wunschgutschein' };
-  if (company.includes('HAMMELSPRUNG')) return { label: 'HS', tone: 'hammelsprung' };
-  return { label: 'WEB', tone: 'web' };
+  if (company.includes('EOS')) {
+    return {
+      alt: 'EOS Logo',
+      src: '/images/logos/eos-technology-solutions.svg',
+      tone: 'eos',
+    };
+  }
+
+  if (company.includes('Wunschgutschein')) {
+    return {
+      alt: 'Wunschgutschein Logo',
+      src: '/images/logos/wunschgutschein.png',
+      tone: 'wunschgutschein',
+    };
+  }
+
+  if (company.includes('HAMMELSPRUNG')) {
+    return {
+      alt: 'HAMMELSPRUNG Logo',
+      src: '/images/logos/hammelsprung.png',
+      tone: 'hammelsprung',
+    };
+  }
+
+  return {
+    alt: 'MYBOOM Logo',
+    src: '/images/logos/myboom.png',
+    tone: 'myboom',
+  };
 })();
 ---
 
-<span class={`employer-logo employer-logo-${logo.tone}`} aria-label={`Logo ${company}`} title={company}>
-  {logo.label}
+<span class={`employer-logo employer-logo-${logo.tone}`} title={company}>
+  <img src={logo.src} alt={logo.alt} width="120" height="48" loading="lazy" decoding="async" />
 </span>

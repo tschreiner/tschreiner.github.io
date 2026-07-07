@@ -90,8 +90,9 @@ const propsJsonLd = props.jsonLd
     <AnalyticsConsent />
     <script>
       const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const compactViewportQuery = window.matchMedia('(max-width: 639px)');
 
-      if (!motionQuery.matches && 'IntersectionObserver' in window) {
+      if (!motionQuery.matches && !compactViewportQuery.matches && 'IntersectionObserver' in window) {
         const revealItems = document.querySelectorAll<HTMLElement>(
           '.section .surface-card, .section .project-card, .section .blog-card, .section .feature-card, .section .timeline-list > li',
         );
@@ -101,6 +102,17 @@ const propsJsonLd = props.jsonLd
         });
 
         document.documentElement.classList.add('reveal-ready');
+
+        const isInInitialViewport = (item: HTMLElement) => {
+          const rect = item.getBoundingClientRect();
+          return rect.top < window.innerHeight && rect.bottom > 0;
+        };
+
+        revealItems.forEach((item) => {
+          if (isInInitialViewport(item)) {
+            item.classList.add('is-visible');
+          }
+        });
 
         const revealObserver = new IntersectionObserver(
           (entries, observer) => {
@@ -114,7 +126,11 @@ const propsJsonLd = props.jsonLd
           { rootMargin: '0px 0px -12% 0px', threshold: 0.12 },
         );
 
-        revealItems.forEach((item) => revealObserver.observe(item));
+        revealItems.forEach((item) => {
+          if (!item.classList.contains('is-visible')) {
+            revealObserver.observe(item);
+          }
+        });
       }
 
       const sectionLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-section-link]'));

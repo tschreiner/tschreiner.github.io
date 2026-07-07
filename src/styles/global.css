@@ -80,12 +80,12 @@ a {
 
   .hero-media {
     object-fit: cover;
-    object-position: 58% 20%;
+    object-position: 58% 30%;
   }
 
   .hero-media img {
     object-fit: cover;
-    object-position: 58% 20%;
+    object-position: 58% 30%;
   }
 
   .hero-overlay {
@@ -126,13 +126,13 @@ a {
   @media (max-width: 639px) {
     .hero-media,
     .hero-media img {
-      object-position: 34% 14%;
+      object-position: 30% 10%;
     }
 
     .hero-overlay {
       background:
-        linear-gradient(90deg, rgba(27, 24, 21, 0.96) 0%, rgba(27, 24, 21, 0.88) 58%, rgba(27, 24, 21, 0.5) 100%),
-        linear-gradient(180deg, rgba(36, 32, 29, 0.22) 0%, rgba(36, 32, 29, 0.78) 100%);
+        linear-gradient(90deg, rgba(27, 24, 21, 0.94) 0%, rgba(27, 24, 21, 0.85) 58%, rgba(27, 24, 21, 0.46) 100%),
+        linear-gradient(180deg, rgba(36, 32, 29, 0.18) 0%, rgba(36, 32, 29, 0.74) 100%);
     }
 
     .hero-metric {
@@ -607,15 +607,39 @@ a {
   }
 
   .cookie-settings-button {
-    @apply fixed bottom-4 left-4 z-[70] rounded-md border px-3 py-2 text-xs font-semibold shadow-lg transition;
+    @apply fixed bottom-4 left-4 z-[70] inline-flex items-center gap-2 rounded-md border px-3 py-2 text-xs font-semibold shadow-lg transition;
     border-color: rgba(116, 66, 31, 0.22);
     background: rgba(255, 253, 248, 0.94);
     color: var(--accent-dark);
   }
 
+  .cookie-settings-button svg {
+    @apply size-4 shrink-0;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+  }
+
   .cookie-settings-button:hover {
     border-color: rgba(184, 112, 47, 0.58);
     color: var(--ink);
+  }
+
+  @media (max-width: 639px) {
+    .cookie-settings-button {
+      @apply right-3 left-auto size-11 justify-center rounded-full p-0;
+      bottom: calc(env(safe-area-inset-bottom) + 0.75rem);
+    }
+
+    .cookie-settings-button span {
+      @apply sr-only;
+    }
+
+    .cookie-settings-button svg {
+      @apply size-5;
+    }
   }
 
   .card-link {
@@ -686,31 +710,38 @@ a {
   }
 
   .employer-logo {
-    @apply grid size-11 shrink-0 place-items-center rounded-lg border text-xs font-bold tracking-[0.08em] shadow-sm;
+    @apply grid h-12 w-20 shrink-0 place-items-center rounded-lg border p-2 shadow-sm;
     border-color: rgba(116, 66, 31, 0.18);
     background: var(--surface-raised);
     color: var(--accent-dark);
   }
 
+  .employer-logo img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
   .employer-logo-eos {
     background: linear-gradient(135deg, #ffffff 0%, #edf3f5 100%);
-    color: var(--sky-strong);
   }
 
   .employer-logo-wunschgutschein {
-    background: linear-gradient(135deg, #fff7ed 0%, #fff1df 100%);
-    color: var(--accent-dark);
+    background: #ffffff;
   }
 
   .employer-logo-hammelsprung {
-    background: linear-gradient(135deg, #24201d 0%, #74421f 100%);
+    width: 7rem;
+    background: #050505;
     border-color: rgba(36, 32, 29, 0.34);
-    color: var(--warm-text);
+    padding-inline: 0.6rem;
   }
 
-  .employer-logo-web {
-    background: linear-gradient(135deg, #fffdf8 0%, #f3eadf 100%);
-    color: var(--graphite);
+  .employer-logo-myboom {
+    width: 6rem;
+    background: #ffffff;
+    padding-inline: 0.7rem;
   }
 
   .timeline-list {
