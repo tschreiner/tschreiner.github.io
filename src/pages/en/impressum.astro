@@ -1,0 +1,60 @@
+---
+import Container from '@components/Container.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+import { getSite } from '@lib/site';
+
+const locale = 'en' as const;
+const site = getSite(locale);
+---
+
+<PageLayout
+  eyebrow="Legal"
+  title="Legal Notice"
+  description="Provider information and contact details."
+  noindex={true}
+  locale={locale}
+>
+  <section class="section section-after-header">
+    <Container>
+      <div class="surface-card prose-site">
+        <h2>Provider Information</h2>
+        <p>
+          {site.name}<br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}<br />
+          {site.address.country}
+        </p>
+
+        <h2>Contact</h2>
+        <p>Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+
+        <h2>Responsible for Content</h2>
+        <p>{site.name}</p>
+
+        <h2>Dispute Resolution</h2>
+        <p>
+          I am neither obliged nor willing to participate in dispute resolution proceedings before a consumer
+          arbitration board.
+        </p>
+
+        <h2>Liability for Content</h2>
+        <p>
+          The contents of this website have been created with care. However, I cannot guarantee the accuracy,
+          completeness or timeliness of the content.
+        </p>
+
+        <h2>Liability for Links</h2>
+        <p>
+          This website contains links to external third-party websites over whose contents I have no control. The
+          respective provider or operator is always responsible for the content of the linked pages.
+        </p>
+
+        <h2>Copyright</h2>
+        <p>
+          The content and works created on this website are subject to German copyright law. Contributions by third
+          parties are marked as such where applicable.
+        </p>
+      </div>
+    </Container>
+  </section>
+</PageLayout>

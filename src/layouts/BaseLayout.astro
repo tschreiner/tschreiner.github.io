@@ -4,8 +4,9 @@ import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import SEOHead from '@components/SEOHead.astro';
 import { googleAnalyticsId } from '@lib/analytics';
+import { alternateLocale, getLocaleFromPath, localeMeta, localeStorageKey, switchLocalePath, type Locale } from '@lib/i18n';
 import { defaultSeoImage, imageUrl } from '@lib/seo';
-import { site } from '@lib/site';
+import { getSite } from '@lib/site';
 import '../styles/global.css';
 
 interface Props {
@@ -19,9 +20,19 @@ interface Props {
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
   publishedTime?: string;
   modifiedTime?: string;
+  locale?: Locale;
 }
 
 const props = Astro.props as Props;
+const locale = props.locale ?? getLocaleFromPath(Astro.url.pathname);
+const site = getSite(locale);
+const currentPath = Astro.url.pathname;
+const dePath = switchLocalePath(currentPath, 'de');
+const enPath = switchLocalePath(currentPath, 'en');
+const deUrl = new URL(dePath, site.url).toString();
+const enUrl = new URL(enPath, site.url).toString();
+const otherLocale = alternateLocale(locale);
+const alternatePath = switchLocalePath(currentPath, otherLocale);
 
 const personJsonLd = {
   '@context': 'https://schema.org',
@@ -49,10 +60,29 @@ const propsJsonLd = props.jsonLd
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={localeMeta[locale].lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="alternate" hreflang="de" href={deUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={deUrl} />
+    <script is:inline define:vars={{ locale, alternatePath, localeStorageKey }}>
+      try {
+        const storedLocale = window.localStorage.getItem(localeStorageKey);
+        const browserLanguage = (window.navigator.languages?.[0] || window.navigator.language || '').toLowerCase();
+        const preferredLocale = storedLocale === 'de' || storedLocale === 'en'
+          ? storedLocale
+          : browserLanguage.startsWith('de')
+            ? 'de'
+            : 'en';
+
+        if (!storedLocale && preferredLocale !== locale && alternatePath) {
+          window.location.replace(`${alternatePath}${window.location.search}${window.location.hash}`);
+        }
+      } catch {
+      }
+    </script>
     <script is:inline define:vars={{ googleAnalyticsId }}>
       window.dataLayer = window.dataLayer || [];
       window.gtag = function gtag() {
@@ -79,6 +109,7 @@ const propsJsonLd = props.jsonLd
       jsonLd={[personJsonLd, websiteJsonLd, ...propsJsonLd]}
       publishedTime={props.publishedTime}
       modifiedTime={props.modifiedTime}
+      locale={locale}
     />
   </head>
   <body>
@@ -89,6 +120,50 @@ const propsJsonLd = props.jsonLd
     <Footer />
     <AnalyticsConsent />
     <script>
+      const localeSwitchLinks = document.querySelectorAll<HTMLAnchorElement>('[data-locale-switch]');
+
+      localeSwitchLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          const targetLocale = link.dataset.localeTarget;
+          const storageKey = link.dataset.localeStorageKey;
+          const thumbX = link.dataset.localeThumbX;
+          const switcher = link.closest<HTMLElement>('[data-locale-switcher]');
+          const thumb = switcher?.querySelector<HTMLElement>('[data-locale-thumb]');
+
+          if (!storageKey || (targetLocale !== 'de' && targetLocale !== 'en')) {
+            return;
+          }
+
+          try {
+            window.localStorage.setItem(storageKey, targetLocale);
+          } catch {
+          }
+
+          if (
+            event.defaultPrevented ||
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey
+          ) {
+            return;
+          }
+
+          if (!thumbX || !thumb || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return;
+          }
+
+          event.preventDefault();
+          thumb.style.transform = thumbX;
+          switcher?.setAttribute('data-switching', targetLocale);
+
+          window.setTimeout(() => {
+            window.location.assign(link.href);
+          }, 180);
+        });
+      });
+
       const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
       const compactViewportQuery = window.matchMedia('(max-width: 639px)');
 
@@ -159,6 +234,73 @@ const propsJsonLd = props.jsonLd
         projectSections.forEach((section) => sectionObserver.observe(section));
         setActiveSection(projectSections[0]?.id ?? '');
       }
+
+      // #region agent log
+      const debugLog = (hypothesisId: string, message: string, data: Record<string, unknown>) => {
+        fetch('http://127.0.0.1:7623/ingest/42df5a12-ee00-4d8d-97c5-80519697793d', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': '9b70ac' },
+          body: JSON.stringify({
+            sessionId: '9b70ac',
+            location: 'BaseLayout.astro:card-hover-debug',
+            message,
+            data,
+            timestamp: Date.now(),
+            hypothesisId,
+            runId: 'post-fix-verify',
+          }),
+        }).catch(() => {});
+      };
+
+      const measureProjectCards = (hoveredCard: HTMLElement, event: 'enter' | 'leave') => {
+        const grid = hoveredCard.closest('.grid');
+        if (!grid) return;
+
+        const cards = Array.from(grid.querySelectorAll<HTMLElement>('.interactive-card.project-card'));
+        const hoveredIndex = cards.indexOf(hoveredCard);
+        const cardMetrics = cards.map((card, index) => {
+          const style = getComputedStyle(card);
+          return {
+            index,
+            offsetHeight: card.offsetHeight,
+            clientHeight: card.clientHeight,
+            transform: style.transform,
+            boxShadow: style.boxShadow,
+            isHovered: index === hoveredIndex,
+          };
+        });
+
+        debugLog('H1', 'card layout metrics on hover', {
+          event,
+          hoveredIndex,
+          gridOffsetHeight: grid.getBoundingClientRect().height,
+          cardMetrics,
+        });
+
+        const tags = Array.from(hoveredCard.querySelectorAll<HTMLElement>('.project-card-tags > *'));
+        debugLog('H3', 'tag transforms on hovered card', {
+          event,
+          tagMetrics: tags.map((tag, index) => ({
+            index,
+            transform: getComputedStyle(tag).transform,
+            offsetHeight: tag.offsetHeight,
+          })),
+        });
+
+        debugLog('H2', 'hovered card motion styles', {
+          event,
+          transform: getComputedStyle(hoveredCard).transform,
+          transition: getComputedStyle(hoveredCard).transition,
+          hasReveal: hoveredCard.hasAttribute('data-reveal'),
+          isVisible: hoveredCard.classList.contains('is-visible'),
+        });
+      };
+
+      document.querySelectorAll<HTMLElement>('.interactive-card.project-card').forEach((card) => {
+        card.addEventListener('mouseenter', () => measureProjectCards(card, 'enter'));
+        card.addEventListener('mouseleave', () => measureProjectCards(card, 'leave'));
+      });
+      // #endregion
     </script>
   </body>
 </html>

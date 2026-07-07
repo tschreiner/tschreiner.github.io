@@ -6,7 +6,7 @@ import PageLayout from '@layouts/PageLayout.astro';
 import { byPubDateDesc, visiblePosts } from '@lib/content';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog')).filter(visiblePosts).sort(byPubDateDesc);
+const posts = (await getCollection('blog')).filter((post) => post.data.locale === 'de' && visiblePosts(post)).sort(byPubDateDesc);
 const categories = ['Tech', 'DevOps', 'Automation', 'AI Tools', 'Webprojekte', 'Personal Notes'];
 ---
 

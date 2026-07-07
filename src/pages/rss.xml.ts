@@ -4,7 +4,7 @@ import { byPubDateDesc } from '@lib/content';
 import { site } from '@lib/site';
 
 export async function GET(context: { site: URL }) {
-  const posts = (await getCollection('blog')).filter((post) => !post.data.draft).sort(byPubDateDesc);
+  const posts = (await getCollection('blog')).filter((post) => post.data.locale === 'de' && !post.data.draft).sort(byPubDateDesc);
 
   return rss({
     title: site.title,
@@ -14,7 +14,7 @@ export async function GET(context: { site: URL }) {
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.pubDate,
-      link: `/blog/${post.id}/`,
+      link: `/blog/${post.data.slug}/`,
       categories: [post.data.category, ...post.data.tags],
     })),
   });

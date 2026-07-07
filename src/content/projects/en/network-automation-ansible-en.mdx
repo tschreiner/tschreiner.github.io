@@ -1,0 +1,40 @@
+---
+locale: "en"
+translationKey: "network-automation-ansible"
+title: "Network Automation with Ansible"
+slug: "network-automation-ansible"
+description: "Repeatable network changes and queries with Ansible, REST interfaces and structured inventory data."
+problem: "Manual network changes and recurring queries are error-prone, difficult to compare and often only partly traceable. At the same time, network devices behave differently from servers and require more cautious guardrails."
+context: "The project lived inside day-to-day network operations: recurring tasks needed to become more reproducible without hiding risk or accelerating production changes blindly. The crucial part was the connection between inventory data, tooling, vendor specifics and realistic change workflows."
+role: "Tedd's contribution focused on structuring the automation logic: breaking tasks into small, verifiable steps, making inventory data usable as input, keeping REST and Ansible flows readable, defining guardrails and documenting outcomes so they remain understandable in operations."
+constraints:
+  - "Production network changes require cautious execution, clear inputs and a traceable separation between querying, validation and change."
+  - "Vendor and platform differences had to be reflected in the design without making the workflows unnecessarily complex."
+  - "Inventory data needed to be plausible before use; incorrect inputs should never silently become production changes."
+  - "The automation should grow incrementally and not force a big-bang replacement of established operational routines."
+approach:
+  - "Recurring tasks were sorted by risk and repeatability so the right workflows could be automated first."
+  - "Playbooks and interface calls were intentionally kept small so inputs, expected states and outcomes stayed verifiable."
+  - "Validation and readability were treated as part of implementation, not as after-the-fact documentation."
+  - "The automation was checked against operational reality: what can be standardized safely and what still needs deliberate review?"
+solution: "Automation flows were built with Ansible, REST interfaces and validated inventory data. The focus was on small steps, readability, pre-checks, traceable changes and clear boundaries between information gathering and change execution."
+technologies: ["Ansible", "REST", "YAML", "Git", "Aruba", "HPE/H3C"]
+result: "The workflows became more standardized and manual repetition was reduced. At the same time, the project created a stronger foundation for documented, verifiable network changes without exposing production details or concrete configurations."
+impact: "Recurring network queries and changes were moved into smaller, verifiable automation steps."
+featured: true
+category: "Automation"
+status: "Case Study"
+confidentialNote: "Specific device details, non-public workflows and production change contents are abstracted."
+links: []
+lessons:
+  - "Network automation needs validation at the input layer and at the expected state layer, not just an executable playbook."
+  - "Vendor-specific behavior belongs early in the design so it does not grow into hard-to-maintain edge cases."
+  - "Small, clearly named playbooks are often more valuable in operations than a single large all-rounder."
+seo:
+  title: "Network Automation with Ansible | Tedd Schreiner"
+  description: "Case study on network automation with Ansible, REST and validated inventory data."
+---
+
+Network automation is most useful when it does not try to solve everything at once. Strong workflows make recurring tasks reproducible and give operations more confidence.
+
+The difference from server automation is less about the tool and more about the risk: one change can affect many dependent systems. That is why guardrails, transparent execution and verifiable inputs were core design criteria.

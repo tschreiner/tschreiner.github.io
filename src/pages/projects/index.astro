@@ -2,10 +2,12 @@
 import Container from '@components/Container.astro';
 import ProjectCard from '@components/ProjectCard.astro';
 import PageLayout from '@layouts/PageLayout.astro';
-import { byProjectTitle } from '@lib/content';
+import { byProjectTitleForLocale } from '@lib/content';
 import { getCollection } from 'astro:content';
 
-const projects = (await getCollection('projects')).sort(byProjectTitle);
+const projects = (await getCollection('projects'))
+  .filter((project) => project.data.locale === 'de')
+  .sort(byProjectTitleForLocale('de'));
 ---
 
 <PageLayout

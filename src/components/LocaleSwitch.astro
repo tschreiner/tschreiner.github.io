@@ -1,0 +1,53 @@
+---
+import { getLocaleFromPath, localeMeta, localeStorageKey, switchLocalePath, type Locale } from '@lib/i18n';
+
+interface Props {
+  locale?: Locale;
+  mobile?: boolean;
+}
+
+const props = Astro.props as Props;
+const currentPath = Astro.url.pathname;
+const locale = props.locale ?? getLocaleFromPath(currentPath);
+const deLink = switchLocalePath(currentPath, 'de');
+const enLink = switchLocalePath(currentPath, 'en');
+const label = locale === 'de' ? 'Sprache wechseln' : 'Switch language';
+const thumbTranslate = locale === 'de' ? 'translateX(0)' : 'translateX(calc(100% + 0.25rem))';
+const rootClass = props.mobile
+  ? 'relative inline-grid h-11 w-full max-w-[9rem] grid-cols-2 rounded-full border border-[color:var(--line)] bg-[color:var(--paper)] p-1 shadow-sm'
+  : 'relative inline-grid h-11 w-[9rem] grid-cols-2 rounded-full border border-[color:var(--line)] bg-[color:var(--surface)] p-1 shadow-sm';
+const thumbClass = 'absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-[color:var(--graphite)] shadow-sm transition-transform duration-200 ease-out';
+const linkClass = 'relative z-10 inline-flex items-center justify-center rounded-full px-3 text-xs font-semibold transition-colors duration-200';
+const activeClass = 'text-white';
+const inactiveClass = 'text-[color:var(--muted-strong)] hover:text-[color:var(--ink)]';
+---
+
+<div class={rootClass} aria-label={label} data-locale-switcher>
+  <span class={thumbClass} aria-hidden="true" data-locale-thumb style={`transform:${thumbTranslate};`}></span>
+  <a
+    href={deLink}
+    class:list={[linkClass, locale === 'de' ? activeClass : inactiveClass]}
+    hreflang={localeMeta.de.lang}
+    lang={localeMeta.de.lang}
+    data-locale-switch
+    data-locale-target="de"
+    data-locale-storage-key={localeStorageKey}
+    data-locale-thumb-x="translateX(0)"
+    aria-current={locale === 'de' ? 'true' : undefined}
+  >
+    {localeMeta.de.label}
+  </a>
+  <a
+    href={enLink}
+    class:list={[linkClass, locale === 'en' ? activeClass : inactiveClass]}
+    hreflang={localeMeta.en.lang}
+    lang={localeMeta.en.lang}
+    data-locale-switch
+    data-locale-target="en"
+    data-locale-storage-key={localeStorageKey}
+    data-locale-thumb-x="translateX(calc(100% + 0.25rem))"
+    aria-current={locale === 'en' ? 'true' : undefined}
+  >
+    {localeMeta.en.label}
+  </a>
+</div>

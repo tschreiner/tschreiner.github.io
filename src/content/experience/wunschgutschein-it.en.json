@@ -1,0 +1,18 @@
+{
+  "locale": "en",
+  "translationKey": "wunschgutschein-it",
+  "role": "IT Systems Administrator",
+  "company": "Wunschgutschein GmbH",
+  "location": "Brilon",
+  "startDate": "2020-01",
+  "endDate": "2022-08",
+  "current": false,
+  "summary": "Broad infrastructure role in a growing environment with focus on modernization, ITSM, monitoring and automation.",
+  "highlights": [
+    "Modernization of network, server, database and monitoring systems.",
+    "Introduction of Microsoft 365 and endpoint management processes.",
+    "Automation of ITSM workflows with Jira Service Management, PowerShell and CI workflows.",
+    "Building IPAM and automation foundations with NetBox, REST, Ansible and NAPALM."
+  ],
+  "technologies": ["Microsoft 365", "PowerShell", "Ansible", "NetBox", "Jira Service Management", "PRTG", "Graylog", "Docker"]
+}

@@ -1,0 +1,17 @@
+{
+  "locale": "en",
+  "translationKey": "hammelsprung-automation",
+  "role": "Head of Online Marketing",
+  "company": "HAMMELSPRUNG GmbH",
+  "location": "Brilon",
+  "startDate": "2018-09",
+  "endDate": "2019-12",
+  "current": false,
+  "summary": "Combination of campaign automation, web projects and responsibility for on-premise and cloud infrastructure.",
+  "highlights": [
+    "Automated evaluation of campaign KPIs with Python and APIs.",
+    "Deployment workflows for landing pages and niche sites with Ansible and Docker.",
+    "Operating cloud and on-premise systems for internal and external web projects."
+  ],
+  "technologies": ["Python", "REST", "Ansible", "Docker", "AWS", "WordPress"]
+}

@@ -6,11 +6,12 @@ import TechTag from '@components/TechTag.astro';
 import TimelineItem from '@components/TimelineItem.astro';
 import PageLayout from '@layouts/PageLayout.astro';
 import { byExperienceDateDesc } from '@lib/content';
-import { education, languages, skillClusters } from '@lib/site';
+import { getEducation, getLanguages, getSkillClusters } from '@lib/site';
 import { getCollection } from 'astro:content';
 
+const locale = 'en' as const;
 const experience = (await getCollection('experience'))
-  .filter((item) => item.data.locale === 'de')
+  .filter((item) => item.data.locale === locale)
   .sort(byExperienceDateDesc);
 const suitableRoles = [
   'DevOps Engineer',
@@ -19,21 +20,25 @@ const suitableRoles = [
   'Infrastructure Automation Engineer',
   'CI/CD Engineer',
   'Network Automation Engineer',
-  'AI Software Engineer mit Automatisierungsfokus',
+  'AI Software Engineer with an automation focus',
 ];
 const profileFocus = ['DevOps Engineer', 'Cloud', 'Automation', 'AI-assisted Engineering'];
+const skillClusters = getSkillClusters(locale);
+const education = getEducation(locale);
+const languages = getLanguages(locale);
 ---
 
 <PageLayout
-  eyebrow="CV / Lebenslauf"
-  title="Lebenslauf"
-  description="Aktuelle Rolle, technische Schwerpunkte und relevante Erfahrung für DevOps-, AWS-Cloud-, Platform-, Automation- und AI-assisted Software Engineering-Rollen."
+  eyebrow="CV"
+  title="Curriculum Vitae"
+  description="Current role, technical focus and relevant experience for DevOps, AWS Cloud, platform, automation and AI-assisted software engineering roles."
   tags={['DevOps', 'AWS Cloud', 'CI/CD', 'Network Automation', 'Software Engineering', 'Artificial Intelligence']}
+  locale={locale}
 >
   <section class="section section-after-header">
     <Container class="grid gap-8 lg:grid-cols-[0.68fr_1.32fr]">
       <div class="min-w-0 lg:col-start-2 lg:row-start-1">
-        <ol class="timeline-list" aria-label="Berufserfahrung">
+        <ol class="timeline-list" aria-label="Professional experience">
           {experience.map((item) => <li><TimelineItem item={item} /></li>)}
         </ol>
       </div>
@@ -42,7 +47,7 @@ const profileFocus = ['DevOps Engineer', 'Cloud', 'Automation', 'AI-assisted Eng
         <div class="surface-card overflow-hidden p-0">
           <img
             src="/images/profile.jpg"
-            alt="Portrait von Tedd Schreiner"
+            alt="Portrait of Tedd Schreiner"
             width="1200"
             height="1223"
             loading="lazy"
@@ -50,7 +55,7 @@ const profileFocus = ['DevOps Engineer', 'Cloud', 'Automation', 'AI-assisted Eng
             class="aspect-[5/4] w-full object-cover object-[50%_58%]"
           />
           <div class="p-6">
-            <p class="eyebrow">Kurzprofil</p>
+            <p class="eyebrow">Short profile</p>
             <h2 class="mt-3 text-xl font-semibold text-[color:var(--ink)]">Tedd Schreiner</h2>
             <p class="mt-1 flex min-w-0 flex-wrap items-baseline text-sm font-medium leading-6 text-[color:var(--accent-dark)]">
               {
@@ -65,33 +70,36 @@ const profileFocus = ['DevOps Engineer', 'Cloud', 'Automation', 'AI-assisted Eng
               }
             </p>
             <p class="mt-4 text-sm leading-7 text-[color:var(--muted-strong)]">
-              DevOps Engineer mit Fokus auf AWS Cloud, CI/CD, Kubernetes, Infrastrukturautomatisierung, Netzwerkautomatisierung, ITSM-Prozesse und AI-assisted Software Engineering.
+              DevOps Engineer focused on AWS Cloud, CI/CD, Kubernetes, infrastructure automation, network automation,
+              ITSM workflows and AI-assisted software engineering.
             </p>
           </div>
         </div>
         <div class="surface-card">
-          <h2 class="text-lg font-semibold text-[color:var(--ink)]">Technisches Profil</h2>
+          <h2 class="text-lg font-semibold text-[color:var(--ink)]">Technical profile</h2>
           <p class="mt-3 text-sm leading-7 text-[color:var(--muted-strong)]">
-            Infrastruktur, Automatisierung und Betrieb mit Blick auf nachvollziehbare Daten, stabile Workflows und wartbare technische Systeme.
+            Infrastructure, automation and operations with a focus on traceable data, stable workflows and maintainable
+            technical systems.
           </p>
         </div>
         <div class="surface-card">
-          <h2 class="text-lg font-semibold text-[color:var(--ink)]">Passende Rollen</h2>
+          <h2 class="text-lg font-semibold text-[color:var(--ink)]">Relevant roles</h2>
           <div class="mt-4 flex flex-wrap gap-2">
             {suitableRoles.map((role) => <TechTag label={role} />)}
           </div>
         </div>
         <div class="surface-card">
-          <h2 class="text-lg font-semibold text-[color:var(--ink)]">Rollenprofil</h2>
+          <h2 class="text-lg font-semibold text-[color:var(--ink)]">Role context</h2>
           <p class="mt-3 text-sm leading-7 text-[color:var(--muted-strong)]">
-            Für eine schnelle Einschätzung helfen Rollenprofil, Tech Stack, Remote-/Hybrid-Regelung, Standort, Startzeitpunkt und Gehalts- oder Budgetrahmen.
+            For a quick assessment, it helps to know the role profile, tech stack, remote or hybrid setup, location,
+            start date and salary or budget range.
           </p>
         </div>
         <div class="grid gap-4">
           {skillClusters.map((cluster) => <SkillCluster {...cluster} />)}
         </div>
         <div class="surface-card">
-          <h2 class="text-lg font-semibold text-[color:var(--ink)]">Ausbildung</h2>
+          <h2 class="text-lg font-semibold text-[color:var(--ink)]">Education</h2>
           <div class="mt-4 grid gap-4">
             {education.map((item) => (
               <div>
@@ -102,7 +110,7 @@ const profileFocus = ['DevOps Engineer', 'Cloud', 'Automation', 'AI-assisted Eng
           </div>
         </div>
         <div class="surface-card">
-          <h2 class="text-lg font-semibold text-[color:var(--ink)]">Sprachen</h2>
+          <h2 class="text-lg font-semibold text-[color:var(--ink)]">Languages</h2>
           <div class="mt-4 grid gap-2">
             {languages.map((language) => (
               <p class="text-sm text-[color:var(--muted-strong)]"><strong>{language.name}:</strong> {language.level}</p>

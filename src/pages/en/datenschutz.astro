@@ -1,0 +1,101 @@
+---
+import Container from '@components/Container.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+import { getSite } from '@lib/site';
+
+const locale = 'en' as const;
+const site = getSite(locale);
+---
+
+<PageLayout
+  eyebrow="Legal"
+  title="Privacy Policy"
+  description="Information about the processing of personal data on this static website."
+  noindex={true}
+  locale={locale}
+>
+  <section class="section section-after-header">
+    <Container>
+      <div class="surface-card prose-site">
+        <p>
+          This privacy policy explains which personal data is processed when you visit this website or get in touch with
+          me.
+        </p>
+
+        <h2>Controller</h2>
+        <p>
+          {site.name}<br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}<br />
+          {site.address.country}<br />
+          Email: <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+
+        <h2>General Principles</h2>
+        <p>
+          This website is a static Astro site. It does not load external webfonts or embedded third-party content.
+          Google Analytics is only loaded if you explicitly consent to analytics via the cookie prompt.
+        </p>
+
+        <h2>Hosting and Server Logs</h2>
+        <p>
+          When you access the website, technically necessary data may be processed so that the site can be delivered to
+          your device. This may include IP address, date and time of access, requested file, amount of data transferred,
+          referrer URL, browser and operating system information, and the requesting provider.
+        </p>
+
+        <h2>Contact Requests</h2>
+        <p>
+          If you contact me by email, I process the data you provide, especially your email address, the content of the
+          message and any additional contact details you include.
+        </p>
+        <p>
+          If you use the contact form, name, email address, organization, subject, message and technical sending data are
+          processed to forward the inquiry to my contact address. Resend is used for technical email delivery.
+        </p>
+
+        <h2>Cookies and Local Storage</h2>
+        <p>
+          This website stores technically necessary local settings, especially your cookie preference. If you reject
+          analytics cookies, Google Analytics is not loaded and no analytics cookies are set.
+        </p>
+
+        <h2>Google Analytics</h2>
+        <p>
+          After your consent, this website uses Google Analytics 4 provided by Google Ireland Limited, Gordon House,
+          Barrow Street, Dublin 4, Ireland. The measurement ID is <code>G-W6T1TJ8W7N</code>.
+        </p>
+        <p>
+          Google Analytics is configured with Consent Mode. Before consent, analytics storage is disabled, the script is
+          not loaded and no analytics events are sent.
+        </p>
+
+        <h2>Recipients of Personal Data</h2>
+        <p>
+          Personal data is not sold or shared for advertising purposes. Disclosure may take place where required for the
+          technical provision of the website, handling an inquiry, fulfilling legal obligations or protecting legitimate
+          interests.
+        </p>
+
+        <h2>Retention Period</h2>
+        <p>
+          Personal data is stored only for as long as necessary for the respective purpose or as required by law.
+        </p>
+
+        <h2>Your Rights</h2>
+        <p>
+          Subject to the applicable legal requirements, you have the right to access, rectification, erasure, restriction
+          of processing, data portability and objection to certain processing activities.
+        </p>
+
+        <h2>Changes to This Privacy Policy</h2>
+        <p>
+          This privacy policy will be updated when the website, the services used or the legal requirements change.
+        </p>
+
+        <h2>Status</h2>
+        <p>July 2026</p>
+      </div>
+    </Container>
+  </section>
+</PageLayout>

@@ -1,0 +1,76 @@
+---
+import Container from '@components/Container.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+
+const locale = 'en' as const;
+---
+
+<PageLayout
+  eyebrow="About"
+  title="I connect cloud infrastructure, automation and AI-assisted software engineering with real operational work."
+  description="My background combines software development, infrastructure, DevOps, network automation and AI-assisted engineering workflows."
+  tags={['Cloud', 'Automation', 'Operations', 'AI-assisted Engineering']}
+  locale={locale}
+>
+  <section class="section section-after-header">
+    <Container class="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
+      <div class="surface-card overflow-hidden p-0">
+        <img
+          src="/images/profile.jpg"
+          alt="Portrait of Tedd Schreiner"
+          width="1200"
+          height="1223"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[5/4] w-full object-cover object-[50%_58%]"
+        />
+        <div class="p-6 sm:p-8">
+          <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Short profile</h2>
+          <p class="mt-4 leading-8 text-[color:var(--muted)]">
+            I am a DevOps Engineer focused on AWS Cloud, CI/CD, Kubernetes, infrastructure automation, network
+            automation and AI-assisted software engineering. I am especially interested in technical systems where good
+            data, clear workflows and reliable operations come together.
+          </p>
+        </div>
+      </div>
+      <div class="surface-card prose-site sm:p-8">
+        <p>
+          My path started in software development and moved through web projects, e-commerce, online marketing
+          automation and systems administration increasingly toward infrastructure, DevOps and automation.
+        </p>
+        <p>
+          Because of that, I do not see technical work as operations alone, but also as the design of workflows: a
+          good system needs to be understandable, maintainable and explainable. It should make deployments, changes and
+          decisions easier to follow.
+        </p>
+        <p>
+          Today my focus is on cloud and infrastructure topics, CI/CD workflows, network automation, ITSM processes and
+          AI-assisted engineering workflows. What matters to me is not any single tool, but whether it leads to robust
+          and practical solutions for operations.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <section class="section section-tight-top">
+    <Container>
+      <div class="max-w-3xl">
+        <p class="eyebrow">Professional Focus</p>
+        <h2 class="section-title">What I am professionally interested in</h2>
+      </div>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {[
+          'Cloud & Platform Engineering',
+          'Deployment Automation',
+          'ITSM & Operational Processes',
+          'Network Automation',
+          'AI-assisted Software Engineering',
+        ].map((topic) => (
+          <article class="surface-card flex min-h-28 items-center p-5">
+            <h3 class="text-base font-semibold leading-6 text-[color:var(--ink)]">{topic}</h3>
+          </article>
+        ))}
+      </div>
+    </Container>
+  </section>
+</PageLayout>

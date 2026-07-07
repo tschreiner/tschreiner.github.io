@@ -1,0 +1,17 @@
+{
+  "locale": "en",
+  "translationKey": "myboom-developer",
+  "role": "Software Developer",
+  "company": "MyBOOM Internet GmbH",
+  "location": "Bottrop",
+  "startDate": "2015-07",
+  "endDate": "2018-08",
+  "current": false,
+  "summary": "Development of web applications, shop extensions and integrations in an employed e-commerce environment.",
+  "highlights": [
+    "Development of web applications, shop extensions and integrations.",
+    "Use of PHP, Symfony and Magento in production shop projects.",
+    "Contribution to development and staging environments with Vagrant and Docker."
+  ],
+  "technologies": ["PHP", "Symfony", "Magento", "Docker", "Vagrant"]
+}

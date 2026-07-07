@@ -1,20 +1,43 @@
 ---
 import Container from '@components/Container.astro';
 import PageLayout from '@layouts/PageLayout.astro';
+import { getLocaleFromPath, withLocalePath } from '@lib/i18n';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const copy = locale === 'de'
+  ? {
+      eyebrow: '404',
+      title: 'Seite nicht gefunden',
+      description:
+        'Die angefragte Seite existiert nicht oder wurde verschoben. Von hier geht es zur Startseite, zu den Projekten oder direkt zum Kontakt.',
+      home: 'Zur Startseite',
+      projects: 'Projekte ansehen',
+      contact: 'Kontakt aufnehmen',
+    }
+  : {
+      eyebrow: '404',
+      title: 'Page not found',
+      description:
+        'The requested page does not exist or has been moved. From here you can jump back to the homepage, the projects or directly to contact.',
+      home: 'Back to homepage',
+      projects: 'View projects',
+      contact: 'Get in touch',
+    };
 ---
 
 <PageLayout
-  eyebrow="404"
-  title="Seite nicht gefunden"
-  description="Die angefragte Seite existiert nicht oder wurde verschoben. Von hier geht es zur Startseite, zu den Projekten oder direkt zum Kontakt."
+  eyebrow={copy.eyebrow}
+  title={copy.title}
+  description={copy.description}
   noindex={true}
+  locale={locale}
 >
   <section class="section section-after-header">
     <Container>
       <div class="flex flex-wrap gap-3">
-        <a class="button-primary" href="/">Zur Startseite</a>
-        <a class="button-secondary" href="/projects/">Projekte ansehen</a>
-        <a class="button-secondary" href="/contact/">Kontakt aufnehmen</a>
+        <a class="button-primary" href={withLocalePath(locale, '/')}>{copy.home}</a>
+        <a class="button-secondary" href={withLocalePath(locale, '/projects/')}>{copy.projects}</a>
+        <a class="button-secondary" href={withLocalePath(locale, '/contact/')}>{copy.contact}</a>
       </div>
     </Container>
   </section>

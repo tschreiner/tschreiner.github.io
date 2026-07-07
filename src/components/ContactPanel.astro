@@ -1,55 +1,126 @@
 ---
 import SocialIcon from '@components/SocialIcon.astro';
+import { ATTACHMENT_ACCEPT } from '@lib/contact-attachments';
+import { getLocaleFromPath, withLocalePath } from '@lib/i18n';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const privacyHref = withLocalePath(locale, '/datenschutz/');
+const copy = locale === 'de'
+  ? {
+      eyebrow: 'Kontakt',
+      title: 'Kontakt für DevOps-, Cloud-, Automation- und AI-assisted Software Engineering-Rollen.',
+      intro:
+        'Relevant sind Anfragen zu AWS Cloud, CI/CD, Kubernetes, Infrastrukturautomatisierung, Software Deployments, ITSM-Prozessen, Netzwerkautomatisierung und AI-gestütztem Software Engineering.',
+      name: 'Name',
+      email: 'E-Mail',
+      organization: 'Organisation',
+      subject: 'Betreff',
+      message: 'Nachricht',
+      files: 'Dateien (optional)',
+      filesHint: 'Bis zu 10 Dateien: PDF, Word, Bilder oder ZIP, je max. 5 MB.',
+      privacy:
+        'Ich bin einverstanden, dass meine Angaben und ggf. angehängte Dateien zur Bearbeitung der Anfrage per E-Mail verarbeitet werden.',
+      privacyLabel: 'Datenschutzerklärung',
+      send: 'Anfrage senden',
+      pending: 'Die Anfrage wird gesendet.',
+      success: 'Danke, die Anfrage wurde gesendet. Ich melde mich zeitnah zurück.',
+      error: 'Die Anfrage konnte nicht gesendet werden.',
+      attachmentCount: '{count} Datei(en) ausgewählt',
+    }
+  : {
+      eyebrow: 'Contact',
+      title: 'Get in touch about DevOps, cloud, automation and AI-assisted software engineering roles.',
+      intro:
+        'Relevant topics include AWS Cloud, CI/CD, Kubernetes, infrastructure automation, software deployments, ITSM workflows, network automation and AI-assisted software engineering.',
+      name: 'Name',
+      email: 'Email',
+      organization: 'Organization',
+      subject: 'Subject',
+      message: 'Message',
+      files: 'Files (optional)',
+      filesHint: 'Up to 10 files: PDF, Word, images or ZIP, up to 5 MB each.',
+      privacy:
+        'I agree that my details and any attached files may be processed by email for the purpose of handling my request.',
+      privacyLabel: 'Privacy Policy',
+      send: 'Send inquiry',
+      pending: 'Sending your inquiry.',
+      success: 'Thanks, your inquiry was sent. I will get back to you shortly.',
+      error: 'Your inquiry could not be sent.',
+      attachmentCount: '{count} file(s) selected',
+    };
 ---
 
 <section class="surface-card">
-  <p class="eyebrow">Kontakt</p>
+  <p class="eyebrow">{copy.eyebrow}</p>
   <h2 class="mt-3 max-w-2xl text-3xl font-semibold leading-tight text-[color:var(--ink)]">
-    Kontakt für DevOps-, Cloud-, Automation- und AI-assisted Software Engineering-Rollen.
+    {copy.title}
   </h2>
   <p class="mt-4 leading-7 text-[color:var(--muted-strong)]">
-    Relevant sind Anfragen zu AWS Cloud, CI/CD, Kubernetes, Infrastrukturautomatisierung, Software Deployments,
-    ITSM-Prozessen, Netzwerkautomatisierung und AI-gestütztem Software Engineering.
+    {copy.intro}
   </p>
 
-  <form class="contact-form mt-8" action="/api/contact" method="post" data-contact-form>
+  <form
+    class="contact-form mt-8"
+    action="/api/contact"
+    method="post"
+    enctype="multipart/form-data"
+    data-contact-form
+    data-message-pending={copy.pending}
+    data-message-success={copy.success}
+    data-message-error={copy.error}
+    data-attachment-count-label={copy.attachmentCount}
+  >
     <label class="form-honeypot">
       Website
       <input type="text" name="website" tabindex="-1" autocomplete="off" />
     </label>
+    <input type="hidden" name="locale" value={locale} />
 
     <div class="form-grid">
       <label class="form-field">
-        <span>Name</span>
+        <span>{copy.name}</span>
         <input name="name" type="text" autocomplete="name" maxlength="120" required />
       </label>
       <label class="form-field">
-        <span>E-Mail</span>
+        <span>{copy.email}</span>
         <input name="email" type="email" autocomplete="email" maxlength="180" required />
       </label>
     </div>
 
     <div class="form-grid">
       <label class="form-field">
-        <span>Organisation</span>
+        <span>{copy.organization}</span>
         <input name="organization" type="text" autocomplete="organization" maxlength="160" />
       </label>
       <label class="form-field">
-        <span>Betreff</span>
+        <span>{copy.subject}</span>
         <input name="subject" type="text" maxlength="180" required />
       </label>
     </div>
 
     <label class="form-field">
-      <span>Nachricht</span>
+      <span>{copy.message}</span>
       <textarea name="message" rows="7" maxlength="4000" required></textarea>
+    </label>
+
+    <label class="form-field">
+      <span>{copy.files}</span>
+      <input
+        type="file"
+        name="attachments"
+        multiple
+        accept={ATTACHMENT_ACCEPT}
+        data-contact-attachments
+      />
+      <span class="form-hint">{copy.filesHint}</span>
+      <ul class="attachment-list" data-attachment-list hidden></ul>
     </label>
 
     <label class="form-checkbox">
       <input type="checkbox" name="privacy" value="accepted" required />
       <span>
-        Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage per E-Mail verarbeitet werden.
-        {' '}<a class="form-inline-link" href="/datenschutz/">Datenschutzerklärung</a>
+        {copy.privacy}
+        {' '}<a class="form-inline-link" href={privacyHref}>{copy.privacyLabel}</a>
       </span>
     </label>
 
@@ -58,22 +129,69 @@ import SocialIcon from '@components/SocialIcon.astro';
     <div class="form-actions">
       <button class="button-primary gap-2" type="submit">
         <SocialIcon name="mail" />
-        Anfrage senden
+        {copy.send}
       </button>
     </div>
   </form>
 </section>
 
 <script>
+  import { validateAttachmentFiles } from '@lib/contact-attachments';
+
   const contactForms = document.querySelectorAll<HTMLFormElement>('[data-contact-form]');
   type TrackingWindow = Window & {
     trackSiteEvent?: (name: string, params?: Record<string, string | number | boolean>) => void;
   };
   const trackingWindow = window as TrackingWindow;
 
+  function getSelectedFiles(input: HTMLInputElement | null) {
+    return input?.files ? Array.from(input.files) : [];
+  }
+
+  function renderAttachmentList(list: HTMLUListElement | null, files: File[], labelTemplate = '{count} file(s) selected') {
+    if (!list) {
+      return;
+    }
+
+    list.replaceChildren();
+
+    if (files.length === 0) {
+      list.hidden = true;
+      return;
+    }
+
+    for (const file of files) {
+      const item = document.createElement('li');
+      item.textContent = file.name;
+      list.append(item);
+    }
+
+    const summary = document.createElement('li');
+    summary.className = 'attachment-list-summary';
+    summary.textContent = labelTemplate.replace('{count}', String(files.length));
+    list.prepend(summary);
+
+    list.hidden = false;
+  }
+
   contactForms.forEach((form) => {
     const status = form.querySelector<HTMLElement>('[data-contact-status]');
     const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const attachmentInput = form.querySelector<HTMLInputElement>('[data-contact-attachments]');
+    const attachmentList = form.querySelector<HTMLUListElement>('[data-attachment-list]');
+    const locale = form.querySelector<HTMLInputElement>('input[name="locale"]')?.value === 'en' ? 'en' : 'de';
+    const pendingMessage = form.dataset.messagePending || 'Sending your inquiry.';
+    const successMessage = form.dataset.messageSuccess || 'Thanks, your inquiry was sent. I will get back to you shortly.';
+    const fallbackErrorMessage = form.dataset.messageError || 'Your inquiry could not be sent.';
+    const attachmentCountLabel = form.dataset.attachmentCountLabel || '{count} file(s) selected';
+
+    attachmentInput?.addEventListener('change', () => {
+      renderAttachmentList(attachmentList, getSelectedFiles(attachmentInput), attachmentCountLabel);
+      if (status?.dataset.state === 'error') {
+        status.textContent = '';
+        delete status.dataset.state;
+      }
+    });
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -83,7 +201,16 @@ import SocialIcon from '@components/SocialIcon.astro';
         return;
       }
 
-      status.textContent = 'Die Anfrage wird gesendet.';
+      const selectedFiles = getSelectedFiles(attachmentInput);
+      const attachmentError = validateAttachmentFiles(selectedFiles, locale);
+
+      if (attachmentError) {
+        status.textContent = attachmentError;
+        status.dataset.state = 'error';
+        return;
+      }
+
+      status.textContent = pendingMessage;
       status.dataset.state = 'pending';
       submitButton.disabled = true;
       trackingWindow.trackSiteEvent?.('contact_form_submit', { form_name: 'contact' });
@@ -103,14 +230,15 @@ import SocialIcon from '@components/SocialIcon.astro';
         }
 
         form.reset();
-        status.textContent = result.message || 'Danke, die Anfrage wurde gesendet. Ich melde mich zeitnah zurück.';
+        renderAttachmentList(attachmentList, []);
+        status.textContent = result.message || successMessage;
         status.dataset.state = 'success';
         trackingWindow.trackSiteEvent?.('generate_lead', {
           form_name: 'contact',
           lead_source: 'website_contact_form',
         });
       } catch (error) {
-        status.textContent = error instanceof Error ? error.message : 'Die Anfrage konnte nicht gesendet werden.';
+        status.textContent = error instanceof Error ? error.message : fallbackErrorMessage;
         status.dataset.state = 'error';
         trackingWindow.trackSiteEvent?.('contact_form_error', { form_name: 'contact' });
       } finally {

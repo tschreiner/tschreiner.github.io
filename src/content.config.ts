@@ -12,6 +12,9 @@ const seoSchema = z
 const blog = defineCollection({
   loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
+    locale: z.enum(['de', 'en']),
+    translationKey: z.string(),
+    slug: z.string(),
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
@@ -26,9 +29,9 @@ const blog = defineCollection({
   }),
 });
 
-const projects = defineCollection({
-  loader: glob({ base: './src/content/projects', pattern: '**/*.{md,mdx}' }),
-  schema: z.object({
+const projectSchema = z.object({
+    locale: z.enum(['de', 'en']),
+    translationKey: z.string(),
     title: z.string(),
     slug: z.string(),
     description: z.string(),
@@ -56,12 +59,23 @@ const projects = defineCollection({
     cover: z.string().optional(),
     lessons: z.array(z.string()).default([]),
     seo: seoSchema,
-  }),
+  });
+
+const projects = defineCollection({
+  loader: glob({ base: './src/content/projects/de', pattern: '**/*.{md,mdx}' }),
+  schema: projectSchema,
+});
+
+const projectsEn = defineCollection({
+  loader: glob({ base: './src/content/projects/en', pattern: '**/*.{md,mdx}' }),
+  schema: projectSchema,
 });
 
 const experience = defineCollection({
   loader: glob({ base: './src/content/experience', pattern: '**/*.json' }),
   schema: z.object({
+    locale: z.enum(['de', 'en']),
+    translationKey: z.string(),
     role: z.string(),
     company: z.string(),
     location: z.string(),
@@ -102,6 +116,7 @@ const siteData = defineCollection({
 export const collections = {
   blog,
   projects,
+  projectsEn,
   experience,
   siteData,
 };

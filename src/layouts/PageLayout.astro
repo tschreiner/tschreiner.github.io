@@ -17,10 +17,12 @@ interface Props {
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
   publishedTime?: string;
   modifiedTime?: string;
+  locale?: 'de' | 'en';
 }
 
 const props = Astro.props as Props;
 const headerTags = props.tags?.filter(Boolean) ?? [];
+const tagLabel = props.locale === 'en' ? 'Topic focus' : 'Thematische Schwerpunkte';
 ---
 
 <BaseLayout
@@ -34,6 +36,7 @@ const headerTags = props.tags?.filter(Boolean) ?? [];
   jsonLd={props.jsonLd}
   publishedTime={props.publishedTime}
   modifiedTime={props.modifiedTime}
+  locale={props.locale}
 >
   <section class="page-hero section-compact section-soft border-b border-[color:var(--line)]">
     <Container>
@@ -43,7 +46,7 @@ const headerTags = props.tags?.filter(Boolean) ?? [];
       </h1>
       <p class="section-copy">{props.description}</p>
       {headerTags.length > 0 && (
-        <ul class="page-header-tags" aria-label="Thematische Schwerpunkte">
+        <ul class="page-header-tags" aria-label={tagLabel}>
           {headerTags.map((tag) => (
             <li class="page-header-tag">
               <span aria-hidden="true"></span>

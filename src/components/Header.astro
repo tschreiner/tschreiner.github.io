@@ -1,10 +1,30 @@
 ---
 import Container from '@components/Container.astro';
-import { navigation, site } from '@lib/site';
+import LocaleSwitch from '@components/LocaleSwitch.astro';
+import { getLocaleFromPath, withLocalePath } from '@lib/i18n';
+import { getNavigation, getSite } from '@lib/site';
 
 const currentPath = Astro.url.pathname;
+const locale = getLocaleFromPath(currentPath);
+const navigation = getNavigation(locale);
+const site = getSite(locale);
 const isActive = (href: string) => (href === '/' ? currentPath === '/' : currentPath.startsWith(href));
-const isContact = (href: string) => href === '/contact/';
+const isContact = (href: string) => href.endsWith('/contact/');
+const copy = locale === 'de'
+  ? {
+      skip: 'Zum Inhalt springen',
+      homeLabel: 'Startseite',
+      navLabel: 'Hauptnavigation',
+      mobileNavLabel: 'Mobile Navigation',
+      menu: 'Menü',
+    }
+  : {
+      skip: 'Skip to content',
+      homeLabel: 'Homepage',
+      navLabel: 'Main navigation',
+      mobileNavLabel: 'Mobile navigation',
+      menu: 'Menu',
+    };
 ---
 
 <header class="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--surface)]/90 shadow-sm backdrop-blur">
@@ -12,18 +32,19 @@ const isContact = (href: string) => href === '/contact/';
     class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:border focus:border-[color:var(--line)] focus:bg-[color:var(--surface)] focus:px-4 focus:py-2 focus:font-semibold focus:text-[color:var(--ink)] focus:shadow-lg"
     href="#content"
   >
-    Zum Inhalt springen
+    {copy.skip}
   </a>
 
   <Container class="flex min-h-18 items-center justify-between gap-4">
-    <a href="/" class="flex items-center gap-3 rounded-md font-semibold text-[color:var(--ink)]" aria-label="Startseite">
+    <a href={withLocalePath(locale, '/')} class="flex items-center gap-3 rounded-md font-semibold text-[color:var(--ink)]" aria-label={copy.homeLabel}>
       <span class="grid size-10 place-items-center rounded-md border border-[color:var(--graphite)] bg-[color:var(--graphite)] text-sm text-[color:var(--warm-text)] shadow-sm">
         TS
       </span>
       <span class="tracking-wide">{site.name}</span>
     </a>
 
-    <nav class="hidden items-center gap-1 md:flex" aria-label="Hauptnavigation">
+    <div class="hidden items-center gap-3 md:flex">
+      <nav class="items-center gap-1 md:flex" aria-label={copy.navLabel}>
       {
         navigation.map((item) => {
           const active = isActive(item.href);
@@ -40,7 +61,9 @@ const isContact = (href: string) => href === '/contact/';
           );
         })
       }
-    </nav>
+      </nav>
+      <LocaleSwitch locale={locale} />
+    </div>
 
     <details class="relative md:hidden">
       <summary class="mobile-menu-button cursor-pointer list-none">
@@ -49,12 +72,12 @@ const isContact = (href: string) => href === '/contact/';
           <span></span>
           <span></span>
         </span>
-        Menü
+        {copy.menu}
       </summary>
 
       <nav
         class="absolute right-0 z-20 mt-3 grid w-60 max-w-[calc(100vw-2.5rem)] gap-1 overflow-auto rounded-lg border border-[color:var(--line)] bg-[color:var(--surface)] p-2 shadow-xl"
-        aria-label="Mobile Navigation"
+        aria-label={copy.mobileNavLabel}
       >
         {
           navigation.map((item) => {
@@ -72,6 +95,9 @@ const isContact = (href: string) => href === '/contact/';
             );
           })
         }
+        <div class="mt-2 border-t border-[color:var(--line)] pt-2">
+          <LocaleSwitch locale={locale} mobile />
+        </div>
       </nav>
     </details>
   </Container>

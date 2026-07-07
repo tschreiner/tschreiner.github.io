@@ -1,0 +1,40 @@
+---
+locale: "en"
+translationKey: "virtual-network-lab"
+title: "Virtual Network Lab"
+slug: "virtual-network-lab"
+description: "Virtual network environment for relevant scenarios, tests and reproducible automation workflows."
+problem: "Many network decisions are difficult to prepare in a risk-aware way when behavior, dependencies and automation assumptions only become visible in production-like environments."
+context: "The lab closes the gap between documentation, operational experience and automation. It creates a controlled environment to test assumptions, explain workflows and prepare changes without exposing production environments or confidential details."
+role: "Tedd's contribution covered both building the lab and framing it conceptually: selecting the right scenarios, structuring virtual components, connecting documentation with tests, preparing automation workflows and keeping the boundary clear between real environments and abstracted learning or test environments."
+constraints:
+  - "The lab could not contain non-public network diagrams, device names, production device states or confidential operational details."
+  - "Virtual scenarios had to answer relevant questions without recreating a production environment in full."
+  - "Testability and documentability mattered more than maximum technical complexity."
+  - "The environment should remain usable for repeatable experiments and not depend on implicit individual knowledge."
+approach:
+  - "Scenarios were selected by practical value: which operational question, design assumption or automation idea should become testable?"
+  - "Virtual network building blocks were combined so behavior and dependencies remain understandable."
+  - "Documentation, test steps and automation ideas were considered together so the lab would become more than a technical playground."
+  - "Production likeness stayed intentionally abstracted: enough realism for useful insight, but no disclosure of sensitive details."
+solution: "A virtual lab based on EVE-NG and GNS3 was built to model relevant scenarios in abstract form and enable experiments with design, documentation, configuration and automation."
+technologies: ["EVE-NG", "GNS3", "Virtualization", "Ansible", "Network Design", "Documentation"]
+result: "Changes, documentation assumptions and automation ideas could be prepared much better. The lab made technical discussions more concrete, assumptions more testable and operational knowledge more explicit without exposing production details publicly."
+impact: "Technical assumptions could be tested in a more controlled way and documented workflows could be prepared more effectively."
+featured: true
+category: "Infrastructure Lab"
+status: "Case Study"
+confidentialNote: "The lab is described without non-public network diagrams, device names or production device states."
+links: []
+lessons:
+  - "A lab needs to answer the right operational and design questions, not perfectly replicate every physical component."
+  - "Documentation becomes stronger when it is tied to testable assumptions and reproducible steps."
+  - "Virtual scenarios help turn implicit operational knowledge into something visible and discussable."
+seo:
+  title: "Virtual Network Lab | Tedd Schreiner"
+  description: "Case study on a virtual network lab for tests, documentation and automation scenarios."
+---
+
+The lab is a place for controlled experiments: what happens when a workflow changes, how can a network structure be documented clearly, and which assumptions only become real once you test them?
+
+Its main value is repeatability. A strong lab makes technical discussions more concrete and lowers the threshold for validating new workflows.

@@ -1,7 +1,43 @@
 ---
 import Container from '@components/Container.astro';
 import { Picture } from 'astro:assets';
+import { getLocaleFromPath, withLocalePath } from '@lib/i18n';
 import heroImage from '../assets/images/tedd-schreiner-hero.jpg';
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const copy = locale === 'de'
+  ? {
+      eyebrow: 'DevOps · AWS Cloud · Automation · AI-assisted Software Engineering',
+      title: 'DevOps Engineer für AWS Cloud, Automatisierung und AI-assisted Software Engineering.',
+      intro:
+        'Ich entwickle und betreibe Cloud-Infrastruktur, CI/CD-Workflows und Automatisierungen, die Software-Deployments, ITSM-Prozesse und Netzwerkbetrieb verlässlicher machen.',
+      summary:
+        'Erfahrung mit AWS, GitHub/GitLab Workflows, Kubernetes, Linux, Netzwerkautomatisierung und AI-gestützten Engineering-Prozessen.',
+      cv: 'CV ansehen',
+      contact: 'Kontakt aufnehmen',
+      projects: 'Case Studies',
+      metrics: [
+        ['Profil', 'DevOps · Cloud · Platform'],
+        ['Stack', 'AWS · Kubernetes · CI/CD'],
+        ['Schwerpunkt', 'Automation & AI-assisted Software Engineering'],
+      ],
+    }
+  : {
+      eyebrow: 'DevOps · AWS Cloud · Automation · AI-assisted Software Engineering',
+      title: 'DevOps Engineer for AWS Cloud, Automation and AI-assisted Software Engineering.',
+      intro:
+        'I design and operate cloud infrastructure, CI/CD workflows and automation that make software deployments, ITSM processes and network operations more reliable.',
+      summary:
+        'Experience with AWS, GitHub/GitLab workflows, Kubernetes, Linux, network automation and AI-assisted engineering workflows.',
+      cv: 'View CV',
+      contact: 'Get in touch',
+      projects: 'Case Studies',
+      metrics: [
+        ['Profile', 'DevOps · Cloud · Platform'],
+        ['Stack', 'AWS · Kubernetes · CI/CD'],
+        ['Focus', 'Automation & AI-assisted Software Engineering'],
+      ],
+    };
 ---
 
 <section class="hero-section relative overflow-hidden">
@@ -22,38 +58,32 @@ import heroImage from '../assets/images/tedd-schreiner-hero.jpg';
   <Container class="relative z-10 grid min-h-[calc(100svh-4rem)] content-center py-10 sm:py-16 lg:min-h-[640px] lg:py-14">
     <div class="max-w-4xl">
       <p class="eyebrow max-w-xs text-[0.7rem] leading-5 tracking-[0.16em] text-[color:var(--gold)] sm:max-w-none sm:text-xs sm:tracking-[0.18em]">
-        DevOps · AWS Cloud · Automation · AI-assisted Software Engineering
+        {copy.eyebrow}
       </p>
 
       <h1 class="mt-4 max-w-4xl text-[2rem] font-semibold leading-[1.16] text-[color:var(--warm-text)] sm:text-5xl lg:text-5xl">
-        DevOps Engineer für AWS Cloud, Automatisierung und AI-assisted Software Engineering.
+        {copy.title}
       </h1>
 
       <p class="mt-5 max-w-2xl text-base leading-7 text-[color:var(--warm-text)] sm:text-xl sm:leading-8">
-        Ich entwickle und betreibe Cloud-Infrastruktur, CI/CD-Workflows und Automatisierungen, die Software-Deployments,
-        ITSM-Prozesse und Netzwerkbetrieb verlässlicher machen.
+        {copy.intro}
       </p>
 
       <p class="mt-4 max-w-2xl text-sm leading-7 text-[color:var(--warm-muted)] sm:text-lg sm:leading-8">
-        Erfahrung mit AWS, GitHub/GitLab Workflows, Kubernetes, Linux, Netzwerkautomatisierung und AI-gestützten
-        Engineering-Prozessen.
+        {copy.summary}
       </p>
 
       <div class="mt-6 flex flex-col gap-2.5 sm:mt-7 sm:flex-row sm:items-center sm:gap-3">
-        <a class="button-primary" href="/cv/">CV ansehen</a>
-        <a class="button-secondary" href="/contact/">Kontakt aufnehmen</a>
-        <a class="text-link self-center text-[color:var(--warm-text)] hover:bg-white/10 hover:text-white sm:self-auto" href="/projects/">
-          Case Studies
+        <a class="button-primary" href={withLocalePath(locale, '/cv/')}>{copy.cv}</a>
+        <a class="button-secondary" href={withLocalePath(locale, '/contact/')}>{copy.contact}</a>
+        <a class="text-link self-center text-[color:var(--warm-text)] hover:bg-white/10 hover:text-white sm:self-auto" href={withLocalePath(locale, '/projects/')}>
+          {copy.projects}
         </a>
       </div>
 
       <dl class="mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
         {
-          [
-            ['Profil', 'DevOps · Cloud · Platform'],
-            ['Stack', 'AWS · Kubernetes · CI/CD'],
-            ['Schwerpunkt', 'Automation & AI-assisted Software Engineering'],
-          ].map(([label, value]) => (
+          copy.metrics.map(([label, value]) => (
             <div class="hero-metric">
               <dt>{label}</dt>
               <dd>{value}</dd>

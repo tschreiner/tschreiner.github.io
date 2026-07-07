@@ -3,12 +3,15 @@ import Container from '@components/Container.astro';
 import TechTag from '@components/TechTag.astro';
 import PageLayout from '@layouts/PageLayout.astro';
 import { canonicalUrl as toCanonicalUrl, defaultSeoImage, defaultSeoImageAlt, imageUrl } from '@lib/seo';
-import { site } from '@lib/site';
+import { getSite } from '@lib/site';
 import { getCollection, render } from 'astro:content';
 
+const locale = 'en' as const;
+const site = getSite(locale);
+
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
-  return projects.filter((project) => project.data.locale === 'de').map((project) => ({
+  const projects = await getCollection('projectsEn');
+  return projects.filter((project) => project.data.locale === 'en').map((project) => ({
     params: { slug: project.data.slug },
     props: { project },
   }));
@@ -19,23 +22,23 @@ const { Content } = await render(project);
 const hasConstraints = project.data.constraints.length > 0;
 const hasApproach = project.data.approach.length > 0;
 const hasLessons = project.data.lessons.length > 0;
-const canonical = `/projects/${project.data.slug}/`;
+const canonical = `/en/projects/${project.data.slug}/`;
 const projectUrl = toCanonicalUrl(canonical);
 const projectImage = project.data.cover ?? defaultSeoImage;
 const projectImageAlt = project.data.cover
-  ? `Open-Graph-Bild zur Case Study ${project.data.title}`
+  ? `Open Graph image for case study ${project.data.title}`
   : defaultSeoImageAlt;
 const projectDescription = project.data.seo?.description ?? project.data.description;
 const projectKeywords = Array.from(new Set([project.data.category, ...project.data.technologies].filter(Boolean)));
 const projectImageUrl = imageUrl(projectImage);
 const projectSections = [
   { id: 'problem', label: 'Problem' },
-  ...(project.data.context ? [{ id: 'kontext', label: 'Kontext' }] : []),
-  ...(project.data.role ? [{ id: 'rolle', label: 'Rolle' }] : []),
-  ...(hasConstraints ? [{ id: 'rahmenbedingungen', label: 'Rahmen' }] : []),
-  ...(hasApproach ? [{ id: 'vorgehen', label: 'Vorgehen' }] : []),
-  { id: 'loesung', label: 'Lösung' },
-  { id: 'ergebnis', label: 'Ergebnis' },
+  ...(project.data.context ? [{ id: 'context', label: 'Context' }] : []),
+  ...(project.data.role ? [{ id: 'role', label: 'Role' }] : []),
+  ...(hasConstraints ? [{ id: 'constraints', label: 'Constraints' }] : []),
+  ...(hasApproach ? [{ id: 'approach', label: 'Approach' }] : []),
+  { id: 'solution', label: 'Solution' },
+  { id: 'result', label: 'Result' },
   ...(hasLessons ? [{ id: 'lessons-learned', label: 'Lessons' }] : []),
 ];
 const projectJsonLd = {
@@ -55,7 +58,7 @@ const projectJsonLd = {
 ---
 
 <PageLayout
-  eyebrow="Projekt"
+  eyebrow="Project"
   title={project.data.title}
   description={project.data.description}
   tags={[project.data.category, project.data.status, ...project.data.technologies.slice(0, 3)]}
@@ -65,6 +68,7 @@ const projectJsonLd = {
   image={projectImage}
   imageAlt={projectImageAlt}
   jsonLd={projectJsonLd}
+  locale={locale}
 >
   <section class="section section-after-header">
     <Container class="grid gap-8 lg:grid-cols-[0.66fr_1.34fr]">
@@ -78,19 +82,19 @@ const projectJsonLd = {
           </div>
 
           <div>
-            <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--muted-strong)]">Kategorie</h2>
+            <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--muted-strong)]">Category</h2>
             <p class="mt-2 font-medium text-[color:var(--ink)]">{project.data.category}</p>
           </div>
 
           <div>
-            <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--muted-strong)]">Technologien</h2>
+            <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--muted-strong)]">Technologies</h2>
             <div class="mt-3 flex flex-wrap gap-2">
               {project.data.technologies.map((tech) => <TechTag label={tech} />)}
             </div>
           </div>
         </div>
 
-        <nav class="project-section-nav mt-6" aria-label="Abschnitte der Case Study">
+        <nav class="project-section-nav mt-6" aria-label="Case study sections">
           {projectSections.map((section) => (
             <a href={`#${section.id}`} data-section-link={section.id}>
               <span aria-hidden="true"></span>
@@ -99,7 +103,7 @@ const projectJsonLd = {
           ))}
         </nav>
 
-        <a class="button-primary mt-6 w-full" href="/contact/">Über ähnliche Projekte sprechen</a>
+        <a class="button-primary mt-6 w-full" href="/en/contact/">Discuss similar projects</a>
       </aside>
 
       <article class="surface-card prose-site sm:p-8">
@@ -107,19 +111,19 @@ const projectJsonLd = {
         <p>{project.data.problem}</p>
         {project.data.context && (
           <>
-            <h2 id="kontext" data-project-section>Kontext</h2>
+            <h2 id="context" data-project-section>Context</h2>
             <p>{project.data.context}</p>
           </>
         )}
         {project.data.role && (
           <>
-            <h2 id="rolle" data-project-section>Rolle / Beitrag</h2>
+            <h2 id="role" data-project-section>Role / Contribution</h2>
             <p>{project.data.role}</p>
           </>
         )}
         {hasConstraints && (
           <>
-            <h2 id="rahmenbedingungen" data-project-section>Rahmenbedingungen</h2>
+            <h2 id="constraints" data-project-section>Constraints</h2>
             <ul>
               {project.data.constraints.map((constraint) => <li>{constraint}</li>)}
             </ul>
@@ -127,20 +131,20 @@ const projectJsonLd = {
         )}
         {hasApproach && (
           <>
-            <h2 id="vorgehen" data-project-section>Vorgehen</h2>
+            <h2 id="approach" data-project-section>Approach</h2>
             <ul>
               {project.data.approach.map((step) => <li>{step}</li>)}
             </ul>
           </>
         )}
-        <h2 id="loesung" data-project-section>Lösung</h2>
+        <h2 id="solution" data-project-section>Solution</h2>
         <p>{project.data.solution}</p>
         {project.data.impact && (
           <p class="not-prose my-6 border-l-2 border-[color:var(--accent)] bg-[color:var(--surface)] px-5 py-4 text-base leading-7 text-[color:var(--muted-strong)]">
-            <span class="font-semibold text-[color:var(--ink)]">Wirkung:</span> {project.data.impact}
+            <span class="font-semibold text-[color:var(--ink)]">Impact:</span> {project.data.impact}
           </p>
         )}
-        <h2 id="ergebnis" data-project-section>Ergebnis</h2>
+        <h2 id="result" data-project-section>Result</h2>
         <p>{project.data.result}</p>
         {hasLessons && (
           <>

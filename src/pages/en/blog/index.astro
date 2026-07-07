@@ -1,0 +1,46 @@
+---
+import BlogCard from '@components/BlogCard.astro';
+import Container from '@components/Container.astro';
+import TechTag from '@components/TechTag.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+import { byPubDateDesc, visiblePosts } from '@lib/content';
+import { getCollection } from 'astro:content';
+
+const locale = 'en' as const;
+const posts = (await getCollection('blog')).filter((post) => post.data.locale === locale && visiblePosts(post)).sort(byPubDateDesc);
+const categories = ['Tech', 'DevOps', 'Automation', 'AI Tools', 'Web Projects', 'Personal Notes'];
+---
+
+<PageLayout
+  eyebrow="Blog"
+  title="Notes on DevOps, network data and technical projects."
+  description="Practical thoughts on automation, infrastructure, web projects, AI tools and technical decisions."
+  tags={['DevOps', 'Automation', 'AI Tools', 'Web Projects']}
+  locale={locale}
+>
+  <section class="section section-after-header">
+    <Container>
+      {posts.length > 0 ? (
+        <>
+          <div class="mb-8" aria-label="Topics">
+            <p class="meta-label mb-3">Topics</p>
+            <div class="flex flex-wrap gap-2">
+              {categories.map((category) => <TechTag label={category} />)}
+            </div>
+          </div>
+          <div class="grid gap-5 md:grid-cols-3">
+            {posts.map((post) => <BlogCard post={post} />)}
+          </div>
+        </>
+      ) : (
+        <div class="surface-card max-w-2xl">
+          <h2 class="text-2xl font-semibold text-[color:var(--ink)]">No published articles yet.</h2>
+          <p class="mt-3 leading-7 text-[color:var(--muted)]">
+            Once the first pieces go live, this section will collect compact, practical notes on DevOps, network
+            automation, web projects and technical decisions.
+          </p>
+        </div>
+      )}
+    </Container>
+  </section>
+</PageLayout>

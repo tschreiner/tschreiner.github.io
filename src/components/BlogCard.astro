@@ -1,5 +1,7 @@
 ---
 import TechTag from '@components/TechTag.astro';
+import type { Locale } from '@lib/i18n';
+import { withLocalePath } from '@lib/i18n';
 import { readingLabel } from '@lib/content';
 import type { CollectionEntry } from 'astro:content';
 
@@ -8,30 +10,42 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const postHref = `/blog/${post.id}/`;
+const locale = post.data.locale as Locale;
+const postHref = withLocalePath(locale, `/blog/${post.data.slug}/`);
+const copy = locale === 'de'
+  ? {
+      aria: `Artikel ${post.data.title} lesen`,
+      draft: 'Entwurf',
+      cta: 'Artikel lesen',
+    }
+  : {
+      aria: `Read article ${post.data.title}`,
+      draft: 'Draft',
+      cta: 'Read article',
+    };
 ---
 
 <article class="h-full">
   <a
     class="blog-card surface-card interactive-card flex h-full flex-col no-underline"
     href={postHref}
-    aria-label={`Artikel ${post.data.title} lesen`}
+    aria-label={copy.aria}
   >
     <div class="flex flex-1 flex-col p-6 sm:p-7">
       <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
         <span class="meta-label text-[color:var(--sky-strong)]">{post.data.category}</span>
-        <time class="meta-note" datetime={post.data.pubDate.toISOString()}>{readingLabel(post)}</time>
+        <time class="meta-note" datetime={post.data.pubDate.toISOString()}>{readingLabel(post, locale)}</time>
       </div>
       <h3 class="mt-6 text-2xl font-semibold leading-tight text-[color:var(--ink)]">
         {post.data.title}
       </h3>
       <p class="mt-4 flex-1 leading-7 text-[color:var(--muted)]">{post.data.description}</p>
       <div class="mt-6 flex flex-wrap gap-2">
-        {post.data.draft && <TechTag label="Entwurf" tone="warm" />}
+        {post.data.draft && <TechTag label={copy.draft} tone="warm" />}
         {post.data.tags.slice(0, 3).map((tag) => <TechTag label={tag} />)}
       </div>
       <span class="card-cta mt-7 self-start">
-        Artikel lesen
+        {copy.cta}
         <span class="card-cta-icon" aria-hidden="true">
           <svg viewBox="0 0 20 20" focusable="false">
             <path d="M4 10h10" />

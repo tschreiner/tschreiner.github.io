@@ -251,7 +251,7 @@ a {
   }
 
   .interactive-card {
-    @apply transition duration-200 hover:-translate-y-0.5;
+    @apply transition duration-200;
   }
 
   .interactive-card:focus-within {
@@ -283,9 +283,7 @@ a {
     height: 4px;
     background: linear-gradient(90deg, var(--accent-dark), var(--accent), var(--sky));
     background-size: 140% 100%;
-    transition:
-      height 180ms ease,
-      background-position 220ms ease;
+    transition: background-position 220ms ease;
   }
 
   .blog-card::before {
@@ -298,13 +296,11 @@ a {
   .interactive-card:hover.project-card::before,
   .interactive-card:focus-visible.project-card::before,
   .interactive-card:focus-within.project-card::before {
-    height: 6px;
     background-position: 100% 0;
   }
 
   .project-card-tags > * {
     transition:
-      transform 180ms ease,
       border-color 180ms ease,
       background-color 180ms ease;
   }
@@ -312,7 +308,6 @@ a {
   .interactive-card:hover .project-card-tags > *,
   .interactive-card:focus-visible .project-card-tags > *,
   .interactive-card:focus-within .project-card-tags > * {
-    transform: translateY(-2px);
     border-color: rgba(184, 112, 47, 0.34);
     background: rgba(255, 241, 223, 0.86);
   }
@@ -489,11 +484,34 @@ a {
   }
 
   .form-field input,
-  .form-field textarea {
+  .form-field textarea,
+  .form-field input[type='file'] {
     @apply w-full rounded-md border px-3 py-3 text-base font-normal shadow-sm transition;
     border-color: var(--line);
     background: rgba(255, 253, 248, 0.9);
     color: var(--ink);
+  }
+
+  .form-field input[type='file'] {
+    @apply cursor-pointer py-2.5 file:mr-3 file:cursor-pointer file:rounded-md file:border-0 file:px-3 file:py-2 file:text-sm file:font-semibold;
+    file:bg-[color:var(--surface)];
+    file:text-[color:var(--accent-dark)];
+  }
+
+  .form-hint {
+    @apply text-sm font-normal leading-6;
+    color: var(--muted);
+  }
+
+  .attachment-list {
+    @apply grid gap-1 rounded-md border px-3 py-2 text-sm font-normal;
+    border-color: var(--line);
+    background: rgba(255, 253, 248, 0.72);
+    color: var(--muted-strong);
+  }
+
+  .attachment-list[hidden] {
+    display: none;
   }
 
   .form-field textarea {
@@ -501,7 +519,8 @@ a {
   }
 
   .form-field input:focus,
-  .form-field textarea:focus {
+  .form-field textarea:focus,
+  .form-field input[type='file']:focus {
     border-color: rgba(116, 66, 31, 0.64);
     box-shadow: 0 0 0 4px var(--focus-ring-soft);
     outline: none;
@@ -679,7 +698,6 @@ a {
   .interactive-card:hover .card-cta-icon {
     background: var(--accent-dark);
     color: var(--warm-text);
-    transform: translateX(2px);
   }
 
   .meta-chip {
@@ -887,10 +905,6 @@ a {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .interactive-card:hover {
-    transform: none !important;
   }
 
   .reveal-ready [data-reveal] {

@@ -1,0 +1,40 @@
+---
+locale: "en"
+translationKey: "network-source-of-truth-idoit"
+title: "Network Source of Truth with i-doit"
+slug: "network-source-of-truth-idoit"
+description: "Structured network data as a reliable foundation for inventory, operations, synchronization and automation."
+problem: "Network data was spread across different systems, exports and maintenance contexts. Operations, documentation and automation lacked a central, traceable view of devices, relationships, responsibilities and metadata."
+context: "The project sat between classic network inventory work, operational documentation and the goal of making data usable for later automation. What mattered was not only whether objects were captured, but whether they could be maintained in a form that supports technical decisions and repeatable workflows."
+role: "Tedd's contribution focused on structuring the network data model: deriving useful object and relationship models, assessing data quality, accounting for maintenance ownership, classifying REST interfaces and preparing the bridge between documented reality and later automation logic."
+constraints:
+  - "Confidential operational information had to remain abstracted; the case study does not mention non-public names, production network structures or concrete internal systems."
+  - "The data model had to stay maintainable in operations and could not work only for a one-time migration."
+  - "Automation was only allowed to build on information whose meaning and maintenance path were sufficiently clear."
+  - "Inconsistent data quality had to be made visible without turning it into premature automation assumptions."
+approach:
+  - "Existing data sources and maintenance contexts were sorted conceptually: what describes a device, what describes a relationship, what is an operational note and what is an automation-relevant attribute?"
+  - "Objects, fields and relationships were modeled to remain readable for people and usable for interfaces."
+  - "Maintenance and validation rules were considered from the start so the Source of Truth would not become a static archive of historical data."
+  - "Automation was treated deliberately as a downstream step: first understand the data, then build workflows on top of it."
+solution: "i-doit was positioned as a Network Source of Truth with clear data models, maintenance processes and interface logic. The focus was on modeling, maintainability, data ownership and preparing abstracted automation workflows."
+technologies: ["i-doit", "NSoT", "REST APIs", "Ansible", "Data Modeling", "Documentation"]
+result: "The result was a more reliable data foundation for documentation, operations and later automation steps. Network data became easier to reason about, ownership clearer and technical assumptions easier to validate, without exposing confidential operational details."
+impact: "Network data was modeled more clearly and became a more reliable foundation for operations, documentation and automation."
+featured: true
+category: "Network Automation"
+status: "Case Study"
+confidentialNote: "Sensitive details, non-public names, concrete network structures and protected operational information were intentionally omitted."
+links: []
+lessons:
+  - "A Source of Truth is first a reliable data model and only afterwards a tool."
+  - "Automation amplifies existing data quality; it does not replace ownership for fields, relationships and maintenance paths."
+  - "Maintenance workflows must fit operations, otherwise even a conceptually strong model becomes outdated."
+seo:
+  title: "Network Source of Truth with i-doit | Tedd Schreiner"
+  description: "Case study on i-doit as a Network Source of Truth for network data, operations and automation."
+---
+
+This work was not about simply importing existing lists. The key question was which information can be maintained reliably, where ownership sits and how that later turns into useful automation.
+
+That made structure the most important part: objects, relationships, fields, responsibilities and interfaces had to be designed so they help in real operations instead of only looking clean on paper.

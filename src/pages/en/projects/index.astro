@@ -1,0 +1,26 @@
+---
+import Container from '@components/Container.astro';
+import ProjectCard from '@components/ProjectCard.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+import { byProjectTitleForLocale } from '@lib/content';
+import { getCollection } from 'astro:content';
+
+const locale = 'en' as const;
+const projects = (await getCollection('projectsEn'))
+  .filter((project) => project.data.locale === locale)
+  .sort(byProjectTitleForLocale(locale));
+---
+
+<PageLayout
+  eyebrow="Projects"
+  title="Case studies on infrastructure, automation, network data and technical labs"
+  description="Selected project examples from infrastructure, automation and network operations with a focus on context, contribution, approach and traceable outcomes."
+  tags={['Case Studies', 'Infrastructure', 'Automation', 'Labs']}
+  locale={locale}
+>
+  <section class="section section-after-header">
+    <Container class="grid gap-5 lg:grid-cols-3">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </Container>
+  </section>
+</PageLayout>

@@ -1,6 +1,7 @@
 ---
 import EmployerLogo from '@components/EmployerLogo.astro';
 import TechTag from '@components/TechTag.astro';
+import type { Locale } from '@lib/i18n';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const { item } = Astro.props;
+const locale = item.data.locale as Locale;
 const formatMonthYear = (value?: string) => {
   if (!value) return '';
 
@@ -20,7 +22,7 @@ const formatMonthYear = (value?: string) => {
 };
 
 const start = formatMonthYear(item.data.startDate);
-const end = item.data.current ? 'heute' : formatMonthYear(item.data.endDate);
+const end = item.data.current ? (locale === 'de' ? 'heute' : 'present') : formatMonthYear(item.data.endDate);
 const dateLabel = end ? `${start} – ${end}` : start;
 ---
 

@@ -4,20 +4,25 @@ import Container from '@components/Container.astro';
 import FitCardGrid from '@components/FitCardGrid.astro';
 import SocialIcon from '@components/SocialIcon.astro';
 import PageLayout from '@layouts/PageLayout.astro';
-import { site, suitableInquiryAreas } from '@lib/site';
+import { getSite, getSuitableInquiryAreas } from '@lib/site';
+
+const locale = 'en' as const;
+const site = getSite(locale);
+const suitableInquiryAreas = getSuitableInquiryAreas(locale);
 ---
 
 <PageLayout
-  eyebrow="Kontakt"
-  title="Kontakt aufnehmen"
-  description="Kontakt für passende DevOps-, AWS-Cloud-, Automation- und AI-assisted Software Engineering-Anfragen."
-  tags={['Rollen', 'Projekte', 'Cloud', 'Automation']}
+  eyebrow="Contact"
+  title="Get in touch"
+  description="Contact for relevant DevOps, AWS Cloud, automation and AI-assisted software engineering opportunities."
+  tags={['Roles', 'Projects', 'Cloud', 'Automation']}
+  locale={locale}
 >
   <section class="section section-after-header">
     <Container class="grid gap-6 md:grid-cols-[1.12fr_0.88fr]">
       <ContactPanel />
       <div class="surface-card">
-        <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Profile</h2>
+        <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Profiles</h2>
         <div class="mt-5 grid gap-3">
           <a class="button-secondary justify-start gap-2" href={site.social.linkedin} target="_blank" rel="noopener noreferrer">
             <SocialIcon name="linkedin" />
@@ -33,22 +38,19 @@ import { site, suitableInquiryAreas } from '@lib/site';
           </a>
         </div>
       </div>
-      <div class="md:col-span-2">
-        <p class="meta-label">Rollen & Projekte</p>
-        <h2 class="mt-2 text-2xl font-semibold text-[color:var(--ink)]">Passende Anfragen</h2>
-        <p class="mt-3 max-w-3xl leading-7 text-[color:var(--muted)]">
-          Passend sind Rollen und Projekte, in denen technische Abläufe zuverlässiger, nachvollziehbarer und stärker
-          automatisiert werden sollen — von Cloud-Infrastruktur über Deployment-Workflows bis zu ITSM- und
-          Netzwerkprozessen.
+      <div class="surface-card md:col-span-2 sm:p-8">
+        <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Relevant inquiries</h2>
+        <p class="mt-3 leading-7 text-[color:var(--muted)]">
+          Good fits are roles and projects where technical workflows should become more reliable, more traceable and
+          more automated, from cloud infrastructure and deployment workflows to ITSM and network processes.
         </p>
         <FitCardGrid items={suitableInquiryAreas} class="mt-6" />
       </div>
       <div class="surface-card md:col-span-2 sm:p-8">
-        <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Bitte mitsenden</h2>
+        <h2 class="text-2xl font-semibold text-[color:var(--ink)]">Helpful context to include</h2>
         <p class="mt-3 leading-7 text-[color:var(--muted)]">
-          Für eine schnelle Einschätzung sind Rollenbeschreibung, Tech Stack, Vertragsart, Remote-/Hybrid-Regelung,
-          Standort, Startzeitpunkt und Gehalts- oder Budgetrahmen hilfreich. Rollenbeschreibung, Lebenslauf oder
-          ähnliche Unterlagen können Sie direkt im Kontaktformular als Datei anhängen.
+          For a quick assessment it helps to include the role description, tech stack, contract type, remote or hybrid
+          setup, location, start date and salary or budget range.
         </p>
       </div>
     </Container>
