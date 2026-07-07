@@ -104,7 +104,7 @@ import PageLayout from '@layouts/PageLayout.astro';
             </div>
           </div>
         </div>
-        <div class="lg:h-[28rem]">
+        <div class="relative min-h-80 lg:min-h-0">
           <img
             src="/images/drk-engagement.jpg"
             alt="Tedd Schreiner in DRK-Einsatzkleidung vor einem Einsatzfahrzeug"
@@ -112,7 +112,7 @@ import PageLayout from '@layouts/PageLayout.astro';
             height="1402"
             loading="lazy"
             decoding="async"
-            class="aspect-[16/10] w-full object-cover object-[50%_38%] lg:h-full lg:aspect-auto"
+            class="absolute inset-0 h-full w-full object-cover object-[50%_38%]"
           />
         </div>
       </article>
