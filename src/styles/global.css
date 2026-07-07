@@ -547,19 +547,9 @@ a {
     color: #2f6b45;
   }
 
-  .form-actions [data-copy-email][data-state="success"] {
-    border-color: rgba(47, 107, 69, 0.36);
-    color: #2f6b45;
-  }
-
   .form-status[data-state="error"] {
     border-color: rgba(156, 63, 47, 0.28);
     background: rgba(156, 63, 47, 0.08);
-    color: #9c3f2f;
-  }
-
-  .form-actions [data-copy-email][data-state="error"] {
-    border-color: rgba(156, 63, 47, 0.36);
     color: #9c3f2f;
   }
 

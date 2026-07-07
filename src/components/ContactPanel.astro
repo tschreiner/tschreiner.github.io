@@ -1,6 +1,5 @@
 ---
 import SocialIcon from '@components/SocialIcon.astro';
-import { site } from '@lib/site';
 ---
 
 <section class="surface-card">
@@ -61,18 +60,6 @@ import { site } from '@lib/site';
         <SocialIcon name="mail" />
         Anfrage senden
       </button>
-      <button class="button-secondary gap-2" type="button" data-copy-email={site.email} aria-label="E-Mail-Adresse kopieren">
-        <SocialIcon name="mail" />
-        <span data-copy-label>E-Mail kopieren</span>
-      </button>
-      <a class="button-secondary gap-2" href={`mailto:${site.email}`}>
-        <SocialIcon name="mail" />
-        E-Mail direkt
-      </a>
-      <a class="button-secondary gap-2" href={site.social.linkedin} target="_blank" rel="noopener noreferrer">
-        <SocialIcon name="linkedin" />
-        LinkedIn
-      </a>
     </div>
   </form>
 </section>
@@ -87,43 +74,6 @@ import { site } from '@lib/site';
   contactForms.forEach((form) => {
     const status = form.querySelector<HTMLElement>('[data-contact-status]');
     const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
-    const copyButton = form.querySelector<HTMLButtonElement>('[data-copy-email]');
-    const copyLabel = copyButton?.querySelector<HTMLElement>('[data-copy-label]');
-    let copyResetTimer: number | undefined;
-    const copyText = async (text: string) => {
-      if (!navigator.clipboard?.writeText) {
-        throw new Error('clipboard unavailable');
-      }
-
-      await navigator.clipboard.writeText(text);
-    };
-
-    copyButton?.addEventListener('click', async () => {
-      const email = copyButton.dataset.copyEmail;
-      if (!email || !copyLabel) return;
-
-      const defaultLabel = copyLabel.dataset.defaultLabel || copyLabel.textContent || 'E-Mail kopieren';
-      copyLabel.dataset.defaultLabel = defaultLabel;
-      window.clearTimeout(copyResetTimer);
-
-      try {
-        await copyText(email);
-        copyLabel.textContent = 'Kopiert';
-        copyButton.dataset.state = 'success';
-        copyButton.setAttribute('aria-label', 'E-Mail-Adresse kopiert');
-        trackingWindow.trackSiteEvent?.('email_copy', { location: 'contact_form' });
-      } catch {
-        copyLabel.textContent = 'Nicht kopiert';
-        copyButton.dataset.state = 'error';
-        copyButton.setAttribute('aria-label', 'E-Mail-Adresse konnte nicht kopiert werden');
-      }
-
-      copyResetTimer = window.setTimeout(() => {
-        copyLabel.textContent = defaultLabel;
-        copyButton.removeAttribute('data-state');
-        copyButton.setAttribute('aria-label', 'E-Mail-Adresse kopieren');
-      }, 1800);
-    });
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
