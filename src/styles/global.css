@@ -769,11 +769,14 @@ a {
     --timeline-marker-top: 2rem;
     --timeline-gap: 1.5rem;
     @apply relative grid gap-6;
+    min-width: 0;
+    width: 100%;
     padding-left: var(--timeline-content-offset);
   }
 
   .timeline-list > li {
     @apply relative;
+    min-width: 0;
     list-style: none;
   }
 
@@ -807,6 +810,9 @@ a {
   }
 
   .timeline-card {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
     transition:
       border-color 180ms ease,
       box-shadow 180ms ease,
